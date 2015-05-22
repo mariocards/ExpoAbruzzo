@@ -11,7 +11,9 @@ define(function(require) {
   
   var News = require("models/News");
   var NewsView = require("views/pages/NewsView");
-  
+  Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
+Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
+
   var AppRouter = Backbone.Router.extend({
 
     constructorName: "AppRouter",
@@ -48,7 +50,9 @@ define(function(require) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav3");
       // create a model with an arbitrary attribute for testing the template engine
-      var news = new News();
+      var news = new News({id:16});
+      news.fetch();
+      console.log(news);
       // create the view
       var page = new NewsView({
         model: news
