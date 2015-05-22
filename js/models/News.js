@@ -4,9 +4,6 @@ define(function(require) {
 
 	var News = Backbone.Model.extend({
 		constructorName: "News",
-		initialize: function() {
-        //this.on('all', function(e) { console.log(this.get('title') + " event: " + e); });
-		},
 		defaults: {
 			title: 'undefined',
 			body: 'undefined',

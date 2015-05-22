@@ -13,7 +13,7 @@ define(function(require) {
     events: {
       "touchend #nav1": "myView",
       "touchend #nav2": "map",
-	  "touchend #nav3": "newsView"
+	 "touchend #nav3": "newsView"
     },
 
     initialize: function(options) {

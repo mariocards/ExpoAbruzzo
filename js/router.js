@@ -44,14 +44,14 @@ define(function(require) {
       // show the view
       this.changePage(page);
     },
-	newsView: function() {
+    newsView: function() {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav3");
       // create a model with an arbitrary attribute for testing the template engine
       var news = new News();
       // create the view
       var page = new NewsView({
-        model: model
+        model: news
       });
       // show the view
       this.changePage(page);
