@@ -17,7 +17,7 @@ define(function(require) {
 			var base = this.urlRoot || (this.collection && this.collection.url) || "/";
 			if (this.isNew()) return base;
 	 
-			return base + "?id=" + encodeURIComponent(this.id);
+			return base + "&id=" + encodeURIComponent(this.id);
 		}
 		
 	});
