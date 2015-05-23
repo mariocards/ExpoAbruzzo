@@ -11,6 +11,9 @@ define(function(require) {
   
   var News = require("models/News");
   var NewsView = require("views/pages/NewsView");
+
+   var Event = require("models/Event");
+  var EventView = require("views/pages/EventView");
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
 Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
 
@@ -23,7 +26,8 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       "": "showStructure",
       "myview": "myView",
       "map": "map",
-	  "newsview": "newsView"
+	  "newsview": "newsView",
+    "eventview": "eventView"
     },
 
     firstView: "myview",
@@ -55,7 +59,30 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       console.log(news);
       // create the view
       var page = new NewsView({
-        model: news
+        model: news.toJ
+      });
+      // show the view
+      this.changePage(page);
+    },
+     eventView: function() {
+      // highlight the nav1 tab bar element as the current one
+      this.structureView.setActiveTabBarElement("nav4");
+      // create a model with an arbitrary attribute for testing the template engine
+      var event = new Event({id:12});
+      event.fetch({ 
+     
+    success: function() {
+          console.log("JSON file load was successful", event);
+      },
+    error: function(){
+       console.log('There was some error in loading and processing the JSON file');
+    }
+  });
+      
+      console.log(event);
+      // create the view
+      var page = new EventView({
+        model: event
       });
       // show the view
       this.changePage(page);

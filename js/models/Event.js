@@ -8,23 +8,26 @@ define(function(require) {
         //this.on('all', function(e) { console.log(this.get('title') + " event: " + e); });
 		},
 		defaults: {
+			id: 'undefined',
+			username: 'undefined',
+			creation: 'undefined',
+			lastModified: 'undefined',
 			title: 'undefined',
-			description: 'undefined',
 			date: 'undefined',
-			subtitle: 'undefined',
-			photo: 'undefined',
-			ora: 'undefined',
-			inizio: 'undefined',
-			fine: 'undefined',
-			location: 'undefined',
-			place: 'undefined',
-			lat: 'undefined',
-			lon: 'undefined',
-			address: 'undefined'
+			category: 'undefined',
+			body: 'undefined',
+			atcive: 'undefined'
+			
 		},
-		url: "rest/event.php?rquest=GET"
-		
+		urlRoot: "http://www.disim.univaq.it/main/rest/merged_news.php?rquest=get",
+		url: function() {
+			var base = this.urlRoot || (this.collection && this.collection.url) || "/";
+			if (this.isNew()) return base;
+	 
+			return base + "&id=" + encodeURIComponent(this.id);
+		}
 	});
 
+	
 	return Event;
 });
