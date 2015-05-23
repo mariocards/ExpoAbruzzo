@@ -50,7 +50,7 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav3");
       // create a model with an arbitrary attribute for testing the template engine
-      var news = new News({id:16});
+      var news = new News({id:"16"});
       news.fetch();
       console.log(news);
       // create the view

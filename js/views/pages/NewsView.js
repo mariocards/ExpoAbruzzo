@@ -32,6 +32,12 @@ define(function(require) {
     },
 
     render: function() {
+      console.log(this.model.attributes);
+      console.log($(this.el));
+      console.log(this.model.toJSON());
+      console.log(this.template);
+      
+      
       $(this.el).html(this.template(this.model.toJSON()));
       return this;
     },
