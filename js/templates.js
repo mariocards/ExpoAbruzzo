@@ -12,5 +12,6 @@ define({
     structure: "templates/structure.html",
     myview: "templates/myview.html",
     newsview: "templates/newsview.html",
-    eventview: "templates/eventview.html"
+    eventview: "templates/event/eventview.html",
+    eventlistview: "templates/event/eventlistview.html"
 });

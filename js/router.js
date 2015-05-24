@@ -26,8 +26,9 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       "": "showStructure",
       "myview": "myView",
       "map": "map",
-	  "newsview": "newsView",
-    "eventview": "eventView"
+      "newsview": "newsView",
+      "eventlistview": "eventListView",
+      "eventview": "eventView"
     },
 
     firstView: "myview",
@@ -59,7 +60,19 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       console.log(news);
       // create the view
       var page = new NewsView({
-        model: news.toJ
+        model: news
+      });
+      // show the view
+      this.changePage(page);
+    },
+     eventListView: function() {
+      // highlight the nav1 tab bar element as the current one
+      this.structureView.setActiveTabBarElement("nav4");
+      // create a model with an arbitrary attribute for testing the template engine
+      var model = new Event({id:16});
+      model.fetch();
+      var page = new EventView({
+        model: model
       });
       // show the view
       this.changePage(page);
@@ -68,21 +81,10 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
-      var event = new Event({id:12});
-      event.fetch({ 
-     
-    success: function() {
-          console.log("JSON file load was successful", event);
-      },
-    error: function(){
-       console.log('There was some error in loading and processing the JSON file');
-    }
-  });
-      
-      console.log(event);
-      // create the view
+      var model = new Event({id:16});
+      model.fetch();
       var page = new EventView({
-        model: event
+        model: model
       });
       // show the view
       this.changePage(page);
@@ -105,7 +107,7 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       }
       // go to first view
       this.navigate(this.firstView, {trigger: true});
-    },
+    }
 
   });
 
