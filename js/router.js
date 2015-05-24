@@ -9,18 +9,18 @@ define(function(require) {
   var MyView = require("views/pages/MyView");
   var MapView = require("views/pages/MapView");
   
+  //News
   var News = require("models/News");
-  var NewsView = require("views/pages/News/NewsView");
-  
   var NewsC = require("collections/NewsC");
+  var NewsView = require("views/pages/News/NewsView");
   var NewsListView = require("views/pages/News/NewsListView");
 
-
-    //event
+  //event
   var Event = require("models/Event");
   var Events = require("collections/Events");
   var EventView = require("views/pages/Event/EventView");
   var EventListView = require("views/pages/Event/EventListView");
+  
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
   Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
 
@@ -61,11 +61,11 @@ define(function(require) {
     },
     newsView: function() {
       // highlight the nav1 tab bar element as the current one
-      this.structureView.setActiveTabBarElement("nav5");
+      this.structureView.setActiveTabBarElement("nav3");
       // create a model with an arbitrary attribute for testing the template engine
       var news = new News({id:"16"});
       news.fetch();
-      console.log(news);
+//      console.log(news);
       // create the view
       var page = new NewsView({
         model: news
@@ -77,10 +77,14 @@ define(function(require) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav3");
       // create a model with an arbitrary attribute for testing the template engine
-      var newsC = new NewsC();
-      newsC.fetch();
+      var model = new NewsC({id:16});
+      model.fetch({
+          success: function(){
+              console.log(model.toJSON());
+          }});
+      
       var page = new NewsListView({
-        model: newsC
+        model: model
       });
       // show the view
       this.changePage(page);

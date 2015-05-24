@@ -7,7 +7,7 @@ define(function(require) {
 			//this.on('all', function(e) { console.log("People event: " + e); });
 		},
 		model: News,
-		url: "http://www.expo.abruzzo.it/rest/news.php?rquest=GET"
+		url: "1.json"
 	});  
 	return NewsC;
 });
