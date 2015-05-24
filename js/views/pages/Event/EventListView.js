@@ -23,7 +23,7 @@ define(function(require) {
 
     events: {
       "touchend #goToMap": "goToMap",
-       "touchend #refresh": "render"
+      
     },
 
     render: function() {
