@@ -12,10 +12,14 @@ define(function(require) {
   var News = require("models/News");
   var NewsView = require("views/pages/NewsView");
 
-   var Event = require("models/Event");
-  var EventView = require("views/pages/EventView");
+
+    //event
+  var Event = require("models/Event");
+  var Events = require("collections/Events");
+  var EventView = require("views/pages/Event/EventView");
+  var EventListView = require("views/pages/Event/EventListView");
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
-Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
+  Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
 
   var AppRouter = Backbone.Router.extend({
 
@@ -69,10 +73,10 @@ Backbone.emulateJSON = true; // Send data to server via parameter rather than vi
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
-      var model = new Event({id:16});
+      var model = new Events({id:16});     
       model.fetch();
-      var page = new EventView({
-        model: model
+      var page = new EventListView({
+      model: model
       });
       // show the view
       this.changePage(page);
