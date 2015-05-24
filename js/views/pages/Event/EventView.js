@@ -15,14 +15,15 @@ define(function(require) {
     
       this.template = Utils.templates.eventview;
       this.listenTo(this.model, 'change', this.render);
-
+      
     },
 
     id: "eventview",
     className: "i-g page",
 
     events: {
-      "touchend #goToMap": "goToMap"
+      "touchend #goToMap": "goToMap",
+     
     },
 
     render: function() {
@@ -36,7 +37,10 @@ define(function(require) {
       
       return this;
     },
-
+    
+    
+    
+    
     goToMap: function(e) {
       Backbone.history.navigate("map", {
         trigger: true

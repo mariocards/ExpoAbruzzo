@@ -89,10 +89,12 @@ define(function(require) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
-      var model = new Events({id:16});     
-      model.fetch({
+      var model = new Events();     
+      model.fetch({ 
           success: function(){
-              console.log(model.toJSON());
+              console.log("model");
+              console.log(model);
+              console.log("model");
           }});
       var page = new EventListView({
       model: model

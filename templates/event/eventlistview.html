@@ -10,12 +10,16 @@
 	</li>
 </ul>
 
-{{#each this}}
+<div id="refresh" style="border: 1px solid; background-color: forestgreen; height: 50; width: 100;">Premi qua </div><br>
 
-<div class="i-4">{{date}}</div>
-<div id="title" class="i-8">{{title}}</div>
-{{/each}}
+<ul>
+{{#each .}}   
+<li><span>{{date}}</span> {{title}} </li>  
+        
+ {{/each}}
+</ul>
 
 
-
-
+<script>
+    console.log("donuts");
+    </script>
