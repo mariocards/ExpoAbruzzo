@@ -15,7 +15,7 @@ define(function(require) {
     
       this.template = Utils.templates.eventlistview;
       this.listenTo(this.model, 'change', this.render);
-
+      
     },
 
     id: "eventlistview",

@@ -74,7 +74,10 @@ define(function(require) {
       this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
       var model = new Events({id:16});     
-      model.fetch();
+      model.fetch({
+          success: function(){
+              console.log(model.toJSON());
+          }});
       var page = new EventListView({
       model: model
       });
