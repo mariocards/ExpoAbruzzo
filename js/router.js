@@ -10,7 +10,10 @@ define(function(require) {
   var MapView = require("views/pages/MapView");
   
   var News = require("models/News");
-  var NewsView = require("views/pages/NewsView");
+  var NewsView = require("views/pages/News/NewsView");
+  
+  var NewsC = require("collections/NewsC");
+  var NewsListView = require("views/pages/News/NewsListView");
 
 
     //event
@@ -31,6 +34,7 @@ define(function(require) {
       "myview": "myView",
       "map": "map",
       "newsview": "newsView",
+      "newslistview": "newsListView",
       "eventlistview": "eventListView",
       "eventview": "eventView"
     },
@@ -46,7 +50,7 @@ define(function(require) {
       this.structureView.setActiveTabBarElement("nav1");
       // create a model with an arbitrary attribute for testing the template engine
       var model = new MyModel({
-        key: "testValue"
+        key: "Benveuto nell'APP di Abruzzo Expo"
       });
       // create the view
       var page = new MyView({
@@ -57,7 +61,7 @@ define(function(require) {
     },
     newsView: function() {
       // highlight the nav1 tab bar element as the current one
-      this.structureView.setActiveTabBarElement("nav3");
+      this.structureView.setActiveTabBarElement("nav5");
       // create a model with an arbitrary attribute for testing the template engine
       var news = new News({id:"16"});
       news.fetch();
@@ -65,6 +69,18 @@ define(function(require) {
       // create the view
       var page = new NewsView({
         model: news
+      });
+      // show the view
+      this.changePage(page);
+    },
+    newsListView: function() {
+      // highlight the nav1 tab bar element as the current one
+      this.structureView.setActiveTabBarElement("nav3");
+      // create a model with an arbitrary attribute for testing the template engine
+      var newsC = new NewsC();
+      newsC.fetch();
+      var page = new NewsListView({
+        model: newsC
       });
       // show the view
       this.changePage(page);
@@ -80,7 +96,7 @@ define(function(require) {
       });
       // show the view
       this.changePage(page);
-    },
+    }, 
      eventView: function() {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav4");

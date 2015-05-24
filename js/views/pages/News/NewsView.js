@@ -13,15 +13,7 @@ define(function(require) {
     initialize: function() {
       // load the precompiled template
       this.template = Utils.templates.newsview;
-      // here we can register to inTheDOM or removing events
-      // this.listenTo(this, "inTheDOM", function() {
-      //   $('#content').on("swipe", function(data){
-      //     console.log(data);
-      //   });
-      // });
-      // this.listenTo(this, "removing", functionName);
-
-      // by convention, all the inner views of a view must be stored in this.subViews
+      this.listenTo(this.model, 'change', this.render);
     },
 
     id: "newsview",
@@ -32,12 +24,6 @@ define(function(require) {
     },
 
     render: function() {
-      console.log(this.model.attributes);
-      console.log($(this.el));
-      console.log(this.model.toJSON());
-      console.log(this.template);
-      
-      
       $(this.el).html(this.template(this.model.toJSON()));
       return this;
     },

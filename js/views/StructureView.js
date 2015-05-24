@@ -13,7 +13,7 @@ define(function(require) {
     events: {
       "touchend #nav1": "myView",
       "touchend #nav2": "map",
-      "touchend #nav3": "newsView",
+      "touchend #nav3": "newsListView",
       "touchend #nav4": "eventListView"
     },
 
@@ -61,6 +61,11 @@ define(function(require) {
 
     newsView: function(event) {
       Backbone.history.navigate("newsview", {
+        trigger: true
+      });
+    },
+    newsListView: function(event) {
+      Backbone.history.navigate("newslistview", {
         trigger: true
       });
     },
