@@ -8,9 +8,8 @@ define(function(require) {
 
     constructorName: "EventListView",
 
-    
-    
     model : Events,
+    
     initialize: function() {
     
       this.template = Utils.templates.eventlistview;
@@ -23,7 +22,6 @@ define(function(require) {
 
     events: {
       "touchend #goToMap": "goToMap"
-      
     },
 
     render: function() {

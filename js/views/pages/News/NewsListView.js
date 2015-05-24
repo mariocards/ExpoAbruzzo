@@ -4,7 +4,7 @@ define(function(require) {
   var NewsC = require("collections/NewsC");
   var Utils = require("utils");
 
-  var NewsView = Utils.Page.extend({
+  var NewsListView = Utils.Page.extend({
 
     constructorName: "NewsListView",
 
@@ -12,13 +12,13 @@ define(function(require) {
 
     initialize: function() {
       // load the precompiled template
-      this.template = Utils.templates.newsview;
+      this.template = Utils.templates.newslistview;
       this.listenTo(this.model, 'change', this.render);
     },
-
-    id: "newsview",
+    
+    id: "newslistview",
     className: "i-g page",
-
+    
     events: {
       "touchend #goToMap": "goToMap"
     },
@@ -35,6 +35,6 @@ define(function(require) {
     }
   });
 
-  return NewsView;
+  return NewsListView;
 
 });
