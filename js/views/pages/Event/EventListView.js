@@ -9,9 +9,8 @@ define(function(require) {
 
     constructorName: "EventListView",
 
-    
-    
     model : Events,
+    
     initialize: function() {
     
       this.template = Utils.templates.eventlistview;

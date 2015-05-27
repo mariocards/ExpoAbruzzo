@@ -13,14 +13,15 @@ define(function(require) {
     initialize: function() {
       // load the precompiled template
       this.template = Utils.templates.newslistview;
-      this.listenTo(this.model, 'change', this.render);
+      this.model.on('sync', this.render, this);
     },
     
     id: "newslistview",
     className: "i-g page",
     
     events: {
-      "touchend #goToMap": "goToMap"
+      "touchend #goToMap": "goToMap",
+      "touchend #eventListItem": "newsDetail"
     },
 
     render: function() {
@@ -32,6 +33,12 @@ define(function(require) {
       Backbone.history.navigate("map", {
         trigger: true
       });
+    },
+    newsDetail: function(ev){
+        newsItem=this.model.get($(ev.currentTarget).data('id'));
+        var item = {news : newsItem.attributes};
+        Backbone.history.navigate("newsview/"+$(ev.currentTarget).data('id'),
+        {trigger: true});
     }
   });
 

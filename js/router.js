@@ -33,7 +33,7 @@ define(function(require) {
       "": "showStructure",
       "myview": "myView",
       "map": "map",
-      "newsview": "newsView",
+      "newsview/:key": "newsView",
       "newslistview": "newsListView",
       "eventlistview": "eventListView",
       "eventview/:key": "eventView"
@@ -59,32 +59,23 @@ define(function(require) {
       // show the view
       this.changePage(page);
     },
-    newsView: function() {
+    newsView: function(key) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav3");
-      // create a model with an arbitrary attribute for testing the template engine
-      var news = new News({id:"16"});
-      news.fetch();
-//      console.log(news);
-      // create the view
       var page = new NewsView({
-        model: news
+        model: this.currentView.model.get(key)
       });
       // show the view
       this.changePage(page);
     },
-    newsListView: function() {
+    newsListView: function(key) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav3");
       // create a model with an arbitrary attribute for testing the template engine
-      var model = new NewsC({id:16});
-      model.fetch({
-          success: function(){
-              console.log(model.toJSON());
-          }});
-      
+      var model = new NewsC();
+      model.fetch();
       var page = new NewsListView({
-        model: model
+            model: model
       });
       // show the view
       this.changePage(page);
@@ -104,14 +95,7 @@ define(function(require) {
      eventView: function(key) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav4");
-      // create a model with an arbitrary attribute for testing the template engine
-      //var model = new Event({id:16});
-      //model.fetch();
-      console.log("ci arrivo");
-      console.log(key);
-      console.log(this);
-      console.log(this.model);
-       console.log(this.currentView.model.get(key));
+      
       var page = new EventView({
         model: this.currentView.model.get(key)
       });

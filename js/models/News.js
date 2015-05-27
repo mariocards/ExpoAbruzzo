@@ -8,7 +8,7 @@ define(function(require) {
                     
 		},
            
-		urlRoot: "1.json",
+		urlRoot: "http://www.expo.abruzzo.it/rest/news.php?rquest=get",
 		url: function() {
 			var base = this.urlRoot || (this.collection && this.collection.url) || "/";
 			if (this.isNew()) return base;
