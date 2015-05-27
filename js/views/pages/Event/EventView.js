@@ -8,9 +8,8 @@ define(function(require) {
 
     constructorName: "EventView",
 
-    
-    
     model : Event,
+    
     initialize: function() {
     
       this.template = Utils.templates.eventview;
@@ -22,7 +21,7 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "touchend #goToMap": "goToMap",
+      "touchend #goToMap": "goToMap"
      
     },
 

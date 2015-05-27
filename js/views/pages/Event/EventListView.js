@@ -9,9 +9,8 @@ define(function(require) {
 
     constructorName: "EventListView",
 
-    
-    
     model : Events,
+    
     initialize: function() {
     
       this.template = Utils.templates.eventlistview;
@@ -40,13 +39,6 @@ define(function(require) {
       eventItem=this.model.get($(ev.currentTarget).data('id'));
       
       var item = {event : eventItem.attributes};
-      
-//      var page = new EventView({
-//        model: eventItem.attributes
-//      });
-//      this.changePage(page);
-      //eventItem=this.model.get(id);
-//      this.model= item;
       Backbone.history.navigate("eventview/"+$(ev.currentTarget).data('id'), {
          trigger: true});
     },

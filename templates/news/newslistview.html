@@ -1,5 +1,5 @@
  
-<ul class="table-view">
+<!--<ul class="table-view">
 	<li class="table-view-cell media" id="event">
 		<a class="navigate-right">
 			<span class="media-object pull-left icon icon-pages"></span>
@@ -8,10 +8,15 @@
 			</div>
 		</a>
 	</li>
+</ul>-->
+{{#each .}}
+<ul>
+    <li id="eventListItem" data-id="{{id}}">
+        <div class="i-4">{{date}}</div>
+        <div id="title" class="i-8">{{title}}</div>
+    </li>
 </ul>
-{{#each objects}}
-<div class="i-4">{{date}}</div>
-<div id="title" class="i-8">{{title}}</div>
+
 {{/each}}
 
 
