@@ -35,18 +35,6 @@ define(function(require) {
     },
     
     eventDetail: function(ev) {
-      console.log("i need to know your id");
-      //console.log($(ev.current).data('id'));
-      eventItem=this.model.get($(ev.currentTarget).data('id'));
-      
-      var item = {event : eventItem.attributes};
-      
-//      var page = new EventView({
-//        model: eventItem.attributes
-//      });
-//      this.changePage(page);
-      //eventItem=this.model.get(id);
-//      this.model= item;
       Backbone.history.navigate("eventview/"+$(ev.currentTarget).data('id'), {
          trigger: true});
     },
