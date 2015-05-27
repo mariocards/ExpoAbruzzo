@@ -21,6 +21,12 @@ define(function(require) {
   var EventView = require("views/pages/Event/EventView");
   var EventListView = require("views/pages/Event/EventListView");
   
+  //itinerari
+  var Itinerario = require("models/Itinerario");
+  var Itinerari = require("collections/Itinerari");
+  var ItinerarioView = require("views/pages/Itinerari/ItinerarioView");
+  var ItinerariListView = require("views/pages/Itinerari/ItinerariListView");
+  
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
   Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
 
@@ -36,7 +42,10 @@ define(function(require) {
       "newsview/:key": "newsView",
       "newslistview": "newsListView",
       "eventlistview": "eventListView",
-      "eventview/:key": "eventView"
+      "eventview/:key": "eventView",
+      "itinerarilistview": "itinerariListView",
+      "itinerarioview/:key": "itinerarioView"
+      
     },
 
     firstView: "myview",
@@ -97,6 +106,28 @@ define(function(require) {
       this.structureView.setActiveTabBarElement("nav4");
       
       var page = new EventView({
+        model: this.currentView.model.get(key)
+      });
+      // show the view
+      this.changePage(page);
+    },
+    itinerariListView: function() {
+      // highlight the nav1 tab bar element as the current one
+      this.structureView.setActiveTabBarElement("nav5");
+      // create a model with an arbitrary attribute for testing the template engine
+      var model = new Itinerari();     
+      model.fetch();
+      var page = new ItinerariListView({
+      model: model
+      });
+      // show the view
+      this.changePage(page);
+    }, 
+     itinerarioView: function(key) {
+      // highlight the nav1 tab bar element as the current one
+      this.structureView.setActiveTabBarElement("nav5");
+      
+      var page = new ItinerarioView({
         model: this.currentView.model.get(key)
       });
       // show the view

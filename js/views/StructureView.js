@@ -14,7 +14,8 @@ define(function(require) {
       "touchend #nav1": "myView",
       "touchend #nav2": "map",
       "touchend #nav3": "newsListView",
-      "touchend #nav4": "eventListView"
+      "touchend #nav4": "eventListView",
+      "touchend #nav5": "itinerariListView"
     },
 
     initialize: function(options) {
@@ -78,6 +79,16 @@ define(function(require) {
       Backbone.history.navigate("eventview", {
         trigger: true
       });
+    },
+     itinerariListView: function(event) {
+     Backbone.history.navigate("itinerarilistview", {
+        trigger: true
+      });
+    },
+    itinerariView: function(event) {
+      Backbone.history.navigate("itinerarioview", {
+        trigger: true
+    });
     }
   });
 

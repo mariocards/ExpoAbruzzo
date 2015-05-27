@@ -1,29 +1,29 @@
 define(function(require) {
 
   var Backbone = require("backbone");
-  var Events = require("collections/Events");
+  var Itinerari = require("collections/Itinerari");
   var Utils = require("utils");
-  var EventView = require("views/pages/Event/EventView");
-  var EventListView = Utils.Page.extend({
+  var ItinerarioView = require("views/pages/Itinerari/ItinerarioView");
+  var ItinerariListView = Utils.Page.extend({
 
-    constructorName: "EventListView",
+    constructorName: "ItinerariListView",
 
-    model : Events,
+    model : Itinerari,
     
     initialize: function() {
     
-      this.template = Utils.templates.eventlistview;
+      this.template = Utils.templates.itinerarilistview;
       this.model.on('sync', this.render, this);
       //this.listenTo(this.model, 'add', this.render);
      //this.bind("change", this.model.attributes, this.render);
     },
 
-    id: "eventlistview",
+    id: "itinerarilistview",
     className: "i-g page",
 
     events: {
       "touchend #goToMap": "goToMap",
-      "touchend #eventListItem": "eventDetail"
+      "touchend #itinerariListItem": "itinerarioDetail"
     },
 
     render: function() {
@@ -32,8 +32,8 @@ define(function(require) {
       return this;
     },
     
-    eventDetail: function(ev) {
-      Backbone.history.navigate("eventview/"+$(ev.currentTarget).data('id'), {
+    itinerarioDetail: function(ev) {
+      Backbone.history.navigate("itinerarioview/"+$(ev.currentTarget).data('id'), {
          trigger: true});
     },
     
@@ -45,6 +45,6 @@ define(function(require) {
     }
   });
 
-  return EventListView;
+  return ItinerariListView;
 
 });

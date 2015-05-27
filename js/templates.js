@@ -14,5 +14,7 @@ define({
     newsview: "templates/news/newsview.html",
     newslistview: "templates/news/newslistview.html",
     eventview: "templates/event/eventview.html",
-    eventlistview: "templates/event/eventlistview.html"
+    eventlistview: "templates/event/eventlistview.html",
+    itinerarioview: "templates/itinerari/itinerarioview.html",
+    itinerarilistview: "templates/itinerari/itinerarilistview.html"
 });
