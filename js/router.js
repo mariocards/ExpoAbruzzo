@@ -36,7 +36,7 @@ define(function(require) {
       "newsview": "newsView",
       "newslistview": "newsListView",
       "eventlistview": "eventListView",
-      "eventview": "eventView"
+      "eventview/:key": "eventView"
     },
 
     firstView: "myview",
@@ -94,26 +94,26 @@ define(function(require) {
       this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
       var model = new Events();     
-      model.fetch({ 
-          success: function(){
-              console.log("model");
-              console.log(model);
-              console.log("model");
-          }});
+      model.fetch();
       var page = new EventListView({
       model: model
       });
       // show the view
       this.changePage(page);
     }, 
-     eventView: function() {
+     eventView: function(key) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
-      var model = new Event({id:16});
-      model.fetch();
+      //var model = new Event({id:16});
+      //model.fetch();
+      console.log("ci arrivo");
+      console.log(key);
+      console.log(this);
+      console.log(this.model);
+       console.log(this.currentView.model.get(key));
       var page = new EventView({
-        model: model
+        model: this.currentView.model.get(key)
       });
       // show the view
       this.changePage(page);

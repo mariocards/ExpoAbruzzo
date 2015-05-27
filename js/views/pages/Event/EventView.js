@@ -14,7 +14,7 @@ define(function(require) {
     initialize: function() {
     
       this.template = Utils.templates.eventview;
-      this.listenTo(this.model, 'change', this.render);
+      this.render;
       
     },
 
