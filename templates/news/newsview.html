@@ -1,13 +1,16 @@
-<ul class="table-view">
-	<li class="table-view-cell media" id="goToMap">
-		<a class="navigate-right">
-			<span class="media-object pull-left icon icon-pages"></span>
-			<div class="media-body">
-				{{ title }}
-			</div>
-		</a>
-	</li>
-</ul>
 
-<div class="i-4">{{data}}</div>
-<div class="i-8">{{ title }}</div>
+<div class="i-4"></div>
+<div class="i-8"></div>
+<div class="content" >
+    <div  class="image-page" >
+        <div class="content-padded" style="background: url('http://www.expo.abruzzo.it/{{picture}}') no-repeat center center; background-size: cover;">
+            <h3>{{ title }}</h3>
+        </div>
+    </div>
+
+    <div class="content-padded page">
+
+        {{{body}}}
+
+    </div>
+</div>
