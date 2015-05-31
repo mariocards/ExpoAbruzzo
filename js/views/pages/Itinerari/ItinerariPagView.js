@@ -13,7 +13,8 @@ define(function(require) {
     initialize: function() {
     
       this.template = Utils.templates.itinerarilistview;
-       this.listenTo(this.collection.fullCollection, "add", this.addSheet);
+      console.log(this.model);
+       this.listenTo(this.model.fullCollection, "add", this.addSheet);
         this.render;
       //this.listenTo(this.model, 'add', this.render);
      //this.bind("change", this.model.attributes, this.render);
@@ -45,7 +46,7 @@ define(function(require) {
   },
     
     fetchSheets: function () {
-    this.collection.getNextPage();
+    this.model.getNextPage();
   },
     
     
