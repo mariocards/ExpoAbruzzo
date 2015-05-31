@@ -11,7 +11,8 @@ require.config({
     leaflet: '../lib/leaflet/leaflet',
     spin: '../lib/spin/spin.min',
     preloader: '../lib/preloader/pre-loader',
-    utils: '../lib/utils/utils'
+    utils: '../lib/utils/utils',
+    paginator: '../lib/paginator/backbone.paginator.js'
   },
   shim: {
     'jquery': {

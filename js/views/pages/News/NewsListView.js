@@ -21,7 +21,8 @@ define(function(require) {
     
     events: {
       "touchend #goToMap": "goToMap",
-      "touchend #eventListItem": "newsDetail"
+      "touchend #eventListItem": "newsDetail",
+      "scroll" : "checkScroll"
     },
 
     render: function() {
@@ -39,7 +40,11 @@ define(function(require) {
         var item = {news : newsItem.attributes};
         Backbone.history.navigate("newsview/"+$(ev.currentTarget).data('id'),
         {trigger: true});
+    },
+    checkScroll : function(){
+        
     }
+    
   });
 
   return NewsListView;
