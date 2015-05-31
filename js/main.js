@@ -12,7 +12,7 @@ require.config({
     spin: '../lib/spin/spin.min',
     preloader: '../lib/preloader/pre-loader',
     utils: '../lib/utils/utils',
-    paginator: '../lib/paginator/backbone.paginator.js'
+    paginator: '../lib/paginator/backbone.paginator'
   },
   shim: {
     'jquery': {

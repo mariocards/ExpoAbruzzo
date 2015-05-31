@@ -3,6 +3,7 @@ define(function(require) {
   var $ = require("jquery");
   var Backbone = require("backbone");
   var MyModel = require("models/MyModel");
+  var PageableCollection = require("paginator");
   
   var StructureView = require("views/StructureView");
   
@@ -24,8 +25,10 @@ define(function(require) {
   //itinerari
   var Itinerario = require("models/Itinerario");
   var Itinerari = require("collections/Itinerari");
+  var ItinerariPag = require("collections/ItinerariPag");
   var ItinerarioView = require("views/pages/Itinerari/ItinerarioView");
   var ItinerariListView = require("views/pages/Itinerari/ItinerariListView");
+  var ItinerariPagView = require("views/pages/Itinerari/ItinerariPagView");
   
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
   Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
@@ -44,6 +47,7 @@ define(function(require) {
       "eventlistview": "eventListView",
       "eventview/:key": "eventView",
       "itinerarilistview": "itinerariListView",
+      "itineraripagview": "itinerariPagView",
       "itinerarioview/:key": "itinerarioView"
       
     },
@@ -118,6 +122,18 @@ define(function(require) {
       var model = new Itinerari();     
       model.fetch();
       var page = new ItinerariListView({
+      model: model
+      });
+      // show the view
+      this.changePage(page);
+    }, 
+    itinerariPagView: function() {
+      // highlight the nav1 tab bar element as the current one
+      this.structureView.setActiveTabBarElement("nav6");
+      // create a model with an arbitrary attribute for testing the template engine
+      var model = new ItinerariPag();     
+      model.fetch();
+      var page = new ItinerariPagView({
       model: model
       });
       // show the view
