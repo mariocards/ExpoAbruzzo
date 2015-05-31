@@ -1,22 +1,16 @@
- 
+{{#each .}}
 <ul class="table-view">
-	<li class="table-view-cell media" id="event">
-		<a class="navigate-right">
-			<span class="media-object pull-left icon icon-pages"></span>
-			<div class="media-body">
-				Lista Eventi
-			</div>
-		</a>
-	</li>
-</ul>
-
-
-
-<ul>
-{{#each .}}   
-<li id="itinerariListItem" data-id="{{id}}"><span>{{id}}</span> ----->{{title}} </li>  
-        
- {{/each}}
-</ul>
+  <li class="table-view-cell media" id="itinerariListItem" data-id="{{id}}" >
+    
+      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{pic}}')"></div>
+        <div class="text-list">
+          <h6>{{date}}</h6>
+            <p>{{title}}</p>
+        </div>
+      
+    
+  </li>
+</ul> 
+{{/each}}
 
 

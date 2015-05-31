@@ -1,3 +1,4 @@
+
 body{
 
 	width: 100%;
@@ -214,18 +215,22 @@ header.transparent{
 }
 .img-list{
 
-	width: 85px;
-	height: 85px;
+	width: 85px !important;
+	height: 85px !important;
 	display: inline-block;
-	background: #999 no-repeat center center; background-size: cover;
+	/*background: #999 no-repeat center center;*/
+        background-size: cover;
+        float:left;
 
 }
 
 .text-list{
 
 	width:60%;
-	display: inline-block;
-	vertical-align: top;
+	/*display: inline-block;*/
+	/*vertical-align: top;*/
+        float: left;
+        margin-left: 10%;
 
 }
 

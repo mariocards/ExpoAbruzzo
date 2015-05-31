@@ -9,14 +9,20 @@
 		</a>
 	</li>
 </ul>-->
-{{#each .}}
-<ul>
-    <li id="eventListItem" data-id="{{id}}">
-        <div class="i-4">{{date}}</div>
-        <div id="title" class="i-8">{{title}}</div>
-    </li>
-</ul>
 
+{{#each .}}
+<ul class="table-view">
+  <li class="table-view-cell media" id="eventListItem" data-id="{{id}}" style="background-image: url('/video-multiple.jpg')">
+    
+      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}')"></div>
+        <div class="text-list">
+          <h6>{{date}}</h6>
+            <p>{{title}}</p>
+        </div>
+      
+    
+  </li>
+</ul> 
 {{/each}}
 
 
