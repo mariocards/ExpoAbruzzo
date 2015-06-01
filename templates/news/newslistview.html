@@ -12,9 +12,9 @@
 
 {{#each .}}
 <ul class="table-view">
-  <li class="table-view-cell media" id="eventListItem" data-id="{{id}}" style="background-image: url('/video-multiple.jpg')">
+  <li class="table-view-cell media" style="background-image: url('/video-multiple.jpg')">
     
-      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}')"></div>
+      <div class="img-list"  id="eventListItem" data-id="{{id}}"  style="background-image:url('http://www.expo.abruzzo.it/{{picture}}')"></div>
         <div class="text-list">
           <h6>{{date}}</h6>
             <p>{{title}}</p>

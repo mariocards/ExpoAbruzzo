@@ -1,9 +1,9 @@
 
 {{#each .}}
 <ul class="table-view">
-  <li class="table-view-cell media" id="eventListItem" data-id="{{id}}" >
+  <li class="table-view-cell media" >
     
-      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{photo}}')"></div>
+      <div id="eventListItem" data-id="{{id}}" class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{photo}}')"></div>
         <div class="text-list">
           <h6>{{date}}</h6>
             <p>{{title}}</p>
