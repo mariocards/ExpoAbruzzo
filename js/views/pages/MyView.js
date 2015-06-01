@@ -20,7 +20,8 @@ define(function(require) {
     events: {
       "touchend #goToMap": "goToMap",
       "touchend #homeNews": "goToNews",
-      "touchend #homeEvents": "goToEvents"
+      "touchend #homeEvents": "goToEvents",
+      "touchend #homeItinerari": "goToItinerari",
     },
 
     render: function() {
@@ -42,6 +43,11 @@ define(function(require) {
 
     goToEvents: function(e) {
       Backbone.history.navigate("eventlistview", {
+        trigger: true
+      });
+    },
+    goToItinerari: function(e){
+        Backbone.history.navigate("itinerarilistview", {
         trigger: true
       });
     }
