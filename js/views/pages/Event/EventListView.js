@@ -13,7 +13,7 @@ define(function(require) {
     initialize: function() {
     
       this.template = Utils.templates.eventlistview;
-      this.model.on('sync', this.render, this);
+      this.model.on('add', this.render, this);
       //this.listenTo(this.model, 'add', this.render);
      //this.bind("change", this.model.attributes, this.render);
     },
@@ -23,7 +23,8 @@ define(function(require) {
 
     events: {
       "touchend #goToMap": "goToMap",
-      "touchend #eventListItem": "eventDetail"
+      "touchend #eventListItem": "eventDetail",
+      "touchend #loadMore" : "fetchSheets"
     },
 
     render: function() {
@@ -42,7 +43,16 @@ define(function(require) {
       Backbone.history.navigate("map", {
         trigger: true
       });
-    }
+    },
+      addSheet: function () {
+        $(this.el).append(this.template(this.model.toJSON()));
+  },
+    
+    fetchSheets: function () {
+       this.model.iniziale+=8;
+       this.model.finale+=8;
+       this.model.fetch({success: this.addSheet()});
+  }
   });
 
   return EventListView;
