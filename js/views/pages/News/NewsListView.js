@@ -13,7 +13,7 @@ define(function(require) {
     initialize: function() {
       // load the precompiled template
       this.template = Utils.templates.newslistview;
-      this.model.on('sync', this.render, this);
+      this.model.on('add', this.render, this);
     },
     
     id: "newslistview",
@@ -22,7 +22,7 @@ define(function(require) {
     events: {
       "touchend #goToMap": "goToMap",
       "touchend #eventListItem": "newsDetail",
-      "scroll" : "checkScroll"
+      "touchend #loadMore" : "fetchSheets"
     },
 
     render: function() {
@@ -41,9 +41,16 @@ define(function(require) {
         Backbone.history.navigate("newsview/"+$(ev.currentTarget).data('id'),
         {trigger: true});
     },
-    checkScroll : function(){
-        
-    }
+      addSheet: function () {
+          
+        $(this.el).append(this.template(this.model.toJSON()));
+  },
+    
+    fetchSheets: function () {
+       this.model.iniziale+=8;
+       this.model.finale+=8;
+       this.model.fetch({success: this.addSheet()});
+  }
     
   });
 

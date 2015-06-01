@@ -122,7 +122,7 @@ define(function(require) {
       var model = new Itinerari();     
       model.fetch();
       var page = new ItinerariListView({
-      model: model
+            model: model
       });
       // show the view
       this.changePage(page);
