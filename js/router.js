@@ -2,6 +2,9 @@ define(function(require) {
 
   var $ = require("jquery");
   var Backbone = require("backbone");
+  var moment = require("moment");
+
+  
   var MyModel = require("models/MyModel");
   var PageableCollection = require("paginator");
   
@@ -32,7 +35,7 @@ define(function(require) {
   
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
   Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
-
+  
   var AppRouter = Backbone.Router.extend({
 
     constructorName: "AppRouter",
@@ -56,7 +59,7 @@ define(function(require) {
 
     initialize: function(options) {
       this.currentView = undefined;
-      
+     
     },
 
     myView: function() {

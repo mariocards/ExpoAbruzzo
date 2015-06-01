@@ -1,27 +1,29 @@
  
 <!--<ul class="table-view">
-	<li class="table-view-cell media" id="event">
-		<a class="navigate-right">
-			<span class="media-object pull-left icon icon-pages"></span>
-			<div class="media-body">
-				Lista News
-			</div>
-		</a>
-	</li>
+        <li class="table-view-cell media" id="event">
+                <a class="navigate-right">
+                        <span class="media-object pull-left icon icon-pages"></span>
+                        <div class="media-body">
+                                Lista News
+                        </div>
+                </a>
+        </li>
 </ul>-->
 
 {{#each .}}
 <ul class="table-view">
-  <li class="table-view-cell media" style="background-image: url('/video-multiple.jpg')">
-    
-      <div class="img-list"  id="eventListItem" data-id="{{id}}"  style="background-image:url('http://www.expo.abruzzo.it/{{picture}}')"></div>
-        <div class="text-list">
-          <h6>{{date}}</h6>
-            <p>{{title}}</p>
+    <li class="table-view-cell media" style="background-image: url('/video-multiple.jpg')">
+
+        <div class="img-list"  id="eventListItem" data-id="{{id}}"  style="background-image:url('http://www.expo.abruzzo.it/{{picture}}')">
+            <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
         </div>
-      
-    
-  </li>
+        <div class="text-list">
+            <h6>{{ date }}</h6>
+            <h3>{{title}}</h3>
+        </div>
+
+
+    </li>
 </ul> 
 {{/each}}
 

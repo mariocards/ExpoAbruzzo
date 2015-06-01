@@ -1,6 +1,7 @@
 define(function(require) {
 
   var Backbone = require("backbone");
+//  var handlebars_helper_intl = require("handlebars_helper_intl");
   var NewsC = require("collections/NewsC");
   var Utils = require("utils");
 

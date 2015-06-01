@@ -18,10 +18,10 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "touchend #goToMap": "goToMap",
-      "touchend #homeNews": "goToNews",
+      "touchstart #goToMap": "goToMap",
+      "touchstart #homeNews": "goToNews",
       "touchend #homeEvents": "goToEvents",
-      "touchend #homeItinerari": "goToItinerari",
+      "touchstart #homeItinerari": "goToItinerari",
     },
 
     render: function() {

@@ -12,8 +12,9 @@ require.config({
     spin: '../lib/spin/spin.min',
     preloader: '../lib/preloader/pre-loader',
     utils: '../lib/utils/utils',
-    paginator: '../lib/paginator/backbone.paginator'
-    
+    paginator: '../lib/paginator/backbone.paginator',
+    moment: '../lib/moment/moment',
+    helperdateformat: '../lib/dateformat/helper-dataformat'
   },
   shim: {
     'jquery': {
@@ -27,6 +28,13 @@ require.config({
     },
     'leaflet': {
       exports: 'L'
+    },
+    'moment': {
+        exports: 'moment'
+    },
+    'helperdateformat':{
+        exports: 'HelperDateformat'
+        
     }
   }
 });
