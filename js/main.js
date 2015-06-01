@@ -13,6 +13,7 @@ require.config({
     preloader: '../lib/preloader/pre-loader',
     utils: '../lib/utils/utils',
     paginator: '../lib/paginator/backbone.paginator'
+    
   },
   shim: {
     'jquery': {

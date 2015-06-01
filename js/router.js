@@ -132,7 +132,7 @@ define(function(require) {
       this.structureView.setActiveTabBarElement("nav6");
       // create a model with an arbitrary attribute for testing the template engine
       var model = new ItinerariPag();     
-      model.fetch();
+      model.fetch({reset: true});
       var page = new ItinerariPagView({
       model: model
       });

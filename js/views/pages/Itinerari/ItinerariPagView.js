@@ -14,9 +14,13 @@ define(function(require) {
     
       this.template = Utils.templates.itinerarilistview;
       console.log(this.model);
-       this.listenTo(this.model.fullCollection, "add", this.addSheet);
-        this.render;
-      //this.listenTo(this.model, 'add', this.render);
+       //this.listenTo(this.model.fullCollection , "add", this.addSheet);
+      
+      this.model.fullCollection.on('reset', this.render, this);
+      this.model.fullCollection.on('change', this.addSheet, this);
+      
+      //this.listenTo(this.model.fullCollection, 'add', this.render);
+      
      //this.bind("change", this.model.attributes, this.render);
     },
 
@@ -26,7 +30,7 @@ define(function(require) {
     events: {
       "touchend #goToMap": "goToMap",
       "touchend #itinerariListItem": "itinerarioDetail",
-      "scroll": "fetchSheets"
+      "touchend #gimmemore" :  "fetchSheets"
     },
 
     render: function() {
@@ -42,11 +46,17 @@ define(function(require) {
     },
     
      addSheet: function () {
-     $(this.el).html(this.template(this.model.toJSON()));
+         console.log("addsheet");
+     $(this.el).append(this.template(this.model.toJSON()));
   },
     
     fetchSheets: function () {
-    this.model.getNextPage();
+        console.log("manda altri");
+        console.log("iamo");
+        console.log("oooo");
+        console.log(this.model.state);
+       
+        this.model.getPageByOffset(16);
   },
     
     

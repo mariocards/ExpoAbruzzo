@@ -6,10 +6,19 @@ define(function(require) {
         
 	var Itinerari = Backbone.Collection.extend({
 		initialize: function() {
-			
-                },	
-		model: Itinerario,
-		url: "http://www.expo.abruzzo.it/rest/itinerari.php?rquest=get"
+		this.iniziale=0;
+                this.finale=8;
+                },
+                iniziale: 0,
+                finale: 8,
+		model: 	Itinerario,
+               	url:  function(){
+                    
+                    return "http://www.expo.abruzzo.it/rest/itinerari_pag.php?rquest=get&initial=" + 
+                            encodeURIComponent(this.iniziale)+"&limit="+encodeURIComponent(this.finale);
+                    
+                }
+                 
                 });    
 	return Itinerari;
 });
