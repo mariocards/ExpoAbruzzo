@@ -21,7 +21,8 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "touchend #goToMap": "goToMap"
+      "touchend #goToMap": "goToMap",
+      "touchend #back-button": "goBack" 
      
     },
 
@@ -36,10 +37,11 @@ define(function(require) {
       
       return this;
     },
-    
-    
-    
-    
+    goBack : function(){
+        Backbone.history.navigate("itinerarilistview", {
+        trigger: true
+      });
+    },
     goToMap: function(e) {
       Backbone.history.navigate("map", {
         trigger: true
