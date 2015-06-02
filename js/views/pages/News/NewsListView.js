@@ -22,7 +22,7 @@ define(function(require) {
     
     events: {
       "touchend #goToMap": "goToMap",
-      "touchend #eventListItem": "newsDetail",
+      "tap #eventListItem": "newsDetail",
       "touchend #loadMore" : "fetchSheets"
     },
 

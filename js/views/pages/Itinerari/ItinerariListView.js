@@ -24,7 +24,7 @@ define(function(require) {
 
     events: {
       "touchend #goToMap": "goToMap",
-      "touchend #itinerariListItem": "itinerarioDetail",
+      "tap #itinerariListItem": "itinerarioDetail",
       "touchend #loadMore" :  "fetchSheets",
       //"mousewheel" : "fetchSheets"
     },

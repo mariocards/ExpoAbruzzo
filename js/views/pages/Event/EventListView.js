@@ -20,7 +20,7 @@ define(function (require) {
         className: "i-g page",
         events: {
             "touchend #goToMap": "goToMap",
-            "touchend #eventListItem": "eventDetail",
+            "tap #eventListItem": "eventDetail",
             "touchend #loadMore": "fetchSheets"
         },
         render: function () {

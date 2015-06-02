@@ -1,20 +1,10 @@
- 
-<!--<ul class="table-view">
-        <li class="table-view-cell media" id="event">
-                <a class="navigate-right">
-                        <span class="media-object pull-left icon icon-pages"></span>
-                        <div class="media-body">
-                                Lista News
-                        </div>
-                </a>
-        </li>
-</ul>-->
+
 
 {{#each .}}
 <ul class="table-view">
-    <li class="table-view-cell media" style="background-image: url('/video-multiple.jpg')">
+    <li class="table-view-cell media" style="background-image: url('/video-multiple.jpg')"  id="eventListItem" data-id="{{id}}" >
 
-        <div class="img-list"  id="eventListItem" data-id="{{id}}"  style="background-image:url('http://www.expo.abruzzo.it/{{picture}}')">
+        <div class="img-list"  style="background-image:url('http://www.expo.abruzzo.it/{{picture}}')">
             <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
         </div>
         <div class="text-list">
