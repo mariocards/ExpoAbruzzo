@@ -1,10 +1,8 @@
 define(function(require) {
 
   var Backbone = require("backbone");
-//  var handlebars_helper_intl = require("handlebars_helper_intl");
   var NewsC = require("collections/NewsC");
   var Utils = require("utils");
-
   var NewsListView = Utils.Page.extend({
 
     constructorName: "NewsListView",
@@ -12,18 +10,16 @@ define(function(require) {
     model: NewsC,
 
     initialize: function() {
-      // load the precompiled template
       this.template = Utils.templates.newslistview;
-      this.model.on('add', this.render, this);
+      this.model.on('sync', this.render, this);
     },
     
     id: "newslistview",
     className: "i-g page",
     
     events: {
-      "touchend #goToMap": "goToMap",
       "tap #eventListItem": "newsDetail",
-      "touchend #loadMore" : "fetchSheets"
+      "swipeUp #loadMore" : "fetchSheets"
     },
 
     render: function() {
@@ -31,26 +27,16 @@ define(function(require) {
       return this;
     },
 
-    goToMap: function(e) {
-      Backbone.history.navigate("map", {
-        trigger: true
-      });
-    },
     newsDetail: function(ev){
         newsItem=this.model.get($(ev.currentTarget).data('id'));
         var item = {news : newsItem.attributes};
         Backbone.history.navigate("newsview/"+$(ev.currentTarget).data('id'),
         {trigger: true});
     },
-      addSheet: function () {
-          
-        $(this.el).append(this.template(this.model.toJSON()));
-  },
-    
+     
     fetchSheets: function () {
-       this.model.iniziale+=8;
-       this.model.finale+=8;
-       this.model.fetch({success: this.addSheet()});
+       this.model.iniziale+=5;
+       this.model.fetch({remove: false});
   }
     
   });
