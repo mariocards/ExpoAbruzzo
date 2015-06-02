@@ -1,7 +1,7 @@
 define(function(require) {
 
   var Backbone = require("backbone");
-  var Search = require("utils");
+  var Search = require("collections/Search");
   var Utils = require("utils");
 
   var ResultView = Utils.Page.extend({
@@ -11,9 +11,10 @@ define(function(require) {
     model: Search,
 
     initialize: function() {
-      // load the precompiled template
+     
       this.template = Utils.templates.ricercalistview;
-      this.render;
+      console.log(this.model);
+       this.model.on('sync', this.render, this);
     },
 
     id: "paginaricerca",
@@ -25,7 +26,9 @@ define(function(require) {
     },
 
     render: function() {
-      $(this.el).html(this.template());
+        console.log("ecchiteli");
+        console.log(this.model);
+      $(this.el).html(this.template(this.model.toJSON()));
       
       return this;
     },

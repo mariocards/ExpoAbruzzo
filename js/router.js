@@ -148,7 +148,7 @@ define(function(require) {
       
       var model = new Search();    
       model.text = key;
-      model.fetch();
+      model.fetch({success: function(){console.log(model);console.log("que ha arrvat")}});
       var page = new ResultView({
         model: model
       });
