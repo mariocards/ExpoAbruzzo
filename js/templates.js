@@ -16,5 +16,7 @@ define({
     eventview: "templates/event/eventview.html",
     eventlistview: "templates/event/eventlistview.html",
     itinerarioview: "templates/itinerari/itinerarioview.html",
-    itinerarilistview: "templates/itinerari/itinerarilistview.html"
+    itinerarilistview: "templates/itinerari/itinerarilistview.html",
+    paginaricerca: "templates/search/paginaricerca.html",
+    ricercalistview: "templates/search/generalsearchlist.html"
 });

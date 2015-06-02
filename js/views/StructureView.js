@@ -11,12 +11,12 @@ define(function(require) {
     id: "main",
 
     events: {
-      "touchend #nav1": "myView",
-      "touchend #nav2": "map",
-      "touchend #nav3": "newsListView",
-      "touchend #nav4": "eventListView",
-      "touchend #nav5": "itinerariListView",
-      "touchend #nav6": "itinerariPagView"
+      "tap #nav1": "myView",
+      "tap #nav2": "map",
+      "tap #nav3": "newsListView",
+      "tap #nav4": "eventListView",
+      "tap #nav5": "itinerariListView",
+      "tap #nav6": "search"
     },
 
     initialize: function(options) {
@@ -86,8 +86,8 @@ define(function(require) {
         trigger: true
       });
     },
-    itinerariPagView: function(event) {
-     Backbone.history.navigate("itineraripagview", {
+    search: function(event) {
+     Backbone.history.navigate("paginaricerca", {
         trigger: true
       });
     },

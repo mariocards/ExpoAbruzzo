@@ -33,6 +33,10 @@ define(function(require) {
   var ItinerariListView = require("views/pages/Itinerari/ItinerariListView");
   var ItinerariPagView = require("views/pages/Itinerari/ItinerariPagView");
   
+  //ricerca
+  var SearchView = require("views/pages/Search/SearchView");
+  var ResultView = require("views/pages/Search/ResultView");
+  
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
   Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
   
@@ -51,7 +55,8 @@ define(function(require) {
       "eventview/:key": "eventView",
       "itinerarilistview": "itinerariListView",
       "itineraripagview": "itinerariPagView",
-      "itinerarioview/:key": "itinerarioView"
+      "itinerarioview/:key": "itinerarioView",
+      "paginaricerca" : "paginaRicerca"
       
     },
 
@@ -159,6 +164,11 @@ define(function(require) {
       // create the view and show it
       var page = new MapView();
       this.changePage(page);
+    },
+    paginaRicerca: function(){
+        this.structureView.setActiveTabBarElement("nav6");
+        var page = new SearchView();
+        this.changePage(page);
     },
 
     // load the structure view
