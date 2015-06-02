@@ -36,7 +36,8 @@ define(function(require) {
     },
     doSearch: function(){
     var value = $('#ricercaGeneraleInput').val();
-    Backbone.history.navigate("newsview/"+value,
+    console.log("Ho Preso il valore " + "risultatoricerca/"+value);
+    Backbone.history.navigate("risultatoricerca/"+value,
         {trigger: true});  
     }
   });

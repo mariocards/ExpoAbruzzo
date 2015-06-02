@@ -34,7 +34,7 @@ define(function(require) {
   //ricerca
   var SearchView = require("views/pages/Search/SearchView");
   var ResultView = require("views/pages/Search/ResultView");
-  
+  var Search = require("collections/Search");
   Backbone.emulateHTTP = true; // Use _method parameter rather than using DELETE and PUT methods
   Backbone.emulateJSON = true; // Send data to server via parameter rather than via request content
   
@@ -53,7 +53,8 @@ define(function(require) {
       "eventview/:key": "eventView",
       "itinerarilistview": "itinerariListView",
       "itinerarioview/:key": "itinerarioView",
-      "paginaricerca" : "paginaRicerca"
+      "paginaricerca" : "paginaRicerca",
+      "risultatoricerca/:key": "risultatoRicerca"
      },
 
     firstView: "myview",
@@ -140,6 +141,18 @@ define(function(require) {
         model: this.currentView.model.get(key)
       });
       // show the view
+      this.changePage(page);
+    },
+    risultatoRicerca: function(key){
+      console.log("Sono Qui e la Key è " + key);
+      
+      var model = new Search();    
+      model.text = key;
+      model.fetch();
+      var page = new ResultView({
+        model: model
+      });
+      
       this.changePage(page);
     },
     map: function() {

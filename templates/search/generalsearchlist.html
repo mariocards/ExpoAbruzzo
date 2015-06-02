@@ -1,18 +1,24 @@
-<input type="text" id="ricercaGenerale" name="ricercaGenerale"/>  <span class="icon icon-search"></span>
-{{#each .}}
-<ul class="table-view">
-  <li class="table-view-cell media" id="eventListItem" data-id="{{id}}">
-    
-      <div  class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{photo}}')">
-          <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
-      </div>
-        <div class="text-list">
-            
-          <h6>{{data}} </h6>
-            <h3>{{title}}</h3>
-        </div>
-      
-    
-  </li>
-</ul> 
+<input type="text" id="ricercaGenerale" name="ricercaGenerale" style="width: 92%;"/>  <span class="icon icon-search"></span>
+
+
+{{#each object}}
+  {{@key}}: {{this}}
 {{/each}}
+<ul class="table-view">
+
+    <li class="table-view-cell media" id="eventListItem" data-id="">
+
+        <div  class="img-list" style="background-image:url('http://www.expo.abruzzo.it/')">
+            <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
+        </div>
+        <div class="text-list">
+
+
+            <h3>Ciao</h3>
+        </div>
+
+
+    </li>
+
+</ul> 
+

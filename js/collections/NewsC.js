@@ -6,11 +6,11 @@ define(function (require) {
         initialize: function() {
 		this.iniziale=0;
                 this.finale=5;
-                },
-                iniziale: 0,
-                finale: 5,
-		model: 	News,
-               	url:  function(){
+        },
+        iniziale: 0,
+        finale: 5,
+	model: 	News,
+        url:  function(){
                     
                     return "http://www.expo.abruzzo.it/rest/news_pag.php?rquest=get&initial=" + 
                             encodeURIComponent(this.iniziale)+"&limit="+encodeURIComponent(this.finale);

@@ -7,12 +7,12 @@ define(function (require) {
         initialize: function () {
             //this.on('all', function(e) { console.log("People event: " + e); });
         },
-        urlRoot: "http://www.expo.abruzzo.it/rest/search.php?rquest=get",
+        defaults: {
+                text: ''
+        },
+        text: '',
 	url: function() {
-			var base = this.urlRoot || (this.collection && this.collection.url) || "/";
-			if (this.isNew()) return base;
-	 
-			return base + "&text=" + encodeURIComponent(this.id);
+            return "http://www.expo.abruzzo.it/rest/search.php?rquest=get" + "&text=" + encodeURIComponent(this.text);
 	}
         
     });

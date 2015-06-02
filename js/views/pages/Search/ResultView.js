@@ -4,15 +4,15 @@ define(function(require) {
   var Search = require("utils");
   var Utils = require("utils");
 
-  var SearchView = Utils.Page.extend({
+  var ResultView = Utils.Page.extend({
 
-    constructorName: "SearchView",
+    constructorName: "ResultView",
 
     model: Search,
 
     initialize: function() {
       // load the precompiled template
-      this.template = Utils.templates.paginaricerca;
+      this.template = Utils.templates.ricercalistview;
       this.render;
     },
 
@@ -33,19 +33,9 @@ define(function(require) {
         Backbone.history.navigate("myview", {
         trigger: true
       });
-    },
-    goToMap: function(e) {
-      Backbone.history.navigate("map", {
-        trigger: true
-      });
-    },
-    doSearch: function(){
-    var value = $('#ricercaGeneraleInput').val();
-    Backbone.history.navigate("newsview/"+value,
-        {trigger: true});  
     }
   });
 
-  return SearchView;
+  return ResultView;
 
 });
