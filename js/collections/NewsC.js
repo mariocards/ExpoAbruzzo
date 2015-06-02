@@ -5,10 +5,10 @@ define(function (require) {
     var NewsC = Backbone.Collection.extend({
         initialize: function() {
 		this.iniziale=0;
-                this.finale=8;
+                this.finale=5;
                 },
                 iniziale: 0,
-                finale: 8,
+                finale: 5,
 		model: 	News,
                	url:  function(){
                     

@@ -86,11 +86,13 @@ define(function(require) {
         trigger: true
       });
     },
+
     search: function(event) {
      Backbone.history.navigate("paginaricerca", {
         trigger: true
       });
     },
+
     itinerariView: function(event) {
       Backbone.history.navigate("itinerarioview", {
         trigger: true

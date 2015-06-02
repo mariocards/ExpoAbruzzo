@@ -28,10 +28,8 @@ define(function(require) {
   //itinerari
   var Itinerario = require("models/Itinerario");
   var Itinerari = require("collections/Itinerari");
-  var ItinerariPag = require("collections/ItinerariPag");
   var ItinerarioView = require("views/pages/Itinerari/ItinerarioView");
   var ItinerariListView = require("views/pages/Itinerari/ItinerariListView");
-  var ItinerariPagView = require("views/pages/Itinerari/ItinerariPagView");
   
   //ricerca
   var SearchView = require("views/pages/Search/SearchView");
@@ -54,11 +52,9 @@ define(function(require) {
       "eventlistview": "eventListView",
       "eventview/:key": "eventView",
       "itinerarilistview": "itinerariListView",
-      "itineraripagview": "itinerariPagView",
       "itinerarioview/:key": "itinerarioView",
       "paginaricerca" : "paginaRicerca"
-      
-    },
+     },
 
     firstView: "myview",
 
@@ -136,19 +132,7 @@ define(function(require) {
       // show the view
       this.changePage(page);
     }, 
-    itinerariPagView: function() {
-      // highlight the nav1 tab bar element as the current one
-      this.structureView.setActiveTabBarElement("nav6");
-      // create a model with an arbitrary attribute for testing the template engine
-      var model = new ItinerariPag();     
-      model.fetch({reset: true});
-      var page = new ItinerariPagView({
-      model: model
-      });
-      // show the view
-      this.changePage(page);
-    }, 
-     itinerarioView: function(key) {
+    itinerarioView: function(key) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav5");
       

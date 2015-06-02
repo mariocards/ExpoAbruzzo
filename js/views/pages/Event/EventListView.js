@@ -9,41 +9,28 @@ define(function (require) {
         constructorName: "EventListView",
         model: Events,
         initialize: function () {
-
             this.template = Utils.templates.eventlistview;
-            this.model.on('add', this.render, this);
-            //this.listenTo(this.model, 'add', this.render);
-            //this.bind("change", this.model.attributes, this.render);
-            
+            this.model.on('sync', this.render, this);        
         },
         id: "eventlistview",
         className: "i-g page",
         events: {
-            "touchend #goToMap": "goToMap",
             "tap #eventListItem": "eventDetail",
-            "touchend #loadMore": "fetchSheets"
+            "swipeUp #loadMore": "fetchSheets"
+            
         },
         render: function () {
             $(this.el).html(this.template(this.model.toJSON()));
-
             return this;
         },
         eventDetail: function (ev) {
             Backbone.history.navigate("eventview/" + $(ev.currentTarget).data('id'), {
                 trigger: true});
     },
-        goToMap: function (e) {
-            Backbone.history.navigate("map", {
-                trigger: true
-            });
-        },
-        addSheet: function () {
-            $(this.el).append(this.template(this.model.toJSON()));
-        },
+ 
         fetchSheets: function () {
-            this.model.iniziale += 8;
-            this.model.finale += 8;
-            this.model.fetch({success: this.addSheet()});
+            this.model.iniziale += 5;
+            this.model.fetch({remove: false});
         }
     });
 
