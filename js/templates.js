@@ -15,8 +15,10 @@ define({
     newslistview: "templates/news/newslistview.html",
     eventview: "templates/event/eventview.html",
     eventlistview: "templates/event/eventlistview.html",
+    itineraricat: "templates/itinerari/itineraricat.html",
     itinerarioview: "templates/itinerari/itinerarioview.html",
     itinerarilistview: "templates/itinerari/itinerarilistview.html",
     paginaricerca: "templates/search/paginaricerca.html",
     ricercalistview: "templates/search/generalsearchlist.html"
+    
 });

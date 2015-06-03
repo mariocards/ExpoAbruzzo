@@ -15,7 +15,7 @@ define(function(require) {
       "tap #nav2": "map",
       "tap #nav3": "newsListView",
       "tap #nav4": "eventListView",
-      "tap #nav5": "itinerariListView",
+      "tap #nav5": "itinerariCatListView",
       "tap #nav6": "search"
     },
 
@@ -86,7 +86,11 @@ define(function(require) {
         trigger: true
       });
     },
-
+    itinerariCatListView: function(event) {
+     Backbone.history.navigate("itineraricatlistview", {
+        trigger: true
+      });
+    },
     search: function(event) {
      Backbone.history.navigate("paginaricerca", {
         trigger: true

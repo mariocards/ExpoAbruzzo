@@ -15,7 +15,7 @@ define(function(require) {
 		url: function(){
                     
                     return "http://www.expo.abruzzo.it/rest/event_pag.php?rquest=get&initial=" + 
-                            encodeURIComponent(this.iniziale)+"&limit="+encodeURIComponent(this.finale);
+                            encodeURIComponent(this.iniziale)+"&limit="+encodeURIComponent(this.finale)+'&languages_id=1';
                 }
                 });    
 	return Events;

@@ -4,7 +4,7 @@ define(function(require) {
 	
 	
         
-	var Itinerari = Backbone.Collection.extend({
+	var ItinerariCat = Backbone.Collection.extend({
 		initialize: function() {
 		
                 
@@ -12,11 +12,11 @@ define(function(require) {
                 
                	url:  function(){
                     
-                    return "http://www.expo.abruzzo.it/rest/itineraricat.php?rquest=get&languages_id=1"  
+                    return "http://www.expo.abruzzo.it/rest/itineraricat.php?rquest=get&language_id=1"  
                             
                     
                 }
                  
                 });    
-	return Itinerari;
+	return ItinerariCat;
 });

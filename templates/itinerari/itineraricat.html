@@ -1,0 +1,22 @@
+
+{{#each .}}
+<ul class="table-view">
+  <li class="table-view-cell media" id="itinerariCatListItem" data-id="{{id}}" >
+    
+      <div class="img-list"   style="background-image:url('http://www.expo.abruzzo.it/{{foto}}')">
+          <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
+          
+      </div>
+        <div class="text-list">
+            
+<!--          <h6>{{date}}</h6>-->
+            <h2>{{name}}</h2>
+             <h6>{{{description}}}</h6>
+        </div>
+      
+    
+  </li>
+</ul> 
+{{/each}}
+        
+

@@ -28,9 +28,10 @@ define(function(require) {
   //itinerari
   var Itinerario = require("models/Itinerario");
   var Itinerari = require("collections/Itinerari");
+  var ItinerariCat = require("collections/ItinerariCat");
   var ItinerarioView = require("views/pages/Itinerari/ItinerarioView");
   var ItinerariListView = require("views/pages/Itinerari/ItinerariListView");
-  
+  var ItinerariCatView = require("views/pages/Itinerari/ItinerariCatView");
   //ricerca
   var SearchView = require("views/pages/Search/SearchView");
   var ResultView = require("views/pages/Search/ResultView");
@@ -51,7 +52,8 @@ define(function(require) {
       "newslistview": "newsListView",
       "eventlistview": "eventListView",
       "eventview/:key": "eventView",
-      "itinerarilistview": "itinerariListView",
+      "itineraricatlistview": "itinerariCatView",
+      "itinerarilistview/:key": "itinerariListView",
       "itinerarioview/:key": "itinerarioView",
       "paginaricerca" : "paginaRicerca",
       "risultatoricerca/:key": "risultatoRicerca",
@@ -151,11 +153,23 @@ define(function(require) {
       // show the view
       this.changePage(page);
     },
-    itinerariListView: function() {
+    itinerariCatView: function() {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav5");
       // create a model with an arbitrary attribute for testing the template engine
-      var model = new Itinerari();     
+      var model = new ItinerariCat();     
+      model.fetch();
+      var page = new ItinerariCatView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+    }, 
+    itinerariListView: function(key) {
+      // highlight the nav1 tab bar element as the current one
+      this.structureView.setActiveTabBarElement("nav5");
+      // create a model with an arbitrary attribute for testing the template engine
+      var model = new Itinerari(key);     
       model.fetch();
       var page = new ItinerariListView({
         model: model
