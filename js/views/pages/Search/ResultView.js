@@ -19,20 +19,16 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-        "tap #eventListItem": "eventDetail",
+      "tap #eventListItem": "eventDetail",
       "touchend #back-button": "goBack",
       "tap #ricercaGenerale" :"doSearch"
     },
 
     render: function() {
-        console.log("ecchiteli");
-        console.log(this.model);
       $(this.el).html(this.template(this.model.toJSON()));
-      
       return this;
     },
     eventDetail: function (ev) {
-        console.log($(ev.currentTarget).data('view') +"/" + $(ev.currentTarget).data('id'));
         
         Backbone.history.navigate($(ev.currentTarget).data('view') +"/" + $(ev.currentTarget).data('id'), {
                 trigger: true});
@@ -44,9 +40,8 @@ define(function(require) {
     },
     doSearch: function(){
     var value = $('#ricercaGeneraleInput').val();
-    console.log("Ho Preso il valore " + "risultatoricerca/"+value);
     Backbone.history.navigate("risultatoricerca/"+value,
-        {trigger: true});  
+        {trigger: true, replace: true});  
     }
   });
 

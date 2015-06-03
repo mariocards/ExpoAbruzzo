@@ -56,6 +56,8 @@ define(function(require) {
       "paginaricerca" : "paginaRicerca",
       "risultatoricerca/:key": "risultatoRicerca",
       "newsviewFromSearch/:key": "newsViewFromSearch",
+      "eventviewFromSearch/:key": "eventViewFromSearch",
+      "itinerarioviewFromSearch/:key": "itinerarioViewFromSearch"
      },
 
     firstView: "myview",
@@ -83,12 +85,29 @@ define(function(require) {
       this.structureView.setActiveTabBarElement("nav3");
       var news = new News({id: key});
       news.fetch();
-      console.log(news);
       var page = new NewsView({
         model: news
       });
       // show the view
       this.changePage(page);
+    },
+    eventViewFromSearch: function(key){
+        this.structureView.setActiveTabBarElement("nav4");
+        var eventi = new Event({id: key});
+        eventi.fetch();
+        var page = new EventView({
+            model: eventi
+        });
+        this.changePage(page);
+    },
+    itinerarioViewFromSearch: function(key){
+        this.structureView.setActiveTabBarElement("nav5");
+        var itinerario = new Itinerario({id: key});
+        itinerario.fetch();
+        var page = new ItinerarioView({
+            model: itinerario
+        });
+        this.changePage(page);
     },
     newsView: function(key) {
       // highlight the nav1 tab bar element as the current one
@@ -118,7 +137,7 @@ define(function(require) {
       var model = new Events();     
       model.fetch();
       var page = new EventListView({
-      model: model
+         model: model
       });
       // show the view
       this.changePage(page);
@@ -126,7 +145,6 @@ define(function(require) {
      eventView: function(key) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav4");
-      
       var page = new EventView({
         model: this.currentView.model.get(key)
       });
@@ -140,7 +158,7 @@ define(function(require) {
       var model = new Itinerari();     
       model.fetch();
       var page = new ItinerariListView({
-      model: model
+        model: model
       });
       // show the view
       this.changePage(page);
@@ -148,7 +166,6 @@ define(function(require) {
     itinerarioView: function(key) {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav5");
-      
       var page = new ItinerarioView({
         model: this.currentView.model.get(key)
       });
@@ -156,11 +173,9 @@ define(function(require) {
       this.changePage(page);
     },
     risultatoRicerca: function(key){
-      console.log("Sono Qui e la Key è " + key);
-      
       var model = new Search();    
       model.text = key;
-      model.fetch({success: function(){console.log(model);console.log("que ha arrvat")}});
+      model.fetch({success: function(){}});
       var page = new ResultView({
         model: model
       });

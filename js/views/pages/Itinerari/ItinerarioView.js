@@ -13,7 +13,7 @@ define(function(require) {
     initialize: function() {
 
       this.template = Utils.templates.itinerarioview;
-      this.render;
+      this.model.on('sync', this.render, this);
       
     },
 
