@@ -15,12 +15,10 @@ define(function (require) {
             return "http://www.expo.abruzzo.it/rest/search.php?rquest=get" + "&text=" + encodeURIComponent(this.text);
 	},
         parse:function(response){
-            
-            console.log("respoooooooooooooooooooooonse");
-            console.log(response.risultato);
-            console.log(response);
-             
-            return [{id : 0, content : response.risultato.news},{id:1, content : response.risultato.eventi}, {id : 2, content : response.risultato.itinerari}];
+            return [{id : 1, content : response.risultato.news, titolo: 'News', vista: 'newsview'},
+                    {id : 2, content : response.risultato.eventi, titolo: 'Eventi', vista: 'eventview'}, 
+                    {id : 3, content : response.risultato.itinerari, titolo: 'Itinerari', vista: 'itinerarioview'}
+                ];
             
         }
         

@@ -13,7 +13,7 @@ define(function(require) {
     initialize: function() {
       // load the precompiled template
       this.template = Utils.templates.newsview;
-      this.render;
+      this.model.on('sync', this.render, this);
     },
 
     id: "newsview",

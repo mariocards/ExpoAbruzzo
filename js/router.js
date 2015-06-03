@@ -54,7 +54,8 @@ define(function(require) {
       "itinerarilistview": "itinerariListView",
       "itinerarioview/:key": "itinerarioView",
       "paginaricerca" : "paginaRicerca",
-      "risultatoricerca/:key": "risultatoRicerca"
+      "risultatoricerca/:key": "risultatoRicerca",
+      "newsviewFromSearch/:key": "newsViewFromSearch",
      },
 
     firstView: "myview",
@@ -74,6 +75,17 @@ define(function(require) {
       // create the view
       var page = new MyView({
         model: model
+      });
+      // show the view
+      this.changePage(page);
+    },
+    newsViewFromSearch: function(key){
+      this.structureView.setActiveTabBarElement("nav3");
+      var news = new News({id: key});
+      news.fetch();
+      console.log(news);
+      var page = new NewsView({
+        model: news
       });
       // show the view
       this.changePage(page);

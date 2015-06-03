@@ -11,16 +11,15 @@ define(function(require) {
     model: Search,
 
     initialize: function() {
-     
       this.template = Utils.templates.ricercalistview;
-      console.log(this.model);
-       this.model.on('sync', this.render, this);
+      this.model.on('sync', this.render, this);
     },
 
     id: "paginaricerca",
     className: "i-g page",
 
     events: {
+        "tap #eventListItem": "eventDetail",
       "touchend #back-button": "goBack",
       "tap #ricercaGenerale" :"doSearch"
     },
@@ -32,13 +31,27 @@ define(function(require) {
       
       return this;
     },
+    eventDetail: function (ev) {
+        console.log($(ev.currentTarget).data('view') +"/" + $(ev.currentTarget).data('id'));
+        
+        Backbone.history.navigate($(ev.currentTarget).data('view') +"/" + $(ev.currentTarget).data('id'), {
+                trigger: true});
+    },
     goBack : function(){
         Backbone.history.navigate("myview", {
         trigger: true
       });
+    },
+    doSearch: function(){
+    var value = $('#ricercaGeneraleInput').val();
+    console.log("Ho Preso il valore " + "risultatoricerca/"+value);
+    Backbone.history.navigate("risultatoricerca/"+value,
+        {trigger: true});  
     }
   });
 
-  return ResultView;
+  
+
+return ResultView;
 
 });

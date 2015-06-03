@@ -36,7 +36,7 @@ define(function(require) {
     },
     doSearch: function(){
     var value = $('#ricercaGeneraleInput').val();
-    console.log("Ho Preso il valore " + "risultatoricerca/"+value);
+;
     Backbone.history.navigate("risultatoricerca/"+value,
         {trigger: true});  
     }
