@@ -14,7 +14,8 @@ require.config({
     utils: '../lib/utils/utils',
     paginator: '../lib/paginator/backbone.paginator',
     moment: '../lib/moment/moment',
-    helperdateformat: '../lib/dateformat/helper-dataformat'
+    helperdateformat: '../lib/dateformat/helper-dataformat',
+    offline: '../lib/offline/offline.min'
   },
   shim: {
     'jquery': {
@@ -34,7 +35,9 @@ require.config({
     },
     'helperdateformat':{
         exports: 'HelperDateformat'
-        
+    },
+    'offline':{
+        exports: 'Offline'
     }
   }
 });
@@ -46,7 +49,7 @@ require(['backbone', 'utils'], function(Backbone, Utils) {
     document.addEventListener("deviceready", run, false);
 
     function run() {
-
+        console.log(Offline.check());
       // Here we precompile ALL the templates so that the app will be quickier when switching views
       // see utils.js
       Utils.loadTemplates().once("templatesLoaded", function() {
