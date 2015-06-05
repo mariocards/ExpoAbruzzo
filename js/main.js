@@ -12,7 +12,6 @@ require.config({
     spin: '../lib/spin/spin.min',
     preloader: '../lib/preloader/pre-loader',
     utils: '../lib/utils/utils',
-    paginator: '../lib/paginator/backbone.paginator',
     moment: '../lib/moment/moment',
     helperdateformat: '../lib/dateformat/helper-dataformat',
     offline: '../lib/offline/offline.min'
