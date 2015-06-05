@@ -22,7 +22,7 @@ define(function(require) {
 
     events: {
       "touchend #goToMap": "goToMap",
-      "touchend #back-button": "goBack" 
+      "tap #back-button": "goBack" 
      
     },
 
@@ -38,9 +38,10 @@ define(function(require) {
       return this;
     },
     goBack : function(){
-        Backbone.history.navigate("itinerarilistview", {
-        trigger: true
-      });
+//        Backbone.history.navigate("itinerarilistview", {
+//        trigger: true
+//      });
+    window.history.back();
     },
     goToMap: function(e) {
       Backbone.history.navigate("map", {

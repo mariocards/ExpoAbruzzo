@@ -38,9 +38,7 @@ define(function(require) {
     },
     
     goBack : function(){
-        Backbone.history.navigate("eventlistview", {
-        trigger: true
-      });
+        window.history.back();
     },
     
     
