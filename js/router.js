@@ -6,7 +6,7 @@ define(function(require) {
 
   
   var MyModel = require("models/MyModel");
-  var PageableCollection = require("paginator");
+ 
   
   var StructureView = require("views/StructureView");
   
