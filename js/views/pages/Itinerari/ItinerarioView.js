@@ -24,8 +24,9 @@ define(function(require) {
     className: "i-g page",
 
     events: {
+
      
-      "touchend #back-button": "goBack",
+      "tap #back-button": "goBack",
       "tap #map-button": "codeAddress"  
      
     },
@@ -82,21 +83,21 @@ define(function(require) {
         maxZoom: 20
       });
       map.addLayer(layer);
-      console.log(map);
+      
     },
  
-
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
      
-      
-    
       return this;
     },
     
-    
     goBack : function(){
-        Backbone.history.navigate("itinerarilistview", {
+
+    window.history.back();
+    },
+    goToMap: function(e) {
+      Backbone.history.navigate("map", {
         trigger: true
       });
     }

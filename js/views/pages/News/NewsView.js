@@ -21,7 +21,7 @@ define(function(require) {
 
     events: {
       "touchend #goToMap": "goToMap",
-      "touchend #back-button": "goBack"
+      "window.history.back(); #back-button": "goBack"
     },
 
     render: function() {
@@ -30,9 +30,7 @@ define(function(require) {
       return this;
     },
     goBack : function(){
-        Backbone.history.navigate("newslistview", {
-        trigger: true
-      });
+        window.history.back();
     },
     goToMap: function(e) {
       Backbone.history.navigate("map", {

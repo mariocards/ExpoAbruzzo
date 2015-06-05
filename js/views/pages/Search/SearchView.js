@@ -20,7 +20,7 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "touchend #back-button": "goBack",
+      "window.history.back(); #back-button": "goBack",
       "tap #ricercaGenerale" :"doSearch"
     },
 
