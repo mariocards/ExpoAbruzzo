@@ -15,7 +15,7 @@ define(function(require) {
 
       this.template = Utils.templates.itinerarioview;
       this.model.on('sync', this.render, this);
-       this.listenTo(this, "sync", this.addMap);
+       
     },
 
     id: "itinerarioview",
@@ -23,14 +23,14 @@ define(function(require) {
 
     events: {
      
-      "touchend #back-button": "goBack"
-      // "tap #map-button": "addMap"  
+      "touchend #back-button": "goBack",
+      "tap #map-button": "addMap"  
      
     },
     
     
     addMap: function() {
-
+         $("#content").append("<div id=\"map\" style=\"height:100%;\"></div>");
       // the center of the map is the address of the University of L'Aquila
       var mapCenter = {
         lat: 42.3676443,
@@ -56,11 +56,13 @@ define(function(require) {
         maxZoom: 20
       });
       map.addLayer(layer);
+      console.log(map);
     },
  
 
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
+     
       
     
       return this;
