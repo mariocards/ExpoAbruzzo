@@ -2,14 +2,16 @@ define(function(require) {
 
   var Backbone = require("backbone");
   var Itinerario = require("models/Itinerario");
-   var L = require("leaflet");
+  var L = require("leaflet");
   var Utils = require("utils");
-
   var ItinerarioView = Utils.Page.extend({
 
     constructorName: "ItinerarioView",
 
     model : Itinerario,
+    
+    
+    
     
     initialize: function() {
 
@@ -23,18 +25,43 @@ define(function(require) {
 
     events: {
 
-      "touchend #goToMap": "goToMap",
+     
       "tap #back-button": "goBack",
-      "tap #map-button": "addMap"  
+      "tap #map-button": "codeAddress"  
      
     },
     
-    addMap: function() {
+    
+    
+     codeAddress: function() {
+        var address = this.model.get('partenza');
+        var geocoder = new google.maps.Geocoder();
+        var self=this;
+        geocoder.geocode({'address': address}, function(results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+
+             self.addMap(results[0].geometry.location);
+
+                
+
+            } else {
+
+            addMap();
+
+            }
+
+        });
+
+    },
+    
+    addMap: function(posizione) {
          $("#content").append("<div id=\"map\" style=\"height:100%;\"></div>");
       // the center of the map is the address of the University of L'Aquila
+  
       var mapCenter = {
-        lat: 42.3676443,
-        lon: 13.3496695
+        lat: posizione.A,
+        lon: posizione.F
       };
 
       var options = {
@@ -56,7 +83,7 @@ define(function(require) {
         maxZoom: 20
       });
       map.addLayer(layer);
-      console.log(map);
+      
     },
  
     render: function() {
