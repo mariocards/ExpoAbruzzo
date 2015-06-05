@@ -42,17 +42,10 @@ define(function(require) {
             if (status == google.maps.GeocoderStatus.OK) {
 
              self.addMap(results[0].geometry.location);
-
-                
-
-            } else {
-
+                 } else {
             addMap();
-
             }
-
         });
-
     },
     
     addMap: function(posizione) {
