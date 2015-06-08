@@ -1,17 +1,12 @@
-<header class="bar bar-nav" id="menu-superiore">
-      <!-- <div style="-webkit-filter: blur(10px); position: absolute; width: 100%; height: 44px; left:0"></div> -->
-      <!--<a class="icon icon-bars pull-left toggle-button" href="#menu"></a>-->
-      <img id="logo_principale" src="img/expo2015_logo2.png">
-      <!--<a class="icon icon-search pull-right" href="#settingsModal"></a>-->
-</header>
 
     <nav id="menu">
-      <img src="/logoexpoabruzzo.png">
+      <img src="img/logoexpoabruzzo.png">
       <ul class="mobile-menu">
-          <li> <a href="index.php">Home<span></span></a></li>
-          <li> <a class="" href="page.php?page_id=8">Abruzzo per Expo<span></span></a></li>
+          <li class="active"> <a href="index.php" id="nav1">Home<span></span></a></li>
+          <li> <a href="">Abruzzo per Expo<span></span></a></li>
           <li> <a href="news.php">Rassegna Stampa<span></span></a></li>
           <li> <a href="event.php">Eventi<span></span></a></li>
+          <li> <a href="event.php">Itinerari<span></span></a></li>
       </ul>
       <div class="social-bar">
         <a href="#">
@@ -29,7 +24,8 @@
       
       </div>
     </nav>
-<nav class="bar bar-tab">
+
+<nav class="bar bar-tab" style="display: none">
   <a class="tab-item active" id="nav1">
     Home
   </a>
@@ -54,23 +50,17 @@
 
 </nav>
 
-<!-- <nav id="navigation">
-    <div id="nav1" class="i-4">nav 1</div>
-    <div id="nav2" class="i-8">nav 2</div>
-</nav> -->
-<div id="content" class="content">
-</div>
-<script src="js/slideout.min.js"></script>
-    <script>
-      var slideout = new Slideout({
-        'panel': document.getElementById('panel'),
-        'menu': document.getElementById('menu'),
-        'padding': 256,
-        'tolerance': 70
-      });
 
-      // Toggle button
-      document.querySelector('#toggle-button').addEventListener('click', function() {
-        slideout.toggle();
-      });
-    </script>
+<main id="panel">
+
+  <header class="bar bar-nav" id="menu-superiore">
+      <!-- <div style="-webkit-filter: blur(10px); position: absolute; width: 100%; height: 44px; left:0"></div> -->
+      <!--<a class="icon icon-bars pull-left toggle-button" href="#menu"></a>-->
+      <a id="toggle-button" class="icon icon-bars pull-left"></a>
+      <a class="icon icon-left-nav pull-left" href="../index.html" data-transition="slide-out" id="back-button"></a>
+      <img id="logo_principale" src="img/expo2015_logo2.png">
+      <a class="icon icon-share pull-right" href="#settingsModal"></a>
+  </header>
+
+  <div id="content" class="content"></div>
+</main>

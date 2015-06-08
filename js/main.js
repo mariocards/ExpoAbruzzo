@@ -12,9 +12,11 @@ require.config({
     spin: '../lib/spin/spin.min',
     preloader: '../lib/preloader/pre-loader',
     utils: '../lib/utils/utils',
+    paginator: '../lib/paginator/backbone.paginator',
     moment: '../lib/moment/moment',
     helperdateformat: '../lib/dateformat/helper-dataformat',
-    offline: '../lib/offline/offline.min'
+    offline: '../lib/offline/offline.min',
+    slideout: './slideout'
   },
   shim: {
     'jquery': {
@@ -34,6 +36,7 @@ require.config({
     },
     'helperdateformat':{
         exports: 'HelperDateformat'
+        
     },
     'offline':{
         exports: 'Offline'
@@ -42,13 +45,13 @@ require.config({
 });
 
 // We launch the App
-require(['backbone', 'utils'], function(Backbone, Utils) {
+require(['backbone', 'utils', 'slideout'], function(Backbone, Utils, Slideout) {
   require(['preloader', 'router'], function(PreLoader, AppRouter) {
 
     document.addEventListener("deviceready", run, false);
 
     function run() {
-        console.log(Offline.check());
+      console.log(Offline.check());
       // Here we precompile ALL the templates so that the app will be quickier when switching views
       // see utils.js
       Utils.loadTemplates().once("templatesLoaded", function() {
@@ -63,6 +66,18 @@ require(['backbone', 'utils'], function(Backbone, Utils) {
           // start the router directly if there are no images to be preloaded
           startRouter();
         }
+
+        var slideoutt = new Slideout({
+          'panel': document.getElementById('panel'),
+          'menu': document.getElementById('menu'),
+          'padding': 256,
+          'tolerance': 70
+        });
+
+        // Toggle button
+        document.querySelector('#toggle-button').addEventListener('click', function() {
+          slideoutt.toggle();
+        });
 
         function startRouter() {
           // launch the router

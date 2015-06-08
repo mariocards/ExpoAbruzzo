@@ -1,16 +1,13 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<div class="content">
-    <button class="btn pull-left" style="z-index: 1;margin:1%; z-index: 100;" id="back-button">Indietro</button>
-          <div  class="image-page"  style="background: url('http://www.expo.abruzzo.it/{{pic}}&width=470&height=200') no-repeat center center; background-size: cover;">
-      	<div class="content-padded">
-     	<h3>{{ title }}</h3>
-     	</div>
+
+    <div  class="image-page" style="background-image: url('http://www.expo.abruzzo.it/{{pic}}&width=470&height=400')">
+        <div class="content-padded">
+        <h3>{{ title }}</h3>
+        </div>
       </div>
       
-      	<div  class="content-padded page">
-      		
-	      	{{{body}}}
+        <div class="content-padded page">
+        	<a class="detail-page" id="map-button"><i class="fa fa-map-marker"></i></a>
+            
+            {{{body}}}
 
-      	</div>
-      <button class="btn pull-left" style="z-index: 1;margin:1%; z-index: 100;" id="map-button">Mostra mappa</button>
-  </div>
+        </div>
