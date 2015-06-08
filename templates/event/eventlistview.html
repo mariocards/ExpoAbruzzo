@@ -1,0 +1,24 @@
+<ul class="table-view">
+    {{#each .}}
+    <li class="table-view-cell media" id="eventListItem" data-id="{{id}}">
+    <a class="navigate-right" href="pagesingle.html" data-transition="slide-in">
+      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{photo}}&width=200&height=200')"></div>
+      <div class="text-list">
+        <h6><div class="overflow-text"></div>{{title}}</h6>
+        <p>{{ data }}</p>
+      </div>
+    </a>
+  </li>
+    
+    {{/each}}
+</ul> 
+
+
+<div id="loadMore" class="box swype">
+   
+      
+            <div id="loader-circle"></div>
+
+   
+</div>
+
