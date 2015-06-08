@@ -12,6 +12,8 @@ define(function(require) {
     initialize: function() {       
       this.template = Utils.templates.itinerarilistview;     
       this.model.on('sync', this.render, this);
+      $('#back-button').css('display','block');
+      $('#settingsModal').css('display','none');
     },
 
     id: "itinerarilistview",
@@ -19,7 +21,8 @@ define(function(require) {
 
     events: {
       "tap #itinerariListItem": "itinerarioDetail",
-      "swipeUp #loadMore" : "fetchSheets"    
+      "swipeUp #loadMore" : "fetchSheets"  ,
+      "tap #back-button":"goBack"
     },
     
 
@@ -32,7 +35,11 @@ define(function(require) {
       Backbone.history.navigate("itinerarioview/"+$(ev.currentTarget).data('id'), {
          trigger: true});
     },    
-    
+    goBack: function(){
+        Backbone.history.navigate("itineraricatlistview", {
+        trigger: true
+      });
+    },
     fetchSheets: function () {
        this.model.iniziale+=5;
        this.model.fetch({remove: false});

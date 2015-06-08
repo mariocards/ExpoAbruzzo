@@ -17,23 +17,19 @@ define(function(require) {
 
       this.template = Utils.templates.itinerarioview;
       this.model.on('sync', this.render, this);
-       
+      $('#back-button').css('display','block');
+      $('#settingsModal').css('display','block'); 
     },
 
     id: "itinerarioview",
     className: "i-g page",
 
     events: {
-
-     
       "tap #back-button": "goBack",
       "tap #map-button": "codeAddress"  
      
     },
-    
-    
-    
-     codeAddress: function() {
+    codeAddress: function() {
         var address = this.model.get('partenza');
         var geocoder = new google.maps.Geocoder();
         var self=this;
@@ -87,7 +83,10 @@ define(function(require) {
     
     goBack : function(){
 
-    window.history.back();
+//    window.history.back();
+        Backbone.history.navigate("itinerarilistview", {
+        trigger: true
+      });
     },
     goToMap: function(e) {
       Backbone.history.navigate("map", {

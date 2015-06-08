@@ -12,7 +12,6 @@ require.config({
     spin: '../lib/spin/spin.min',
     preloader: '../lib/preloader/pre-loader',
     utils: '../lib/utils/utils',
-    paginator: '../lib/paginator/backbone.paginator',
     moment: '../lib/moment/moment',
     helperdateformat: '../lib/dateformat/helper-dataformat',
     offline: '../lib/offline/offline.min',
@@ -51,7 +50,7 @@ require(['backbone', 'utils', 'slideout'], function(Backbone, Utils, Slideout) {
     document.addEventListener("deviceready", run, false);
 
     function run() {
-      console.log(Offline.check());
+     
       // Here we precompile ALL the templates so that the app will be quickier when switching views
       // see utils.js
       Utils.loadTemplates().once("templatesLoaded", function() {

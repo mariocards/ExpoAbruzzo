@@ -12,6 +12,8 @@ define(function(require) {
     initialize: function() {
       this.template = Utils.templates.newslistview;
       this.model.on('sync', this.render, this);
+      $('#back-button').css('display','block');
+      $('#settingsModal').css('display','none');
     },
     
     id: "newslistview",
@@ -19,7 +21,8 @@ define(function(require) {
     
     events: {
       "tap #eventListItem": "newsDetail",
-      "swipeUp #loadMore" : "fetchSheets"
+      "swipeUp #loadMore" : "fetchSheets",
+      "tap #back-button": "goBack"
     },
 
     render: function() {
@@ -37,7 +40,11 @@ define(function(require) {
     fetchSheets: function () {
        this.model.iniziale+=5;
        this.model.fetch({remove: false});
-  }
+  },
+    goBack: function(){
+        Backbone.history.navigate("myview", {
+         trigger: true});
+    }
     
   });
 

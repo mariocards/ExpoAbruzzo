@@ -10,7 +10,9 @@ define(function (require) {
         model: Events,
         initialize: function () {
             this.template = Utils.templates.eventlistview;
-            this.model.on('sync', this.render, this);        
+            this.model.on('sync', this.render, this);  
+            $('#back-button').css('display','block');
+        $('#settingsModal').css('display','none');
         },
         id: "eventlistview",
         className: "i-g page",
@@ -31,7 +33,11 @@ define(function (require) {
         fetchSheets: function () {
             this.model.iniziale += 5;
             this.model.fetch({remove: false});
-        }
+        },
+    goBack: function(){
+        Backbone.history.navigate("myview", {
+         trigger: true});
+    }
     });
 
     return EventListView;

@@ -11,7 +11,8 @@ define(function(require) {
     initialize: function() {
       // load the precompiled template
       this.template = Utils.templates.myview;
-      
+      $('#back-button').css('display','none');
+      $('#settingsModal').css('display','none');
     },
 
     id: "myview",

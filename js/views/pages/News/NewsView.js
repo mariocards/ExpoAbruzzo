@@ -14,6 +14,8 @@ define(function(require) {
       // load the precompiled template
       this.template = Utils.templates.newsview;
       this.model.on('sync', this.render, this);
+      $('#back-button').css('display','block');
+      $('#settingsModal').css('display','block');
     },
 
     id: "newsview",
@@ -33,7 +35,7 @@ define(function(require) {
         window.history.back();
     },
     goToMap: function(e) {
-      Backbone.history.navigate("map", {
+      Backbone.history.navigate("newslistview", {
         trigger: true
       });
     }
