@@ -13,6 +13,7 @@ define(function(require) {
       this.template = Utils.templates.myview;
       $('#back-button').css('display','none');
       $('#settingsModal').css('display','none');
+      $('#toggle-button').css('display','block');
     },
 
     id: "myview",

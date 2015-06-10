@@ -82,7 +82,7 @@ define(function(require) {
     },
     
     goBack : function(){
-
+        console.log("Ostie");
 //    window.history.back();
         Backbone.history.navigate("itinerarilistview", {
         trigger: true

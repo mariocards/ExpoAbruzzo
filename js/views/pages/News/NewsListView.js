@@ -14,6 +14,7 @@ define(function(require) {
       this.model.on('sync', this.render, this);
       $('#back-button').css('display','block');
       $('#settingsModal').css('display','none');
+      $('#toggle-button').css('display','none');
     },
     
     id: "newslistview",
@@ -21,7 +22,7 @@ define(function(require) {
     
     events: {
       "tap #eventListItem": "newsDetail",
-      "swipeUp #loadMore" : "fetchSheets",
+      "scroll" : "fetchSheets",
       "tap #back-button": "goBack"
     },
 
@@ -37,11 +38,13 @@ define(function(require) {
         {trigger: true});
     },
      
-    fetchSheets: function () {
+    fetchSheets: function (e) {
+       
        this.model.iniziale+=5;
        this.model.fetch({remove: false});
   },
     goBack: function(){
+        
         Backbone.history.navigate("myview", {
          trigger: true});
     }

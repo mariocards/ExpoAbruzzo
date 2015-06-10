@@ -12,7 +12,8 @@ define(function (require) {
             this.template = Utils.templates.eventlistview;
             this.model.on('sync', this.render, this);  
             $('#back-button').css('display','block');
-        $('#settingsModal').css('display','none');
+            $('#settingsModal').css('display','none');
+            $('#toggle-button').css('display','none');
         },
         id: "eventlistview",
         className: "i-g page",

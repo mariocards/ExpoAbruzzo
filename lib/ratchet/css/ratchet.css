@@ -257,7 +257,7 @@ a:active {
 }
 
 .content {
-  position: fixed;
+  position: relative;
   top: 0;
   right: 0;
   bottom: 0;
@@ -275,6 +275,7 @@ a:active {
 
 .bar-nav ~ .content {
   padding-top: 44px;
+  height: 100%;
 }
 
 .bar-header-secondary ~ .content {

@@ -47,7 +47,8 @@ require.config({
 require(['backbone', 'utils', 'slideout'], function(Backbone, Utils, Slideout) {
   require(['preloader', 'router'], function(PreLoader, AppRouter) {
 
-    document.addEventListener("deviceready", run, false);
+//    document.addEventListener("deviceready", run, false);
+    run();
 
     function run() {
      

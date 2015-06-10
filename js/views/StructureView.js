@@ -25,6 +25,7 @@ define(function(require) {
       //this.on("inTheDOM", this.rendered);
       // bind the back event to the goBack function
       //document.getElementById("back").addEventListener("back", this.goBack(), false);
+      $('#toggle-button').css('display','block');
     },
 
     render: function() {

@@ -32,7 +32,10 @@ define(function(require) {
       return this;
     },
     goBack : function(){
-        window.history.back();
+        navigator.app.backHistory();
+        Backbone.history.navigate("newslistview", {
+        trigger: true
+      });
     },
     goToMap: function(e) {
       Backbone.history.navigate("newslistview", {

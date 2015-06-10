@@ -21,7 +21,8 @@ define(function(require) {
 
     events: {
       "window.history.back(); #back-button": "goBack",
-      "tap #ricercaGenerale" :"doSearch"
+      "tap #ricercaGenerale" :"doSearch",
+      "keypress #ricercaGeneraleInput" :"doSearch"
     },
 
     render: function() {
@@ -45,3 +46,4 @@ define(function(require) {
   return SearchView;
 
 });
+/*keypress mi sestituscire un  un evento e, se è == 13 fai blur*/
