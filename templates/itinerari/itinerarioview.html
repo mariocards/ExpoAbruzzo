@@ -8,7 +8,7 @@
         <div class="content-padded page">
         	<a class="detail-page" id="map-button"><i class="fa fa-map-marker"></i>Partenza: {{partenza}} </a>
                 <a class="detail-page" id="map-button"><i class="fa fa-map-marker"></i>Arrivo: {{arrivo}}</a>
-            
+             <button class="icon icon-share pull-right" onclick="window.plugins.socialsharing.share('Da {{partenza}} a {{arrivo}} {{travelling}}', 'Itinerario Abruzzese ' , null, 'http://expo.abruzzo.it/itinerari.php?id={{id}}')"></button><br/>
             {{{body}}}
 
         </div>

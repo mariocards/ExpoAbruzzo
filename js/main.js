@@ -66,14 +66,14 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
         }
 
         function alertDismissed() {
-                //Al momento non è usata, questa è òa collback della alert.
-                //magari la usiamo per gestire meglio l'errore della rete assente
+            //Al momento non è usata, questa è òa collback della alert.
+            //magari la usiamo per gestire meglio l'errore della rete assente
         }
 
         function onOline() {
             navigator.notification.vibrate(800);
         }
-        
+
         function checkConnection() {
             var networkState = navigator.connection.type;
             var states = {};
@@ -101,39 +101,41 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //            }
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
-            Utils.loadTemplates().once("templatesLoaded", function () {
+            
+        
+        Utils.loadTemplates().once("templatesLoaded", function () {
 
-                var images = []; // here the developer can add the paths to the images that he would like to be preloaded
+            var images = []; // here the developer can add the paths to the images that he would like to be preloaded
 
-                if (images.length) {
-                    new PreLoader(images, {
-                        onComplete: startRouter
-                    });
-                } else {
-                    // start the router directly if there are no images to be preloaded
-                    startRouter();
-                }
-
-                var slideoutt = new Slideout({
-                    'panel': document.getElementById('panel'),
-                    'menu': document.getElementById('menu'),
-                    'padding': 256,
-                    'tolerance': 70
+            if (images.length) {
+                new PreLoader(images, {
+                    onComplete: startRouter
                 });
+            } else {
+                // start the router directly if there are no images to be preloaded
+                startRouter();
+            }
 
-                // Toggle button
-                document.querySelector('#toggle-button').addEventListener('click', function () {
-                    slideoutt.toggle();
-                });
-
-                function startRouter() {
-                    // launch the router
-                    var router = new AppRouter();
-                    Backbone.history.start();
-                }
-
+            var slideoutt = new Slideout({
+                'panel': document.getElementById('panel'),
+                'menu': document.getElementById('menu'),
+                'padding': 256,
+                'tolerance': 70
             });
-        }
+
+            // Toggle button
+            document.querySelector('#toggle-button').addEventListener('click', function () {
+                slideoutt.toggle();
+            });
+
+            function startRouter() {
+                // launch the router
+                var router = new AppRouter();
+                Backbone.history.start();
+            }
+
+        });
+    }
 
     });
 });
