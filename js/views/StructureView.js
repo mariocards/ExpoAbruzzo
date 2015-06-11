@@ -17,7 +17,8 @@ define(function(require) {
       "tap #nav4": "eventListView",
       "tap #nav5": "itinerariCatListView",
       "tap #nav6": "search",
-      "tap #back-button" : "goBack"
+      "tap #back-button" : "goBack",
+      "tap #settingsModal" : "search"
     },
 
     initialize: function(options) {

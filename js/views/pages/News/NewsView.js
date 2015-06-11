@@ -16,6 +16,8 @@ define(function(require) {
       this.model.on('sync', this.render, this);
       $('#back-button').css('display','block');
       $('#settingsModal').css('display','block');
+      $('#toggle-button').css('display','none');
+      
     },
 
     id: "newsview",
