@@ -1,14 +1,18 @@
 
-    <div  class="image-page" style="background-image: url('http://www.expo.abruzzo.it/{{pic}}&width=470&height=400')">
+    <div  class="image-page" style="background-image: url('http://www.expo.abruzzo.it/{{pic}}&height=500')">
         <div class="content-padded">
-        <h3>{{ title }}</h3>
+        	<div class="box-title">
+        		<span>Itinerario</span>
+        		<h3>{{ title }}</h3>
+        		<button class="icon icon-share share-button" onclick="window.plugins.socialsharing.share('Da {{partenza}} a {{arrivo}} {{travelling}}', 'Itinerario Abruzzese ' , null, 'http://expo.abruzzo.it/itinerari.php?id={{id}}')"></button>
+        	</div>
         </div>
       </div>
       
         <div class="content-padded page">
-        	<a class="detail-page" id="map-button"><i class="fa fa-map-marker"></i>Partenza: {{partenza}} </a>
-                <a class="detail-page" id="map-button"><i class="fa fa-map-marker"></i>Arrivo: {{arrivo}}</a>
-             <button class="icon icon-share pull-right" onclick="window.plugins.socialsharing.share('Da {{partenza}} a {{arrivo}} {{travelling}}', 'Itinerario Abruzzese ' , null, 'http://expo.abruzzo.it/itinerari.php?id={{id}}')"></button><br/>
+        	<a class="detail-page" id="map-button"><i class="fa fa-flag"></i> {{partenza}}</a>
+        	<a class="detail-page" ><i class="fa fa-flag-checkered"></i> {{arrivo}}</a>
+            
             {{{body}}}
 
         </div>
