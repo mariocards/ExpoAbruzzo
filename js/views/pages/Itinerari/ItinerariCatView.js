@@ -22,12 +22,7 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #itinerariCatListItem": "itinerariList",
-      "tap #back-button" : "goBack"
-    },
-    goBack: function(){
-        Backbone.history.navigate("myview", {
-         trigger: true});
+      "tap #itinerariCatListItem": "itinerariList"
     },
 
     render: function() {

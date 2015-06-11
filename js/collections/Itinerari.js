@@ -7,7 +7,7 @@ define(function(require) {
 	var Itinerari = Backbone.Collection.extend({
 		initialize: function(key) {
 		this.iniziale=0;
-                this.finale=5;
+                this.finale=8;
                 this.category=key;
                 },
                 category : undefined,

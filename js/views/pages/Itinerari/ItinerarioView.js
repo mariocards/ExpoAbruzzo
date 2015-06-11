@@ -25,7 +25,6 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #back-button": "goBack",
       "tap #map-button": "codeAddress"  
      
     },
@@ -79,19 +78,6 @@ define(function(require) {
       $(this.el).html(this.template(this.model.toJSON()));
      
       return this;
-    },
-    
-    goBack : function(){
-        console.log("Ostie");
-//    window.history.back();
-        Backbone.history.navigate("itinerarilistview", {
-        trigger: true
-      });
-    },
-    goToMap: function(e) {
-      Backbone.history.navigate("map", {
-        trigger: true
-      });
     }
     
   });

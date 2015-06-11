@@ -53,34 +53,29 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //        cordova plugin add cordova-plugin-network-information
         document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOline, false);
-        document.addEventListener("deviceready", run, false);
+//        document.addEventListener("deviceready", run, false);
 
         function onOffline() {
             navigator.notification.vibrate(500);
             navigator.notification.alert(
-                    'Per Utilizzare questa APP devi essere Connesso', // message
-                    alertDismissed, // callback
-                    'Attiva una Rete', // title
-                    'Ok'                  // buttonName
+                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
+                    alertDismissed, // Callback che non usiamo al momento
+                    'Attiva una Rete', // Titolo Messaggio errore
+                    'Ok'                  // Nome del Bottone
                     );
-
-
         }
 
         function alertDismissed() {
-//            alert("Per utilizzare questa app devi essere connesso");
-//            console.log("Per utilizzare questa app devi essere connesso");
+                //Al momento non è usata, questa è òa collback della alert.
+                //magari la usiamo per gestire meglio l'errore della rete assente
         }
 
         function onOline() {
-//            console.log("onOline");
-//            alert("sei qualcuno");
             navigator.notification.vibrate(800);
         }
-
+        
         function checkConnection() {
             var networkState = navigator.connection.type;
-
             var states = {};
             states[Connection.UNKNOWN] = 'Unknown connection';
             states[Connection.ETHERNET] = 'Ethernet connection';
@@ -90,27 +85,20 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
             states[Connection.CELL_4G] = 'Cell 4G connection';
             states[Connection.CELL] = 'Cell generic connection';
             states[Connection.NONE] = 'No network connection';
-
-//            alert('Connection type: ' + states[networkState]);
             return states[networkState];
-//            var elem = $("<div>Hello</div>");
-//            elem.css('background-color', 'black');
-//            elem.css('color', 'white');
-//            elem.css('z-index', 100);
-//            $('#panel').append(elem);
         }
 
-//        run();
+        run();
 
         function run() {
-            if (checkConnection() === 'No network connection') {
-                navigator.notification.alert(
-                    'Per Utilizzare questa APP devi essere Connesso', // message
-                    alertDismissed, // callback
-                    'Attiva una Rete', // title
-                    'Ok'                  // buttonName
-                    );
-            }
+//            if (checkConnection() === 'No network connection') {
+//                navigator.notification.alert(
+//                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
+//                    alertDismissed, // Callback che non usiamo al momento
+//                    'Attiva una Rete', // Titolo Messaggio errore
+//                    'Ok'                  // Nome del Bottone
+//                    );
+//            }
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
             Utils.loadTemplates().once("templatesLoaded", function () {

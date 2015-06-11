@@ -7,7 +7,7 @@ define(function(require) {
 	var Events = Backbone.Collection.extend({
 		initialize: function() {
 		this.iniziale=0;
-                this.finale=5;
+                this.finale=8;
                 },
                 iniziale: 0,
                 finale: 5,	

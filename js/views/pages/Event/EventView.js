@@ -22,34 +22,13 @@ define(function(require) {
     id: "eventview",
     className: "i-g page",
 
-    events: {
-      "touchend #goToMap": "goToMap",
-      "touchend #back-button": "goBack"    
+    events: {  
     },
 
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
       
       return this;
-    },
-    
-     render2: function() {
-      $(this.el).html(this.template(this.model.attributes.toJSON()));
-      
-      return this;
-    },
-    
-    goBack : function(){
-        Backbone.history.navigate("eventlistview", {
-        trigger: true
-      });
-    },
-    
-    
-    goToMap: function(e) {
-      Backbone.history.navigate("map", {
-        trigger: true
-      });
     }
   });
 
