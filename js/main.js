@@ -47,7 +47,10 @@ require.config({
 require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) {
     require(['preloader', 'router'], function (PreLoader, AppRouter) {
 
-
+//        Per funzionare necessita di questi Plugin
+//        cordova plugin add org.apache.cordova.dialogs
+//        cordova plugin add org.apache.cordova.vibration
+//        cordova plugin add cordova-plugin-network-information
         document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOline, false);
         document.addEventListener("deviceready", run, false);
