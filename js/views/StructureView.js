@@ -16,7 +16,9 @@ define(function(require) {
       "tap #nav3": "newsListView",
       "tap #nav4": "eventListView",
       "tap #nav5": "itinerariCatListView",
-      "tap #nav6": "search"
+      "tap #nav6": "search",
+      "tap #back-button" : "goBack",
+      "tap #settingsModal" : "search"
     },
 
     initialize: function(options) {
@@ -41,7 +43,7 @@ define(function(require) {
 
     // generic go-back function
     goBack: function() {
-      //window.history.back();
+      window.history.back();
     },
 
     setActiveTabBarElement: function(elementId) {

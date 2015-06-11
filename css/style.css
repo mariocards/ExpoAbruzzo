@@ -322,8 +322,9 @@ header.transparent{
 	color: #cc2575;
 	text-transform: none;
 	font-size: 14px;
-	height: 60px;
-  overflow-y: hidden;
+	height: 43px;
+  
+	overflow-y: hidden;
   position: relative;
 
 }

@@ -12,7 +12,7 @@ define(function(require) {
       // load the precompiled template
       this.template = Utils.templates.myview;
       $('#back-button').css('display','none');
-      $('#settingsModal').css('display','none');
+      
       $('#toggle-button').css('display','block');
     },
 
