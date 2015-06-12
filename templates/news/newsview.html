@@ -1,0 +1,17 @@
+
+    <div  class="image-page" style="background-image: url('http://www.expo.abruzzo.it/{{picture}}&height=500')">
+        <div class="content-padded">
+        	<div class="box-title">
+        		<span>News</span>
+        		<h3>{{ title }}</h3>
+        		<button class="icon icon-share share-button" onclick="window.plugins.socialsharing.share('News {{ title }} ', null, null, 'http://expo.abruzzo.it/news.php?id={{id}}')"></button>
+        	</div>
+        </div>
+      </div>
+      
+        <div class="content-padded page">
+            
+            {{{body}}}
+
+        </div>
+
