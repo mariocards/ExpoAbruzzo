@@ -1,16 +1,21 @@
-<!--<button onclick="$(window)[0].plugins.socialsharing.share('Message only')">message only</button><br/>
-<button onclick="window.plugins.socialsharing.share('Message and subject', 'The subject')">message and subject</button><br/>
-<button onclick="window.plugins.socialsharing.share(null, null, null, 'http://www.x-services.nl')">link only</button><br/>-->
 
-<!--<button onclick="window.plugins.socialsharing.share(null, null, 'https://www.google.nl/images/srpr/logo4w.png', null)">image only</button><br/>-->
-<div  class="image-page" style="background-image: url('http://www.expo.abruzzo.it/{{photo}}&width=470&height=400')">
-    <div class="content-padded">
-        <h3>{{ title }}</h3>
-    </div>
-</div>
+    <div  class="image-page" style="background-image: url('http://www.expo.abruzzo.it/{{photo}}&height=500')">
+        <div class="content-padded">
+       		 <div class="box-title">
+        		<span>Evento</span>
+        		<h3>{{ title }}</h3>
+        		<button class="icon icon-share share-button" onclick="window.plugins.socialsharing.share('{{ location }}', '{{ title }}', null, 'http://expo.abruzzo.it/event.php?id={{id}}')"></button>
+        	</div>
+        </div>
+      </div>
+      
+        <div class="content-padded page">
+        	<a class="detail-page"><i class="fa fa-calendar-o"></i> {{data}}</a>
+            <a class="detail-page" id="map-button"><i class="fa fa-map-marker"></i> {{location}}</a>
+            
+            {{{description}}}
 
-<div class="content-padded page">
-    <a class="detail-page" id="map-button"><i class="fa fa-map-marker"></i>Dove: {{location}} </a>
-    <button class="icon icon-share pull-right" onclick="window.plugins.socialsharing.share('{{ location }}', '{{ title }}', null, 'http://expo.abruzzo.it/event.php?id={{id}}')"></button><br/>
-    {{{description}}}
-</div>
+        </div>
+        <!-- <div class="content-padded page" style="text-align: center">
+        	<button type="button" class="btn" style="color: white;background: #cc2575;border: none;"><i class="fa fa-plus"></i> Aggiungi a Calendario</button>
+        </div> -->

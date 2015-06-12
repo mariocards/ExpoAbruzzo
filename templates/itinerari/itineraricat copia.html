@@ -1,0 +1,12 @@
+
+<ul class="table-view home">
+ {{#each .}}
+    	<li class="table-view-cell">
+            <h1 id="itinerariCatListItem" data-id="{{id}}" class="section-title">{{name}}</h1>
+            <a id="itinerariCatListItem" data-id="{{id}}" data-transition="slide-in">
+                <img src="http://www.expo.abruzzo.it/{{foto}}">
+            </a>
+        </li>
+  
+{{/each}}
+</ul>

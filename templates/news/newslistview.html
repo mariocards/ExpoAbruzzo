@@ -3,13 +3,12 @@
 
 <ul class="table-view">
     {{#each .}}
-    <li class="table-view-cell media" id="eventListItem" data-id="{{id}}">
-    <a class="navigate-right" data-transition="slide-in">
-      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}&width=200&height=200')"></div>
+    <li class="table-view-cell media news-list" id="eventListItem" data-id="{{id}}" style="background-image: url('http://www.expo.abruzzo.it/{{picture}}&width=200&height=200')">
+    <a class="navigate-right" href="pagesingle.html" data-transition="slide-in">
+      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}&width=200')"></div>
       <div class="text-list">
         <h6><div class="overflow-text"></div>{{title}}</h6>
-        <p>{{ date }}</p>
-        <p>{{{trimString body}}}</p>
+        <p> {{ date }}</p>
       </div>
     </a>
   </li>
@@ -19,7 +18,7 @@
 
 
 <div id="loadMore" class="box swype">
-    Fai uno Swipe in alto per altre info
+   
       
             <div id="loader-circle"></div>
 

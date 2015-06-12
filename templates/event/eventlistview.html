@@ -1,14 +1,14 @@
 <ul class="table-view">
     {{#each .}}
-    <li class="table-view-cell media" id="eventListItem" data-id="{{id}}">
-    <a class="navigate-right" data-transition="slide-in">
-      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{photo}}&width=200&height=200')"></div>
+    <li class="table-view-cell media" id="eventListItem" data-id="{{id}}" style="background-image:url('http://www.expo.abruzzo.it/{{photo}}&width=500')">
+    <a class="navigate-right" href="pagesingle.html" data-transition="slide-in">
       <div class="text-list">
-        
-        <h4>{{title}}</h4>
-        <h5><i class="fa fa-map-marker"></i> {{location}}</h5>
-        <h6>{{ data }}</h6>
-         <p>{{{trimString description}}}</p>
+        <h6>{{title}}</h6>
+        <div class="details">
+        <p>Location</p>
+        <!--<p><i class="fa fa-calendar-o"></i> {{ data }}</p>-->
+        </div>
+        <div class="date-events"><span class="number">19</span><br><span class="day">Aprile</span></div>
       </div>
     </a>
   </li>
@@ -19,8 +19,8 @@
 
 <div id="loadMore" class="box swype">
    
-Fai uno Swipe in alto per altre info
-<div id="loader-circle"></div>
+      
+            <div id="loader-circle"></div>
 
    
 </div>
