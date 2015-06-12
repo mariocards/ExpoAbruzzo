@@ -51,6 +51,10 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //        cordova plugin add org.apache.cordova.dialogs
 //        cordova plugin add org.apache.cordova.vibration
 //        cordova plugin add cordova-plugin-network-information
+//        cordova plugin add https://github.com/phonegap-build/PushPlugin.git
+//        cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
+//        cordova plugin add cordova-plugin-file
+//        cordova plugin add org.apache.cordova.media
         document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOline, false);
 //        document.addEventListener("deviceready", run, false);
@@ -96,7 +100,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
         var pushNotification;
 
         function onDeviceReady2() {
-            alert('deviceready event received');
+//            alert('deviceready event received');
             $("#main").append('<li>deviceready event received</li>');
 
             document.addEventListener("backbutton", function (e)
@@ -118,13 +122,13 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 
             try
             {
-                alert(window.plugins.pushNotification);
+//                alert(window.plugins.pushNotification);
                 pushNotification = window.plugins.pushNotification;
-                alert(pushNotification);
+//                alert(pushNotification);
                 $("#main").append('<li>registering ' + device.platform + '</li>');
                 if (device.platform == 'android' || device.platform == 'Android' ||
                         device.platform == 'amazon-fireos') {
-                    alert("gioia");
+//                    alert("gioia");
 
                     pushNotification.register(successHandler, errorHandler, {"senderID": "431217405561", "ecb": "onNotification"});		// required!
                 } else {
@@ -136,20 +140,20 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                 txt = "There was an error on this page.\n\n";
                 txt += "Error description: " + err.message + "\n\n";
 
-                alert(txt);
+//                alert(txt);
             }
             onNotification = function (e) {
-                alert("magara");
+//                alert("magara");
                 $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-                alert(e);
+//                alert(e);
                 switch (e.event)
                 {
                     case 'registered':
-                        alert(e.regid);
-                        alert("registrato");
+//                        alert(e.regid);
+//                        alert("registrato");
                         if (e.regid.length > 0)
                         {
-                            alert(e.regid);
+//                            alert(e.regid);
                             $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
                             // Your GCM push server needs to know the regID before it can push to this device
                             // here is where you might want to send it the regID for later use.
@@ -158,13 +162,13 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                         break;
 
                     case 'message':
-                        alert("message");
+//                        alert("message");
                         // if this flag is set, this notification happened while we were in the foreground.
                         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
                         if (e.foreground)
                         {
 
-                            alert("messageif");
+//                            alert("messageif");
                             $("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
 
                             // on Android soundname is outside the payload. 
@@ -178,7 +182,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                         }
                         else
                         {	// otherwise we were launched because the user touched a notification in the notification tray.
-                            alert("messageelse");
+//                            alert("messageelse");
                             if (e.coldstart)
                                 $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
                             else
@@ -193,16 +197,16 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                         break;
 
                     case 'error':
-                        alert("errore");
+//                        alert("errore");
                         $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
                         break;
 
                     default:
-                        alert("defauult");
+//                        alert("defauult");
                         $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
                         break;
                 }
-            }
+            };
         }
 
         // handle APNS notifications for iOS
@@ -236,12 +240,18 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
         function successHandler(result) {
             // $("#app-status-ul").append('<li>success:' + result + '</li>');
             //onNotification(result);
-            alert('success:' + result);
+//            alert('success:' + result);
         }
 
         function errorHandler(error) {
             $("#app-status-ul").append('<li>error:' + error + '</li>');
-            alert('error:' + error);
+            navigator.notification.alert(
+                    'Errore Notifiche', // messagio no rete
+                    alertDismissed, // Callback che non usiamo al momento
+                    'Problema Notifiche', // Titolo Messaggio errore
+                    'Ok'                  // Nome del Bottone
+                    );
+            
         }
 
 
@@ -258,7 +268,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
 
-            onDeviceReady2();
+//            onDeviceReady2();
 
             Utils.loadTemplates().once("templatesLoaded", function () {
 
