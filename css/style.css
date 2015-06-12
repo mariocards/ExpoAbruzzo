@@ -200,6 +200,7 @@ header.transparent{
   	background: transparent;
   	border: none;
   	color: #cc2575;
+  	outline: none;
 }
 
 .table-view{
