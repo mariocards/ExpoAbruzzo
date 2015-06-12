@@ -31,6 +31,7 @@ define(function (require) {
                 trigger: true});
         },
         fetchSheets: function () {
+            alert("dio cane");
             var delta = this.checkScroll();
             if (delta > -30) {
                 this.model.iniziale += 5;

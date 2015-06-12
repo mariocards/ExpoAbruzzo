@@ -103,22 +103,22 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //            alert('deviceready event received');
             $("#main").append('<li>deviceready event received</li>');
 
-            document.addEventListener("backbutton", function (e)
-            {
-                $("#app-status-ul").append('<li>backbutton event received</li>');
-
-                if ($("#main").length > 0)
-                {
-                    // call this to get a new token each time. don't call it to reuse existing token.
-                    //pushNotification.unregister(successHandler, errorHandler);
-                    e.preventDefault();
-                    navigator.app.exitApp();
-                }
-                else
-                {
-                    navigator.app.backHistory();
-                }
-            }, false);
+//            document.addEventListener("backbutton", function (e)
+//            {
+//                $("#app-status-ul").append('<li>backbutton event received</li>');
+//
+//                if ($("#main").length > 0)
+//                {
+//                    // call this to get a new token each time. don't call it to reuse existing token.
+//                    //pushNotification.unregister(successHandler, errorHandler);
+////                    e.preventDefault();
+////                    navigator.app.exitApp();
+//                }
+//                else
+//                {
+////                    navigator.app.backHistory();
+//                }
+//            }, false);
 
             try
             {
