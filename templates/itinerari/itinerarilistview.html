@@ -1,11 +1,11 @@
 <div class="masonry">
   {{#each .}}
    <div class="item" id="itinerariListItem" data-id="{{id}}">
-    <a href="pagesingle.html" data-transition="slide-in">
+    <a data-transition="slide-in">
       <h2>{{title}}</h2>
       <div class="masonry-img"><img src="http://www.expo.abruzzo.it/{{pic}}&width=500"></div>
       <div class="box-info">
-      <a class="detail-page" id="map-button"><i class="fa fa-flag"></i> {{partenza}}</a>
+      <a class="detail-page" ><i class="fa fa-flag"></i> {{partenza}}</a>
       <a class="detail-page" ><i class="fa fa-flag-checkered"></i> {{arrivo}}</a>
     </div>
     </a>
