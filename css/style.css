@@ -1,5 +1,17 @@
 /* loader animation */
+#content{
 
+	overflow: auto;
+	position:relative;
+
+}
+
+#eventlistview, #newslistview, #itinerarilistview {
+
+	overflow: auto;
+  	height: 100%;
+
+}
 
 
 @-webkit-keyframes rotate {
@@ -428,10 +440,12 @@ header.transparent{
 .img-list{
 
 	width: 90px;
-	height: 90px;
-	display: inline-block;
-	background: #999 no-repeat center center; 
-	background-size: cover;
+  	height: 90px;
+  	display: inline-block;
+  	background: rgba(0, 0, 0, 0.1) no-repeat center center;
+  	background-image: url(../img/loading.gif);
+  	background-size: cover;
+  	transition: 0.5s;
 
 }
 
@@ -558,7 +572,7 @@ border-left: 2px solid #cc2575;
 .masonry { /* Masonry container */
     -webkit-column-count: 1;
     -webkit-column-gap: 15px;
-    padding: 10px 15px;
+    padding: 10px 15px 0;
 }
 
 .masonry .item { /* Masonry bricks or child elements */

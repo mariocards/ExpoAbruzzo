@@ -31,8 +31,7 @@ define(function (require) {
         },
         fetchSheets: function (e) {
             var delta = this.checkScroll();
-            console.log("Delta " + delta);
-            if (delta > -30) {
+            if (delta > -60) {
                 this.model.iniziale += 5;
                 this.model.fetch({remove: false});
             }

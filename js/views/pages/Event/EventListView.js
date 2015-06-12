@@ -33,7 +33,8 @@ define(function (require) {
         fetchSheets: function () {
             alert("dio cane");
             var delta = this.checkScroll();
-            if (delta > -30) {
+          
+            if (delta > -60) {
                 this.model.iniziale += 5;
                 this.model.fetch({remove: false});
             }
