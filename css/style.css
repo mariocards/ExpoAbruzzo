@@ -305,7 +305,7 @@ header.transparent{
 }
 .page{
 
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(255, 255, 255, 0.7);
 	margin: 0;
 	padding: 0;
 
@@ -388,6 +388,7 @@ header.transparent{
 .content-padded.page{
 
 	padding: 15px;
+	background: rgba(255, 255, 255, 0.3);
 
 }
 
@@ -469,8 +470,17 @@ header.transparent{
 	line-height: 20px;
 	font-weight: 300;
 	letter-spacing: 1px;
-  overflow-y: hidden;
-  position: relative;
+  	position: relative;
+
+}
+#newslistview .img-list{
+
+	height: 110px;
+
+}
+#newslistview .text-list h6{
+
+	height: 84px;
 
 }
 .text-list p{
