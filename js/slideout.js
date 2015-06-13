@@ -66,6 +66,7 @@ function Slideout(options) {
   this.panel = options.panel;
   this.menu = options.menu;
 
+
   // Sets  classnames
   this.panel.className += ' slideout-panel';
   this.menu.className += ' slideout-menu';
@@ -77,6 +78,7 @@ function Slideout(options) {
   this._padding = this._translateTo = parseInt(options.padding, 10) || 256;
   this._orientation = options.side === 'right' ? -1 : 1;
   this._translateTo *= this._orientation;
+  this._swipeRegion = parseInt(options.swipeRegion, 10) || 0;
 
   // Init touch events
   if (this._touch) {
@@ -191,7 +193,8 @@ Slideout.prototype._initTouchEvents = function() {
     self._moved = false;
     self._opening = false;
     self._startOffsetX = eve.touches[0].pageX;
-    self._preventOpen = (!self.isOpen() && self.menu.clientWidth !== 0);
+    self._preventOpen = (self._swipeRegion && self._startOffsetX > self._swipeRegion && !self.isOpen());
+    
   });
 
   /**
@@ -216,12 +219,9 @@ Slideout.prototype._initTouchEvents = function() {
    * Translates panel on touchmove
    */
   this.panel.addEventListener(touch.move, function(eve) {
-
-    if (scrolling || self._preventOpen || typeof eve.touches === 'undefined') { return; }
-
+    if (  scrolling ||  self._preventOpen || typeof eve.touches === 'undefined') { return; }
     var dif_x = eve.touches[0].clientX - self._startOffsetX;
     var translateX = self._currentOffsetX = dif_x;
-
     if (Math.abs(translateX) > self._padding) { return; }
 
     if (Math.abs(dif_x) > 20) {

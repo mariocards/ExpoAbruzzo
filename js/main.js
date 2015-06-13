@@ -287,7 +287,8 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     'panel': document.getElementById('panel'),
                     'menu': document.getElementById('menu'),
                     'padding': 256,
-                    'tolerance': 70
+                    'tolerance': 70,
+                    'swipeRegion': 40
                 });
 
                 // Toggle button
