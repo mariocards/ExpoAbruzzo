@@ -194,19 +194,20 @@ define(function (require) {
         itinerariListView: function (key) {
             // highlight the nav1 tab bar element as the current one
             this.structureView.setActiveTabBarElement("nav5");
+            console.log();
             // create a model with an arbitrary attribute for testing the template engine
-            if (CachedObject.emptyIti()) {
+            if (CachedObject.getEvents(key) === undefined) {
 //                console.log("ostie");
                 var model = new Itinerari(key);
                 model.fetch();
-                CachedObject.setIti(1, model);
+                CachedObject.setIti(key, model);
                 var page = new ItinerariListView({
                     model: model
                 });
             } else {
 //                console.log("diobon");
                 var page = new ItinerariListView({
-                    model: CachedObject.getIti(1)
+                    model: CachedObject.getIti(key)
                 });
             }
 
