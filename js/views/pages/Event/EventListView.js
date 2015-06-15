@@ -31,7 +31,7 @@ define(function (require) {
                 trigger: true});
         },
         fetchSheets: function () {
-            alert("dio cane");
+
             var delta = this.checkScroll();
           
             if (delta > -60) {
@@ -41,11 +41,11 @@ define(function (require) {
         },
         checkScroll: function () {
             var scrollHeight = this.el.offsetHeight;
-            console.log("scrollHeight " + scrollHeight);
+//            console.log("scrollHeight " + scrollHeight);
             var scrollTop = this.el.scrollHeight;// Altezza del contenuto di Page
-            console.log("scrollTop " + scrollTop);
+//            console.log("scrollTop " + scrollTop);
             var offsetHeight = this.el.scrollTop;  // Delta spostamento dello spostamento
-            console.log("offsetHeight" + offsetHeight);
+//            console.log("offsetHeight" + offsetHeight);
             return (scrollHeight - (scrollTop - offsetHeight));
         }
     });

@@ -2,6 +2,7 @@ define(function (require) {
 
     var Backbone = require("backbone");
     var News = require("models/News");
+    
     var NewsC = Backbone.Collection.extend({
         initialize: function() {
 		this.iniziale=0;

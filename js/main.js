@@ -15,7 +15,8 @@ require.config({
         moment: '../lib/moment/moment',
         helperdateformat: '../lib/dateformat/helper-dataformat',
         offline: '../lib/offline/offline.min',
-        slideout: './slideout'
+        slideout: './slideout',
+        cachedobject: './cachedObject'
     },
     shim: {
         'jquery': {
@@ -58,11 +59,11 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
         document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOline, false);
 //        document.addEventListener("deviceready", run, false);
-
+        
         run();
 
         function onOffline() {
-            navigator.notification.vibrate(500);
+            navigator.notification.vibrate(50);
             navigator.notification.alert(
                     'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
                     alertDismissed, // Callback che non usiamo al momento
@@ -77,7 +78,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
         }
 
         function onOline() {
-            navigator.notification.vibrate(800);
+            navigator.notification.vibrate(80);
         }
 
         function checkConnection() {
@@ -251,7 +252,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     'Problema Notifiche', // Titolo Messaggio errore
                     'Ok'                  // Nome del Bottone
                     );
-            
+
         }
 
 
@@ -271,8 +272,31 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //            onDeviceReady2();
 
             Utils.loadTemplates().once("templatesLoaded", function () {
-
-                var images = []; // here the developer can add the paths to the images that he would like to be preloaded
+                /*
+                 * 
+                 * @type Array
+                 * 'img/pasta-663096_1920.jpg',
+                 'img/newspapers-444447_1920.jpg',
+                 'img/video-multiple500x333.jpg',
+                 'img/8750395302_37ce8c2a6e_k.jpg',
+                 'img/itinerari/delgustod.jpg',
+                 'img/itinerari/inbici.jpg',
+                 'img/itinerari/suglisci.jpg',
+                 'img/itinerari/acavallo.jpg',
+                 'img/itinerari/inmoto.jpg',
+                 'img/itinerari/spirito.jpg'
+                 */
+                var images = ['img/pasta-663096_1920.jpg',
+                    'img/pasta-663096_1920.jpg',
+                    'img/newspapers-444447_1920.jpg',
+                    'img/video-multiple500x333.jpg',
+                    'img/8750395302_37ce8c2a6e_k.jpg',
+                    'img/itinerari/delgustod.jpg',
+                    'img/itinerari/inbici.jpg',
+                    'img/itinerari/suglisci.jpg',
+                    'img/itinerari/acavallo.jpg',
+                    'img/itinerari/inmoto.jpg',
+                    'img/itinerari/spirito.jpg']; // here the developer can add the paths to the images that he would like to be preloaded
 
                 if (images.length) {
                     new PreLoader(images, {
@@ -283,23 +307,26 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     startRouter();
                 }
 
-                var slideoutt = new Slideout({
-                    'panel': document.getElementById('panel'),
-                    'menu': document.getElementById('menu'),
-                    'padding': 256,
-                    'tolerance': 70,
-                    'swipeRegion': 40
-                });
 
-                // Toggle button
-                document.querySelector('#toggle-button').addEventListener('click', function () {
-                    slideoutt.toggle();
-                });
+
+
 
                 function startRouter() {
                     // launch the router
+
                     var router = new AppRouter();
                     Backbone.history.start();
+                    var slideoutt = new Slideout({
+                        'panel': document.getElementById('panel'),
+                        'menu': document.getElementById('menu'),
+                        'padding': 256,
+                        'tolerance': 70,
+                        'swipeRegion': 40
+                    });
+                    // Toggle button
+                    document.querySelector('#toggle-button').addEventListener('click', function () {
+                        slideoutt.toggle();
+                    });
                 }
 
             });
