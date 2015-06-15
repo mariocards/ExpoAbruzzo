@@ -9,7 +9,8 @@ define(function (require) {
 
 
     var StructureView = require("views/StructureView");
-
+    var AbruzzoView = require("views/pages/Abruzzo/AbruzzoView");
+    var CreditsView = require("views/pages/Abruzzo/CreditsView");
     var MyView = require("views/pages/MyView");
     var MapView = require("views/pages/MapView");
 
@@ -57,7 +58,9 @@ define(function (require) {
             "risultatoricerca/:key": "risultatoRicerca",
             "newsviewFromSearch/:key": "newsViewFromSearch",
             "eventviewFromSearch/:key": "eventViewFromSearch",
-            "itinerarioviewFromSearch/:key": "itinerarioViewFromSearch"
+            "itinerarioviewFromSearch/:key": "itinerarioViewFromSearch",
+            "abruzzoview": "abruzzoView",
+            "creditsview": "creditView"
         },
         firstView: "myview",
         initialize: function (options) {
@@ -253,8 +256,15 @@ define(function (require) {
             }
             // go to first view
             this.navigate(this.firstView, {trigger: true});
+        },
+        abruzzoView: function(){
+            var page = new AbruzzoView();
+            this.changePage(page);
+        },
+        creditView: function(){
+            var page = new CreditsView();
+            this.changePage(page);
         }
-
     });
 
     return AppRouter;
