@@ -1,3 +1,11 @@
+<ul class="table-view home title-list">
+    <li class="table-view-cell">
+        <h1 class="section-title">Eventi</h1>
+        <a data-transition="slide-in">
+            <img src="img/video-multiple500x333.jpg">
+        </a>
+    </li>
+</ul>
 <ul class="table-view">
     {{#each .}}
     <li class="table-view-cell media" id="eventListItem" data-id="{{id}}" style="background-image:url('http://www.expo.abruzzo.it/{{photo}}&width=500')">
@@ -5,10 +13,10 @@
       <div class="text-list">
         <h6>{{title}}</h6>
         <div class="details">
-        <p>Location</p>
+        <p>{{location}}</p>
         <!--<p><i class="fa fa-calendar-o"></i> {{ data }}</p>-->
         </div>
-        <div class="date-events"><span class="number">19</span><br><span class="day">Aprile</span></div>
+        <div class="date-events"><span class="number">{{getDay data}}</span><br><span class="day">{{getMonth data}}</span></div>
       </div>
     </a>
   </li>

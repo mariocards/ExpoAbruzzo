@@ -1,14 +1,21 @@
-
-
-
-<ul class="table-view">
+<ul class="table-view home title-list">
+    <li class="table-view-cell">
+        <h1 class="section-title">Rassegna Stampa</h1>
+        <a data-transition="slide-in">
+            <img src="img/newspapers-444447_1920.jpg">
+        </a>
+    </li>
+</ul>
+<ul class="table-view" style="border-top: 1px solid rgba(0, 0, 0, 0.1)">
     {{#each .}}
     <li class="table-view-cell media news-list" id="eventListItem" data-id="{{id}}" style="background-image: url('http://www.expo.abruzzo.it/{{picture}}&width=200')">
     <a class="navigate-right" data-transition="slide-in">
       <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}&width=200')"></div>
       <div class="text-list">
+        
         <h6><div class="overflow-text"></div>{{title}}</h6>
-        <p> {{ date }}</p>
+        <p>{{ date }}</p>
+        
       </div>
     </a>
   </li>

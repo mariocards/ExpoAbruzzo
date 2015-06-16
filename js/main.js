@@ -65,7 +65,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
         function onOffline() {
             navigator.notification.vibrate(50);
             navigator.notification.alert(
-                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
+                    'Per Utilizzare Expo Abruzzo devi essere connesso ad Internet', // messagio no rete
                     alertDismissed, // Callback che non usiamo al momento
                     'Attiva una Rete', // Titolo Messaggio errore
                     'Ok'                  // Nome del Bottone
@@ -286,6 +286,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                  'img/itinerari/inmoto.jpg',
                  'img/itinerari/spirito.jpg'
                  */
+                 
                 var images = ['img/pasta-663096_1920.jpg',
                     'img/pasta-663096_1920.jpg',
                     'img/newspapers-444447_1920.jpg',
@@ -306,7 +307,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     // start the router directly if there are no images to be preloaded
                     startRouter();
                 }
-
+                
 
 
 
@@ -323,14 +324,26 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                         'tolerance': 70,
                         'swipeRegion': 40
                     });
+                     // Toggle button
+                    document.querySelector('#content').addEventListener('click', function () {
+                       if(slideoutt.isOpen()){
+                            slideoutt.toggle();
+                        }
+                    });
+                     // Toggle button
+                    $('#menu li span').on('click', function () {
+                            slideoutt.toggle();
+                    });
                     // Toggle button
                     document.querySelector('#toggle-button').addEventListener('click', function () {
                         slideoutt.toggle();
                     });
+                    
                 }
 
             });
         }
 
     });
+    
 });

@@ -18,7 +18,7 @@ define(function(require) {
       this.template = Utils.templates.itinerarioview;
       this.model.on('sync', this.render, this);
       $('#back-button').css('display','block');
-      $('#settingsModal').css('display','block'); 
+      $('#settingsModal').css('display','inline-block'); 
     },
 
     id: "itinerarioview",
