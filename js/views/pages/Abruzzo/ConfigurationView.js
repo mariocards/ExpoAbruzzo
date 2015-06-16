@@ -40,6 +40,7 @@ define(function (require) {
         attiva: function () {
             alert("Attivando");
             window.localStorage.setItem("notifica", "yes");
+            alert(window.localStorage.getItem("regId"));
             $.ajax({
                 type: 'POST',
                 dataType: "text",
@@ -59,6 +60,7 @@ define(function (require) {
         disattiva: function () {
             alert("Disattivando");
             window.localStorage.setItem("notifica", "no");
+            alert(window.localStorage.getItem("regId"));
             $.ajax({
                 type: 'POST',
                 dataType: "text",
