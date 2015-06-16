@@ -278,7 +278,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
 
-//            onDeviceReady2();
+            onDeviceReady2();
 
             Utils.loadTemplates().once("templatesLoaded", function () {
                 /*
