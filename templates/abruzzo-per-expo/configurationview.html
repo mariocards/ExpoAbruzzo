@@ -1,0 +1,21 @@
+<ul class="table-view home title-list">
+    <li class="table-view-cell">
+        <h1 class="section-title">Impostazioni</h1>
+        <a data-transition="slide-in">
+            <img src="img/drop-of-water-7720_1280.jpg">
+        </a>
+    </li>
+</ul>
+<div class="content-padded page">
+    <h2>Notifiche</h2> 
+    {{#ifCond notifiche '===' 'yes'}}
+    <div id="notifica" class="toggle active">
+        <div class="toggle-handle"></div>
+    </div>
+    {{/ifCond}}
+    {{#ifCond notifiche '===' 'no'}}
+    <div id="notifica" class="toggle">
+        <div class="toggle-handle"></div>
+    </div>
+    {{/ifCond}}
+</div>

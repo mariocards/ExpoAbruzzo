@@ -11,6 +11,7 @@ define(function (require) {
     var StructureView = require("views/StructureView");
     var AbruzzoView = require("views/pages/Abruzzo/AbruzzoView");
     var CreditsView = require("views/pages/Abruzzo/CreditsView");
+    var ConfigurationView = require("views/pages/Abruzzo/ConfigurationView")
     var MyView = require("views/pages/MyView");
     var MapView = require("views/pages/MapView");
 
@@ -60,7 +61,8 @@ define(function (require) {
             "eventviewFromSearch/:key": "eventViewFromSearch",
             "itinerarioviewFromSearch/:key": "itinerarioViewFromSearch",
             "abruzzoview": "abruzzoView",
-            "creditsview": "creditView"
+            "creditsview": "creditView",
+            "configurationview" : "configurationView"
         },
         firstView: "myview",
         initialize: function (options) {
@@ -264,6 +266,15 @@ define(function (require) {
         },
         creditView: function(){
             var page = new CreditsView();
+            this.changePage(page);
+        },
+        configurationView: function(){
+            
+            
+            var page = new ConfigurationView({
+                notifiche: window.localStorage.getItem("notifica")
+                
+            });
             this.changePage(page);
         }
     });

@@ -18,6 +18,7 @@ define(function(require) {
       "tap #nav5": "itinerariCatListView",
       "tap #nav6": "search",
       "tap #nav7": "credits",
+      "tap #nav8": "configuration",
       "tap #back-button" : "goBack",
       "tap #settingsModal" : "search"
     },
@@ -108,6 +109,11 @@ define(function(require) {
     },
     credits: function(){
         Backbone.history.navigate("creditsview", {
+        trigger: true
+    });
+    },
+    configuration: function(){
+        Backbone.history.navigate("configurationview", {
         trigger: true
     });
     }
