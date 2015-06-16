@@ -145,7 +145,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 
                             var postData = {regId: e.regid, type: device.platform, device: device.model};
 
-                            alert(JSON.stringify(postData));
+                            //alert(JSON.stringify(postData));
 
                             $.ajax({
                                 type: 'POST',
@@ -171,7 +171,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     case 'message':
 
                        // alert("message" + JSON.stringify(e));
-                        alert(e.payload.message);
+                        navigator.notification.alert(e.payload.message);
 
                         // if this flag is set, this notification happened while we were in the foreground.
                         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
