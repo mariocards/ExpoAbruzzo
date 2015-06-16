@@ -155,7 +155,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                                 url: 'https://backend.expo.abruzzo.it/gcm/register.php',
                                 success: function () {
                                     //console.log(data);
-                                    alert('Your comment was successfully added');
+                                   // alert('Your comment was successfully added');
                                 },
                                 error: function () {
                                     //console.log(data);
@@ -171,7 +171,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     case 'message':
 
                        // alert("message" + JSON.stringify(e));
-                        alert("message" + e.payload.message+ e.payload);
+                        alert(e.payload.message);
 
                         // if this flag is set, this notification happened while we were in the foreground.
                         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
