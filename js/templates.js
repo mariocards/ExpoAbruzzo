@@ -21,6 +21,7 @@ define({
     paginaricerca: "templates/search/paginaricerca.html",
     ricercalistview: "templates/search/generalsearchlist.html",
     abruzzoview: "templates/abruzzo-per-expo/abruzzoview.html",
-    creditsview: "templates/abruzzo-per-expo/creditsview.html"
+    creditsview: "templates/abruzzo-per-expo/creditsview.html",
+    configurationview: "templates/abruzzo-per-expo/configurationview.html"
     
 });
