@@ -153,9 +153,12 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                                 data: postData,
                                 contentType: "application/x-www-form-urlencoded",
                                 url: 'https://backend.expo.abruzzo.it/gcm/register.php',
-                                success: function () {
-                                    //console.log(data);
-                                   // alert('Your comment was successfully added');
+                                success: function (data) {
+                                    window.localStorage.setItem("notifica", data.flag);
+                                    window.localStorage.setItem("regId", e.regId);
+                                    alert('Your comment was successfully added');
+                                    alert(data.flag);
+                                  
                                 },
                                 error: function () {
                                     //console.log(data);
