@@ -99,33 +99,14 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
             alert('deviceready event received');
             $("#main").append('<li>deviceready event received</li>');
 
-            document.addEventListener("backbutton", function (e)
-            {
-                $("#app-status-ul").append('<li>backbutton event received</li>');
-
-                if ($("#main").length > 0)
-                {
-                    // call this to get a new token each time. don't call it to reuse existing token.
-                    //pushNotification.unregister(successHandler, errorHandler);
-                    e.preventDefault();
-                    navigator.app.exitApp();
-                }
-                else
-                {
-                    navigator.app.backHistory();
-                }
-            }, false);
-
             try
             {
                 alert(window.plugins.pushNotification);
                 pushNotification = window.plugins.pushNotification;
                 alert(pushNotification);
-                $("#main").append('<li>registering ' + device.platform + '</li>');
+                $("#content").append('<li>registering ' + device.platform + '</li>');
                 if (device.platform == 'android' || device.platform == 'Android' ||
                         device.platform == 'amazon-fireos') {
-                    alert("gioia");
-
                     pushNotification.register(successHandler, errorHandler, {"senderID": "431217405561", "ecb": "onNotification"});		// required!
                 } else {
                     pushNotification.register(tokenHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});	// required!
@@ -139,7 +120,6 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                 alert(txt);
             }
             onNotification = function (e) {
-                alert("magara");
                 $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
                 alert(e);
                 switch (e.event)
@@ -151,14 +131,35 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                         {
                             alert(e.regid);
                             $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
-                            // Your GCM push server needs to know the regID before it can push to this device
-                            // here is where you might want to send it the regID for later use.
-                            console.log("regID = " + e.regid);
+
+                            var postData = {regId: e.regid, type: device.platform, device: device.model};
+
+                            alert(JSON.stringify(postData));
+
+                            $.ajax({
+                                type: 'POST',
+                                dataType: "text",
+                                data: postData,
+                                contentType: "application/x-www-form-urlencoded",
+                                url: 'https://backend.expo.abruzzo.it/gcm/register.php',
+                                success: function () {
+                                    //console.log(data);
+                                    alert('Your comment was successfully added');
+                                },
+                                error: function () {
+                                    //console.log(data);
+                                    alert('There was an error adding your comment');
+                                }
+                            });
+
+
+                            
                         }
                         break;
 
                     case 'message':
-                        alert("message");
+                       // alert("message" + JSON.stringify(e));
+                        alert("message" + e.payload.message+ e.payload);
                         // if this flag is set, this notification happened while we were in the foreground.
                         // you might want to play a sound to get the user's attention, throw up a dialog, etc.
                         if (e.foreground)
@@ -184,7 +185,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                             else
                                 $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
                         }
-
+                        
                         $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
                         //android only
                         $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
