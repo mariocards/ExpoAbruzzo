@@ -158,7 +158,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                                       // alert(decode.flag);
                                     window.localStorage.setItem("notifica", decode.flag);
                                     window.localStorage.setItem("regId", e.regId);
-                                    alert('Your comment was successfully added');
+                                    //alert('Your comment was successfully added');
                                  
                                   
                                 },
