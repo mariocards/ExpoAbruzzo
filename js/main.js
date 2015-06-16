@@ -58,9 +58,9 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //        cordova plugin add org.apache.cordova.media
         document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOline, false);
-//        document.addEventListener("deviceready", run, false);
-        
-        run();
+        document.addEventListener("deviceready", run, false);
+
+//        run();
 
         function onOffline() {
             navigator.notification.vibrate(50);
@@ -144,7 +144,8 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                             $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
 
                             var postData = {regId: e.regid, type: device.platform, device: device.model};
-
+//                            alert("Main RegID; " + e.regid);
+                            window.localStorage.setItem("regId", e.regid);
                             //alert(JSON.stringify(postData));
 
                             $.ajax({
@@ -155,12 +156,12 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                                 url: 'https://backend.expo.abruzzo.it/gcm/register.php',
                                 success: function (data) {
                                     var decode = JSON.parse(data);
-                                      // alert(decode.flag);
+                                    // alert(decode.flag);
                                     window.localStorage.setItem("notifica", decode.flag);
-                                    window.localStorage.setItem("regId", e.regId);
+
                                     //alert('Your comment was successfully added');
-                                 
-                                  
+
+
                                 },
                                 error: function () {
                                     //console.log(data);
@@ -169,13 +170,13 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                             });
 
 
-                            
+
                         }
                         break;
 
                     case 'message':
 
-                       // alert("message" + JSON.stringify(e));
+                        // alert("message" + JSON.stringify(e));
                         navigator.notification.alert(e.payload.message);
 
                         // if this flag is set, this notification happened while we were in the foreground.
@@ -203,7 +204,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                             else
                                 $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
                         }
-                        
+
                         $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
                         //android only
                         $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
@@ -272,14 +273,14 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 
 
         function run() {
-//            if (checkConnection() === 'No network connection') {
-//                navigator.notification.alert(
-//                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
-//                    alertDismissed, // Callback che non usiamo al momento
-//                    'Attiva una Rete', // Titolo Messaggio errore
-//                    'Ok'                  // Nome del Bottone
-//                    );
-//            }
+            if (checkConnection() === 'No network connection') {
+                navigator.notification.alert(
+                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
+                    alertDismissed, // Callback che non usiamo al momento
+                    'Attiva una Rete', // Titolo Messaggio errore
+                    'Ok'                  // Nome del Bottone
+                    );
+            }
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
 
@@ -300,7 +301,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                  'img/itinerari/inmoto.jpg',
                  'img/itinerari/spirito.jpg'
                  */
-                 
+
                 var images = ['img/pasta-663096_1920.jpg',
                     'img/pasta-663096_1920.jpg',
                     'img/newspapers-444447_1920.jpg',
@@ -321,7 +322,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     // start the router directly if there are no images to be preloaded
                     startRouter();
                 }
-                
+
 
 
 
@@ -338,26 +339,26 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                         'tolerance': 70,
                         'swipeRegion': 40
                     });
-                     // Toggle button
+                    // Toggle button
                     document.querySelector('#content').addEventListener('click', function () {
-                       if(slideoutt.isOpen()){
+                        if (slideoutt.isOpen()) {
                             slideoutt.toggle();
                         }
                     });
-                     // Toggle button
+                    // Toggle button
                     $('#menu li span').on('click', function () {
-                            slideoutt.toggle();
+                        slideoutt.toggle();
                     });
                     // Toggle button
                     document.querySelector('#toggle-button').addEventListener('click', function () {
                         slideoutt.toggle();
                     });
-                    
+
                 }
 
             });
         }
 
     });
-    
+
 });

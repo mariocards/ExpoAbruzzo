@@ -38,42 +38,45 @@ define(function (require) {
             alert();
         },
         attiva: function () {
-            alert("Attivando");
+//            alert("Attivando");
             window.localStorage.setItem("notifica", "yes");
-            alert(window.localStorage.getItem("regId"));
+//            alert("RegId " + window.localStorage.getItem("regId"));
+            var data = {"regId" :window.localStorage.getItem("regId")};
             $.ajax({
                 type: 'POST',
                 dataType: "text",
-                data: window.localStorage.getItem("regId"),
+                data: data,
                 contentType: "application/x-www-form-urlencoded",
                 url: 'https://backend.expo.abruzzo.it/gcm/check_reg.php',
-                success: function () {
-                    console.log(data);
+                success: function (data) {
+//                    alert(data);
                     // alert('Your comment was successfully added');
                 },
                 error: function () {
                     //console.log(data);
-                    alert('There was an error adding your comment');
+//                    alert('There was an error adding your comment');
                 }
             });
         },
         disattiva: function () {
-            alert("Disattivando");
+//            alert("Disattivando");
             window.localStorage.setItem("notifica", "no");
-            alert(window.localStorage.getItem("regId"));
+//            alert("RegId " + window.localStorage.getItem("regId"));
+            var data = {"regId" :window.localStorage.getItem("regId")};
             $.ajax({
                 type: 'POST',
                 dataType: "text",
-                data: window.localStorage.getItem("regId"),
+                data: data,
                 contentType: "application/x-www-form-urlencoded",
                 url: 'https://backend.expo.abruzzo.it/gcm/check_reg.php',
-                success: function () {
-                    console.log(data);
+                success: function (data) {
+                    
+//                    alert(data);
                     // alert('Your comment was successfully added');
                 },
                 error: function () {
                     //console.log(data);
-                    alert('There was an error adding your comment');
+//                    alert('There was an error adding your comment');
                 }
             });
 
