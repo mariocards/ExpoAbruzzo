@@ -1,6 +1,22 @@
 /* loader animation */
+#content{
 
+	overflow: auto;
+	position:relative;
+	padding-top: 0;
+	background-color: rgba(255, 255, 255, 0.3);
 
+}
+
+#eventlistview, #newslistview, #itinerarilistview {
+
+	overflow: auto;
+  	height: 100%;
+
+}
+.i-g.page{
+	padding-top: 50px
+}
 
 @-webkit-keyframes rotate {
 
@@ -77,6 +93,9 @@ body{
   position: relative;
   z-index: 1;
   height:100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  background: url(../background.png) no-repeat center center;
+  background-size: cover;
 }
 
 .slideout-open,
@@ -89,10 +108,9 @@ body{
   display: block;
 }
 
-.slideout-open .content .table-view{
+.slideout-open .i-g.page, .slideout-open #menu-superiore{
 
 	pointer-events: none;
-
 }
 
 
@@ -101,11 +119,14 @@ body{
 	width: 100%;
 	height: 100%;
 
+
 }
 
 #menu{
 
-	background: url('/background.png') no-repeat center center;
+	background: url('../background.png') no-repeat center center;
+	background-size: cover;
+	/*position:absolute;*/
 
 }
 
@@ -126,17 +147,30 @@ body{
 
 	padding: 10px;
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
+	color: #cc2575;
+
+}
+.mobile-menu li:hover{
+	color: white;
+	background: rgba(204, 37, 117, 0.7);;
+	transition: 0.5s;
 
 }
 .mobile-menu li.active {
   border-left: 2px solid #cc2575;
   background-color: rgba(255, 255, 255, 0.4);
 }
+.mobile-menu li span{
 
+	display:block;
+	width: 100%;
+
+}
 .mobile-menu li a{
-
+	color: inherit;
 	text-transform: uppercase;
 	font-weight: 200;
+	transition:0.5s;
 
 }
 
@@ -152,12 +186,25 @@ body{
 }
 
 header.bar {
-
+	/*position: absolute;*/
 	text-align: center;
-	background-color: rgba(247, 247, 247, 0.98);
+	background-color: rgba(247, 247, 247, 0.95);
   	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .3);
   	box-shadow: 0 0 1px rgba(0, 0, 0, .3);
+  	height: 50px;
 
+}
+
+.bar .icon {
+	padding: 12px 10px 10px;
+	position: absolute;
+	color: #cc2575;
+}
+.bar .icon.pull-left{
+	left: 0;
+}
+.bar .icon-search {
+  	right: 0;
 }
 
 img {
@@ -166,11 +213,15 @@ img {
 
 }
 
-header img {
+/*header img {
 	
 	width: 80px;
 	margin: 8px  0 0 -24px;
 
+}*/
+header img {	
+	width: 85px;
+	margin: 10px auto 0;
 }
 /*
 header.transparent{
@@ -188,6 +239,7 @@ header.transparent{
   	background: transparent;
   	border: none;
   	color: #cc2575;
+  	outline: none;
 }
 
 .table-view{
@@ -218,25 +270,27 @@ header.transparent{
 
 #eventlistview .table-view {
 
-	padding: 5px;
+	padding: 10px;
 	background-color: transparent;
+	border-top: 1px solid transparent;
 
 }
 #eventlistview .table-view .table-view-cell {
 
 	border-bottom: none !important;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	padding: 0px;
 	background-repeat: no-repeat;
   	background-position: center center;
-  	background-color: #999;
+  	background-color: rgba(0, 0, 0, 0.02);
   	background-size: cover;
   	height: 200px;
   	margin: 5px auto 20px;
+
 }
 #eventlistview .table-view .table-view-cell .navigate-right{
 
-	margin: 0 0 -5px 0 !important;
+	margin: 1px 0 -5px 0 !important;
 	height: 100%;
 	background-color: transparent;
 
@@ -245,7 +299,7 @@ header.transparent{
 #eventlistview .table-view .table-view-cell .date-events{
 
 	height: 60px;
-    width: 60px;
+    width: 70px;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -270,7 +324,7 @@ header.transparent{
 	position: absolute;
   	bottom: 0;
   	background: rgba(255, 255, 255, 0.98);
-  	padding-right: 66px;
+  	padding-right: 70px;
   	padding-bottom: 5px;
 
 
@@ -283,6 +337,7 @@ header.transparent{
   	text-overflow: ellipsis;
   	padding-bottom: 5px;
   	  line-height: 21px;
+  	  font-size: 15px;
 
 }
 #eventlistview .table-view .table-view-cell > .navigate-right:after{
@@ -292,7 +347,7 @@ header.transparent{
 }
 .page{
 
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(255, 255, 255, 0.7);
 	margin: 0;
 	padding: 0;
 
@@ -302,7 +357,7 @@ header.transparent{
 .page p{
 
 	color: #333;
-  	font-size: 19px;
+  	font-size: 21px;
   	line-height: 26px;
   	padding:10px 0;
   	text-align: justify;
@@ -360,6 +415,7 @@ header.transparent{
 	color: white;
 	-webkit-font-smoothing: antialiased;
 	font-weight: 500;
+	letter-spacing: 1px;
 }
 /*.image-page h3{
   bottom: 0;
@@ -375,6 +431,7 @@ header.transparent{
 .content-padded.page{
 
 	padding: 15px;
+	background: rgba(255, 255, 255, 0.3);
 
 }
 
@@ -417,7 +474,7 @@ header.transparent{
 .media .navigate-right{
 
 	background: rgba(255, 255, 255, 0.9);
-	margin: 0px -40px -5px 0px !important;
+	margin: 0px -40px -6px 0px !important;
 
 	
 
@@ -428,10 +485,12 @@ header.transparent{
 .img-list{
 
 	width: 90px;
-	height: 90px;
-	display: inline-block;
-	background: #999 no-repeat center center; 
-	background-size: cover;
+  	height: 90px;
+  	display: inline-block;
+  	background: rgba(0, 0, 0, 0.1) no-repeat center center;
+  	background-image: url(../img/loading.gif);
+  	background-size: cover;
+  	transition: 0.5s;
 
 }
 
@@ -454,8 +513,27 @@ header.transparent{
 	line-height: 20px;
 	font-weight: 300;
 	letter-spacing: 1px;
-  overflow-y: hidden;
-  position: relative;
+  	position: relative;
+
+}
+#newslistview .img-list, #listaRisultati .img-list{
+
+	height: 110px;
+
+}
+#newslistview .text-list{
+	width: 70%;
+
+}
+#newslistview .text-list h6{
+	margin-top: 5px;
+	height: 75px;
+	font-weight: 400;
+	font-size: 16px;
+	  letter-spacing: 2px;
+
+}
+#newslistview .text-list p{
 
 }
 .text-list p{
@@ -558,15 +636,15 @@ border-left: 2px solid #cc2575;
 .masonry { /* Masonry container */
     -webkit-column-count: 1;
     -webkit-column-gap: 15px;
-    padding: 10px 15px;
+    padding: 15px 15px 0;
 }
 
 .masonry .item { /* Masonry bricks or child elements */
     background-color: white;
   display: inline-block;
-  border-radius: 3px;
+  border-radius: 4px;
   margin: 0 0 1.5em;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 100%;
 }
 .masonry .item .masonry-img img{
@@ -576,8 +654,8 @@ border-left: 2px solid #cc2575;
 }
 .masonry .item h2{
 
-  font-size: 19px;
-  font-weight: 200;
+  font-size: 21px;
+  font-weight: 400;
   letter-spacing: 1px;
   line-height: 25px;
   color: #111;
@@ -602,6 +680,47 @@ border-left: 2px solid #cc2575;
 	font-size: 14px
 
 }
+.title-list{
+	margin-bottom: 10px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+	padding: 0 !important;
+}
+.title-list .table-view-cell{
+	height: 140px;
+	margin-top: 0 !important;
+}
+.input-box{
+	padding: 10px;
+
+}
+.input-box input{
+	border: 1px solid transparent;
+	border-radius: 4px;
+	letter-spacing: 1px;
+	font-weight: 200;
+	transition: 0.5s;
+}
+.input-box input:focus{
+	border-color: #06A8EE;
+}
+.input-box .section-title{
+	position:relative;
+	font-size: 20px;
+	width: 50%;
+  	left: 25%;
+  	margin-bottom: 5px;
+}
+.input-box .segmented-control{
+border:1px solid rgba(0, 0, 0, 0.2);
+}
+.input-box .segmented-control .control-item{
+	letter-spacing: 1px;
+  	font-weight: 200;
+  	background: white;
+}
+.input-box .segmented-control .control-item.active{
+	background: #06A8EE;
+}
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
@@ -612,5 +731,19 @@ border-left: 2px solid #cc2575;
 .text-list h6{
 	height: 120px;
 	font-size: 28px
+}
+}
+
+@media only screen and (min-device-width : 310px) and (max-device-width : 350px) {
+#newslistview .text-list{
+	width: 65%;
+
+}
+#newslistview .text-list h6{
+	font-size: 14px;
+
+}
+#newslistview .text-list p{
+	display: none;
 }
 }

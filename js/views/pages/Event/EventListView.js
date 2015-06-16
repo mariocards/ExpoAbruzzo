@@ -1,6 +1,14 @@
 define(function (require) {
 
     var Backbone = require("backbone");
+    var h = require("handlebars");
+    h.registerHelper('getDay', function(passedString) {
+        return new Handlebars.SafeString(passedString.substring(8,10))
+    });
+    var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
+    h.registerHelper('getMonth', function(passedString) {
+        return new Handlebars.SafeString(mesi[passedString.substring(5,7)-1])
+    });
 //      var formatoData = require("helperdateformat");
     var Events = require("collections/Events");
     var Utils = require("utils");
@@ -31,19 +39,21 @@ define(function (require) {
                 trigger: true});
         },
         fetchSheets: function () {
+
             var delta = this.checkScroll();
-            if (delta > -30) {
+          
+            if (delta > -60) {
                 this.model.iniziale += 5;
                 this.model.fetch({remove: false});
             }
         },
         checkScroll: function () {
             var scrollHeight = this.el.offsetHeight;
-            console.log("scrollHeight " + scrollHeight);
+//            console.log("scrollHeight " + scrollHeight);
             var scrollTop = this.el.scrollHeight;// Altezza del contenuto di Page
-            console.log("scrollTop " + scrollTop);
+//            console.log("scrollTop " + scrollTop);
             var offsetHeight = this.el.scrollTop;  // Delta spostamento dello spostamento
-            console.log("offsetHeight" + offsetHeight);
+//            console.log("offsetHeight" + offsetHeight);
             return (scrollHeight - (scrollTop - offsetHeight));
         }
     });

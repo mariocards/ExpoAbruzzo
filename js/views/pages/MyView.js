@@ -20,7 +20,7 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap",
+      "tap #homeAbruzzo": "goToAbruzzo",
       "tap #homeNews": "goToNews",
       "tap #homeEvents": "goToEvents",
       "tap #homeItinerari": "goToItinerari",
@@ -31,8 +31,8 @@ define(function(require) {
       return this;
     },
 
-    goToMap: function(e) {
-      Backbone.history.navigate("map", {
+    goToAbruzzo: function(e) {
+      Backbone.history.navigate("abruzzoview", {
         trigger: true
       });
     },

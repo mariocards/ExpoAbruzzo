@@ -15,7 +15,7 @@ define(function(require) {
       this.template = Utils.templates.eventview;
       this.model.on('sync', this.render, this);
       $('#back-button').css('display','block');
-      $('#settingsModal').css('display','block');
+      $('#settingsModal').css('display','inline-block');
       $('#toggle-button').css('display','none');
     },
 

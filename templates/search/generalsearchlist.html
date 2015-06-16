@@ -1,15 +1,19 @@
-<input type="text" id="ricercaGeneraleInput" name="ricercaGeneraleInput" style="width: 92%;"/>  <span id="ricercaGenerale" class="icon icon-search"></span>
-
+<div class="input-box">
+<input type="text" id="ricercaGeneraleInput" name="ricercaGeneraleInput" style="width: 100%;"/>
+<h1 id="ricercaGenerale" class="section-title">Cerca</h1>
+</div>
+<div class="input-box">
 <div class="segmented-control">
-    <a class="control-item active" >
-        News
+    <a class="control-item active"href="#item1mobile" >
+        NEWS
     </a>
-    <a class="control-item">
-        Event
+    <a class="control-item" href="#item2mobile">
+        EVENTI
     </a>
-    <a class="control-item">
-        Itinerari
+    <a class="control-item" href="#item3mobile">
+        ITINERARI
     </a>
+</div>
 </div>
 <div class="card">
     {{#each .}}
@@ -19,15 +23,17 @@
         <div id="listaRisultati">
             <ul class="table-view" data-vista="{{vista}}">
                 {{#each content}}
-
-                <li class="table-view-cell media" id="eventListItem" data-view="newsviewFromSearch" data-id="{{id}}">
-                    <div  class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&width=85&height=85')">
-                        <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
-                    </div>
-                    <div class="text-list">
-                        <h2>{{title}}</h2>
-                    </div>
-                </li>
+                <li class="table-view-cell media news-list" id="eventListItem" data-view="newsviewFromSearch" data-id="{{id}}" style="background-image: url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&width=200')">
+    <a class="navigate-right" data-transition="slide-in">
+      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&height=100')"></div>
+      <div class="text-list">
+        
+        <h6><div class="overflow-text"></div>{{title}}</h6>
+        
+      </div>
+    </a>
+  </li>
+                
                 {{/each}}
             </ul> 
         </div>
@@ -41,15 +47,17 @@
         <div id="listaRisultati">
             <ul class="table-view" data-vista="{{vista}}">
                 {{#each content}}
-
-                <li class="table-view-cell media" id="eventListItem" data-view="eventviewFromSearch" data-id="{{id}}">
-                    <div  class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&width=85&height=85')">
-                        <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
-                    </div>
-                    <div class="text-list">
-                        <h2>{{title}}</h2>
-                    </div>
-                </li>
+                <li class="table-view-cell media news-list" id="eventListItem" data-view="eventviewFromSearch" data-id="{{id}}" style="background-image: url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&width=200')">
+                    <a class="navigate-right" data-transition="slide-in">
+                      <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&height=100')"></div>
+                      <div class="text-list">
+                        
+                        <h6><div class="overflow-text"></div>{{title}}</h6>
+                        
+                      </div>
+                    </a>
+                  </li>
+                
                 {{/each}}
             </ul> 
         </div>
@@ -62,15 +70,17 @@
         <div id="listaRisultati">
             <ul class="table-view" data-vista="{{vista}}">
                 {{#each content}}
-
-                <li class="table-view-cell media" id="eventListItem" data-view="itinerarioviewFromSearch" data-id="{{id}}">
-                    <div  class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&width=85&height=85')">
-                        <img src="img/spyglass-white.png" style="opacity: 0.3;"/>
-                    </div>
-                    <div class="text-list">
-                        <h2>{{title}}</h2>
-                    </div>
-                </li>
+                <li class="table-view-cell media news-list" id="eventListItem" data-view="itinerarioviewFromSearch" data-id="{{id}}" style="background-image: url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&width=200')">
+                        <a class="navigate-right" data-transition="slide-in">
+                          <div class="img-list" style="background-image:url('http://www.expo.abruzzo.it/{{picture}}{{pic}}{{photo}}&height=100')"></div>
+                          <div class="text-list">
+                            
+                            <h6><div class="overflow-text"></div>{{title}}</h6>
+                            
+                          </div>
+                        </a>
+                      </li>
+                
                 {{/each}}
             </ul> 
         </div>
