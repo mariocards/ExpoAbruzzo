@@ -35,7 +35,7 @@ define(function (require) {
             } else {
                 this.disattiva();
             }
-            alert();
+//            alert();
         },
         attiva: function () {
 //            alert("Attivando");
