@@ -15,7 +15,7 @@ define(function (require) {
         className: "i-g page",
         events: {
             "window.history.back(); #back-button": "goBack",
-            "tap #ricercaGenerale": "doSearch",
+            "tap #ricercaGenerale": "doSearchTap",
             "keypress #ricercaGeneraleInput": "doSearch"
         },
         render: function () {
@@ -34,6 +34,11 @@ define(function (require) {
                 Backbone.history.navigate("risultatoricerca/" + value,
                         {trigger: true});
             }
+        },
+        doSearchTap: function(event){
+            var value = $('#ricercaGeneraleInput').val();
+                Backbone.history.navigate("risultatoricerca/" + value,
+                        {trigger: true});
         }
     });
 
