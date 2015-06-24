@@ -79,7 +79,7 @@ define(function (require) {
             var model = new MyModel({
                 key: "Benveuto nell'APP di Abruzzo Expo"
             });
-            alert("dentro myview" + window.localStorage.getItem("lingua"));
+//            alert("dentro myview" + window.localStorage.getItem("lingua"));
             // create the view
             var page = new MyView({
                 model: model

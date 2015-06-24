@@ -32,14 +32,20 @@ define(function () {
         setIti: function (id, object) {
             this.iti[id] = object;
         },
-        emptyNews: function (){
+        emptyNews: function () {
             return $.isEmptyObject(this.news);
         },
-        emptyEvents: function (){
+        emptyEvents: function () {
             return $.isEmptyObject(this.events);
         },
-        emptyIti: function(){
+        emptyIti: function () {
             return $.isEmptyObject(this.iti);
+        },
+        eraseAll: function () {
+            this.news.length= 0;
+            this.events.length = 0;
+            this.iti.length = 0;
+            
         }
     };
     return CachedObject;
