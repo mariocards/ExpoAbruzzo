@@ -69,7 +69,7 @@ define(function (require) {
         initialize: function (options) {
 
 
-
+            this.lang = window.localStorage.getItem("lingua");
             this.currentView = undefined;
 
         },
@@ -77,8 +77,8 @@ define(function (require) {
             // highlight the nav1 tab bar element as the current one
             this.structureView.setActiveTabBarElement("nav1");
             // create a model with an arbitrary attribute for testing the template engine
-            var lang = window.localStorage.getItem("lingua");
-            if ( lang == 1) {
+            
+            if ( this.lang == 1) {
                 var model = new MyModel({
                     abruzzo: "Abruzzo Per L'EXPO",
                     rassegna: "Rassegna Stampa",
@@ -147,18 +147,18 @@ define(function (require) {
 
 
             if (CachedObject.emptyNews()) {
-//                console.log("Indefinito");
-
                 var model = new NewsC();
                 model.fetch();
                 CachedObject.setNews(1, model);
                 var page = new NewsListView({
-                    model: model
+                    model: model,
+                    lang : this.lang
                 });
             } else {
 //                console.log("definito");
                 var page = new NewsListView({
-                    model: CachedObject.getNews(1)
+                    model: CachedObject.getNews(1),
+                    lang : this.lang
                 });
 
             }
@@ -176,12 +176,14 @@ define(function (require) {
                 model.fetch();
                 CachedObject.setEvents(1, model);
                 var page = new EventListView({
-                    model: model
+                    model: model,
+                    lang : this.lang
                 });
             } else {
 //                console.log("else");
                 var page = new EventListView({
-                    model: CachedObject.getEvents(1)
+                    model: CachedObject.getEvents(1),
+                    lang : this.lang
                 });
             }
 
@@ -220,12 +222,14 @@ define(function (require) {
                 model.fetch();
                 CachedObject.setIti(key, model);
                 var page = new ItinerariListView({
-                    model: model
+                    model: model,
+                    lang : this.lang
                 });
             } else {
 //                console.log("diobon");
                 var page = new ItinerariListView({
-                    model: CachedObject.getIti(key)
+                    model: CachedObject.getIti(key),
+                    lang : this.lang
                 });
             }
 
