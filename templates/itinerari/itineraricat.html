@@ -1,53 +1,13 @@
 <ul class="table-view home">
- 
 
- 		<li class="table-view-cell">
-            <h1 id="itinerariCatListItem" data-id="4" class="section-title">Del gusto</h1>
-            <a id="itinerariCatListItem" data-id="4" data-transition="slide-in">
-                 <img src="img/itinerari/delgustod.jpg">
-            </a>
-        </li>
-    	<li class="table-view-cell">
-            <h1 id="itinerariCatListItem" data-id="2" class="section-title">In bici</h1>
-            <a id="itinerariCatListItem" data-id="2" data-transition="slide-in">
-                <img src="img/itinerari/inbici.jpg">
-            </a>
-        </li>
-  
+{{#each .}}
+    <li class="table-view-cell">
+        <h1 id="itinerariCatListItem" data-id="{{id}}" class="section-title">{{name}}</h1>
+        <a id="itinerariCatListItem" data-id="{{id}}" data-transition="slide-in">
+            <img src="http://www.expo.abruzzo.it/{{foto}}&width=494&height=251">
+                 </a>
+                 </li>
 
-    	
-  
 
-    	<li class="table-view-cell">
-            <h1 id="itinerariCatListItem" data-id="5" class="section-title">Sugli sci</h1>
-            <a id="itinerariCatListItem" data-id="5" data-transition="slide-in">
-                 <img src="img/itinerari/suglisci.jpg">
-            </a>
-        </li>
-  
-
-    	<li class="table-view-cell">
-            <h1 id="itinerariCatListItem" data-id="6" class="section-title">A cavallo</h1>
-            <a id="itinerariCatListItem" data-id="6" data-transition="slide-in">
-               <img src="img/itinerari/acavallo.jpg">
-            </a>
-        </li>
-  
-
-    	<li class="table-view-cell">
-            <h1 id="itinerariCatListItem" data-id="7" class="section-title">In moto</h1>
-            <a id="itinerariCatListItem" data-id="7" data-transition="slide-in">
-                <img src="img/itinerari/inmoto.jpg">
-            </a>
-        </li>
-  
-
-    	<li class="table-view-cell">
-            <h1 id="itinerariCatListItem" data-id="9" class="section-title">Sentieri dello spirito</h1>
-            <a id="itinerariCatListItem" data-id="9" data-transition="slide-in">
-                <img src="img/itinerari/spirito.jpg">
-            </a>
-        </li>
-  
-
-</ul>
+{{/each}}
+                 </ul>
