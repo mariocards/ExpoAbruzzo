@@ -17,6 +17,7 @@ define(function(require) {
       $('#back-button').css('display','block');
       $('#settingsModal').css('display','inline-block');
       $('#toggle-button').css('display','none');
+
     },
 
     id: "eventview",

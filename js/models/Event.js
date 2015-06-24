@@ -5,7 +5,7 @@ define(function(require) {
 	var Event = Backbone.Model.extend({
 		constructorName: "Event",
 		initialize: function() {
-                    
+                          
 		},
                 
 		urlRoot: "http://www.expo.abruzzo.it/rest/event.php?rquest=get",

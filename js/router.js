@@ -11,7 +11,7 @@ define(function (require) {
     var StructureView = require("views/StructureView");
     var AbruzzoView = require("views/pages/Abruzzo/AbruzzoView");
     var CreditsView = require("views/pages/Abruzzo/CreditsView");
-    var ConfigurationView = require("views/pages/Abruzzo/ConfigurationView")
+    var ConfigurationView = require("views/pages/Abruzzo/ConfigurationView");
     var MyView = require("views/pages/MyView");
     var MapView = require("views/pages/MapView");
 
@@ -79,6 +79,7 @@ define(function (require) {
             var model = new MyModel({
                 key: "Benveuto nell'APP di Abruzzo Expo"
             });
+            alert("dentro myview" + window.localStorage.getItem("lingua"));
             // create the view
             var page = new MyView({
                 model: model
