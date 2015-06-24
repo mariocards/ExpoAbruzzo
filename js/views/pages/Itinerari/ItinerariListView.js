@@ -6,8 +6,15 @@ define(function (require) {
     var ItinerariListView = Utils.Page.extend({
         constructorName: "ItinerariListView",
         model: Itinerari,
-        initialize: function () {
-            this.template = Utils.templates.itinerarilistview;
+        initialize: function (options) {
+            this.options = options;
+            _.bindAll(this, 'render');
+            if(this.options.lang == 1){
+                this.template = Utils.templates.itinerarilistview;
+            }else{
+                this.template = Utils.templates.itinerarilistviewen;
+            }
+            
             this.model.on('sync', this.render, this);
             $('#back-button').css('display', 'block');
             $('#settingsModal').css('display', 'none');
@@ -21,6 +28,7 @@ define(function (require) {
         },
         render: function () {
             $(this.el).html(this.template(this.model.toJSON()));
+            
             return this;
         },
         itinerarioDetail: function (ev) {
