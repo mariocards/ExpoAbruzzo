@@ -108,21 +108,29 @@ define(function (require) {
                 trigger: true
             });
         },
-        changeToEn: function () {
-            alert("Sono entrato tin changeToEn");
+        changeToEn: function (e) {
+            e.preventDefault();
+
+//            Backbone.history.stop();
+            console.log("Sono entrato tin changeToEn");
             window.localStorage.setItem("lingua", 2);
-            CachedObject.eraseAll();
-            Backbone.history.navigate("myview", {
-                trigger: true
-            });
+//            CachedObject.eraseAll();
+//            location.reload();
+//            Backbone.history.start();
+            window.location.href = '';
         },
-        changeToIt: function () {
-            alert("Sono entrato tin changeToIt");
+        changeToIt: function (e) {
+            e.preventDefault();
+//            Backbone.history.stop();
+            console.log("Sono entrato tin changeToIt");
             window.localStorage.setItem("lingua", 1);
-            CachedObject.eraseAll();
-            Backbone.history.navigate("myview", {
-                trigger: true
-            });
+//            CachedObject.eraseAll();
+//            Backbone.history.stop();
+//            Backbone.history.start();
+//            Backbone.history.navigate("restart", {
+//                trigger: true
+//            });
+            window.location.href = '';
         }
     });
 

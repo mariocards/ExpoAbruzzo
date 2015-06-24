@@ -62,7 +62,8 @@ define(function (require) {
             "itinerarioviewFromSearch/:key": "itinerarioViewFromSearch",
             "abruzzoview": "abruzzoView",
             "creditsview": "creditView",
-            "configurationview" : "configurationView"
+            "configurationview": "configurationView",
+            "restart": "restartView"
         },
         firstView: "myview",
         initialize: function (options) {
@@ -261,22 +262,25 @@ define(function (require) {
             // go to first view
             this.navigate(this.firstView, {trigger: true});
         },
-        abruzzoView: function(){
+        abruzzoView: function () {
             var page = new AbruzzoView();
             this.changePage(page);
         },
-        creditView: function(){
+        creditView: function () {
             var page = new CreditsView();
             this.changePage(page);
         },
-        configurationView: function(){
-            
-            
+        configurationView: function () {
+
+
             var page = new ConfigurationView({
                 notifiche: window.localStorage.getItem("notifica")
-                
+
             });
             this.changePage(page);
+        },
+        restartView: function () {
+           
         }
     });
 

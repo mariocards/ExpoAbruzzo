@@ -273,22 +273,43 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 
         function setLanguage()
         {
-            navigator.globalization.getPreferredLanguage(
-                    function (language) {
-                        var linguaggio = language.value;
-                        if (linguaggio.includes("it")) {
-                            window.localStorage.setItem("lingua", 1);
-                        } else {
-                            window.localStorage.setItem("lingua", 2);
-                        }
-//                        alert('language: ' + language.value + '\n');
-                    },
-                    function () {
-//                        alert('Error getting language\n');
-                    }
-            );
+            window.localStorage.setItem("lingua", 2);
+//            navigator.globalization.getPreferredLanguage(
+//                    function (language) {
+//                        var linguaggio = language.value;
+//                        if (linguaggio.includes("it")) {
+//                            window.localStorage.setItem("lingua", 1);
+//                        } else {
+//                            window.localStorage.setItem("lingua", 2);
+//                        }
+////                        alert('language: ' + language.value + '\n');
+//                    },
+//                    function () {
+////                        alert('Error getting language\n');
+//                    }
+//            );
+        }
+        // process the promp dialog results
+        function onPrompt(results) {
+            alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+            if(results.buttonIndex === 2){
+                window.localStorage.setItem("lingua", 2);
+            }else{
+                window.localStorage.setItem("lingua", 1);
+            }
         }
 
+// Show a custom prompt dialog
+//
+        function showPrompt() {
+            navigator.notification.prompt(
+//                    '', // message
+                    onPrompt, // callback to invoke
+                    'Seleziona una Lingua', // title
+                    ['Italiano', 'English'] // buttonLabels
+//                    ''                 // defaultText
+                    );
+        }
         function run() {
 //            if (checkConnection() === 'No network connection') {
 //                navigator.notification.alert(
@@ -302,7 +323,13 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
             // see utils.js
 
 //            onDeviceReady2();
-            setLanguage();
+//            showPrompt();
+            var items = window.localStorage.getItem("lingua");
+            
+            if (items === null || items.length === 0){
+                setLanguage();
+            }
+            
             Utils.loadTemplates().once("templatesLoaded", function () {
                 /*
                  * 
