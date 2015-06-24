@@ -24,14 +24,18 @@ define(function (require) {
         initialize: function (options) {
             // load the precompiled template
             this.template = Utils.templates.structure;
+
             //this.on("inTheDOM", this.rendered);
             // bind the back event to the goBack function
             //document.getElementById("back").addEventListener("back", this.goBack(), false);
             $('#toggle-button').css('display', 'block');
         },
         render: function () {
+            var lang = window.localStorage.getItem("lingua");
             // load the template
-            this.el.innerHTML = this.template({});
+            this.el.innerHTML = this.template({
+                lang: lang
+            });
             // cache a reference to the content element
             this.contentElement = this.$el.find('#content')[0];
             return this;
@@ -109,28 +113,23 @@ define(function (require) {
             });
         },
         changeToEn: function (e) {
-            e.preventDefault();
+            var lingua = window.localStorage.getItem("lingua");
+            if (lingua !== 2) {
+                e.preventDefault();
+                window.localStorage.setItem("lingua", 2);
+                window.location.href = '';
+            }
 
-//            Backbone.history.stop();
-            console.log("Sono entrato tin changeToEn");
-            window.localStorage.setItem("lingua", 2);
-//            CachedObject.eraseAll();
-//            location.reload();
-//            Backbone.history.start();
-            window.location.href = '';
         },
         changeToIt: function (e) {
-            e.preventDefault();
-//            Backbone.history.stop();
-            console.log("Sono entrato tin changeToIt");
-            window.localStorage.setItem("lingua", 1);
-//            CachedObject.eraseAll();
-//            Backbone.history.stop();
-//            Backbone.history.start();
-//            Backbone.history.navigate("restart", {
-//                trigger: true
-//            });
-            window.location.href = '';
+            var lingua = window.localStorage.getItem("lingua");
+            if (lingua !== 1) {
+                e.preventDefault();
+                window.localStorage.setItem("lingua", 1);
+                window.location.href = '';
+            }
+
+
         }
     });
 

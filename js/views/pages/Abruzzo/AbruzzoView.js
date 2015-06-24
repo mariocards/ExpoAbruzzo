@@ -8,7 +8,12 @@ define(function (require) {
         constructorName: "AbruzzoView",
         initialize: function () {
             // load the precompiled template
-            this.template = Utils.templates.abruzzoview;
+            if(window.localStorage.getItem("lingua") === 1){
+                this.template = Utils.templates.abruzzoview;
+            }else{
+                this.template = Utils.templates.abruzzoviewen;
+            }
+            
             $('#back-button').css('display', 'block');
 
             $('#toggle-button').css('display', 'none');

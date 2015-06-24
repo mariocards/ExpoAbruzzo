@@ -8,7 +8,12 @@ define(function (require) {
         constructorName: "CreditsView",
         initialize: function () {
             // load the precompiled template
-            this.template = Utils.templates.creditsview;
+            if(window.localStorage.getItem("lingua") === 1){
+                this.template = Utils.templates.creditsview;
+            }else{
+                this.template = Utils.templates.creditsviewen;
+            }
+            
             $('#back-button').css('display', 'block');
 
             $('#toggle-button').css('display', 'none');
