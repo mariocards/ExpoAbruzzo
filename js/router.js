@@ -77,9 +77,23 @@ define(function (require) {
             // highlight the nav1 tab bar element as the current one
             this.structureView.setActiveTabBarElement("nav1");
             // create a model with an arbitrary attribute for testing the template engine
-            var model = new MyModel({
-                key: "Benveuto nell'APP di Abruzzo Expo"
-            });
+            var lang = window.localStorage.getItem("lingua");
+            if ( lang == 1) {
+                var model = new MyModel({
+                    abruzzo: "Abruzzo Per L'EXPO",
+                    rassegna: "Rassegna Stampa",
+                    eventi : "Eventi",
+                    itinerari: "Itinerari"
+                });
+            } else {
+                var model = new MyModel({
+                    abruzzo: "Abruzzo For EXPO",
+                    rassegna: "Press Review",
+                    eventi : "Events",
+                    itinerari: "Routes"
+                });
+            }
+
 //            alert("dentro myview" + window.localStorage.getItem("lingua"));
             // create the view
             var page = new MyView({
@@ -280,7 +294,7 @@ define(function (require) {
             this.changePage(page);
         },
         restartView: function () {
-           
+
         }
     });
 
