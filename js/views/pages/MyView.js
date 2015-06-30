@@ -24,6 +24,7 @@ define(function(require) {
       "tap #homeNews": "goToNews",
       "tap #homeEvents": "goToEvents",
       "tap #homeItinerari": "goToItinerari",
+      "tap #homeVideo": "video"
     },
 
     render: function() {
@@ -45,6 +46,11 @@ define(function(require) {
 
     goToEvents: function(e) {
       Backbone.history.navigate("eventlistview", {
+        trigger: true
+      });
+    },
+    video: function(e) {
+      Backbone.history.navigate("videolistview", {
         trigger: true
       });
     },

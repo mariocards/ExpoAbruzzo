@@ -34,6 +34,14 @@ define(function (require) {
     var ItinerarioView = require("views/pages/Itinerari/ItinerarioView");
     var ItinerariListView = require("views/pages/Itinerari/ItinerariListView");
     var ItinerariCatView = require("views/pages/Itinerari/ItinerariCatView");
+     //video
+    var Video = require("models/Video");
+    var Videos = require("collections/Videos");
+    //var ItinerariCat = require("collections/ItinerariCat");
+    var VideoView = require("views/pages/Video/VideoView");
+    var VideoListView = require("views/pages/Video/VideoListView");
+    //var ItinerariCatView = require("views/pages/Itinerari/ItinerariCatView");
+    
     //ricerca
     var SearchView = require("views/pages/Search/SearchView");
     var ResultView = require("views/pages/Search/ResultView");
@@ -63,7 +71,8 @@ define(function (require) {
             "abruzzoview": "abruzzoView",
             "creditsview": "creditView",
             "configurationview": "configurationView",
-            "restart": "restartView"
+            "videolistview": "videoListView",
+            "videoview/:key": "videoView"
         },
         firstView: "myview",
         initialize: function (options) {
@@ -297,8 +306,33 @@ define(function (require) {
             });
             this.changePage(page);
         },
-        restartView: function () {
+         videoListView: function () {
+            // create a model with an arbitrary attribute for testing the template engine
+            //if (CachedObject.emptyvideos()) {
+//                console.log("if");
+                var model = new Videos();
+                model.fetch();
+                //CachedObject.setVideos(1, model);
+                var page = new VideoListView({
+                    model: model,
+                    lang : this.lang
+                });
+//            } else {
+//
+//                var page = new VideoListView({
+//                    model: CachedObject.getVideo(1),
+//                    lang : this.lang
+//                });
+//            }
 
+            // show the view
+            this.changePage(page);
+        },
+        videoView: function (key) {           
+            var page = new VideoView({
+                model: this.currentView.model.get(key)
+            });
+            this.changePage(page);
         }
     });
 

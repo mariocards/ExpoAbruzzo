@@ -1,0 +1,38 @@
+<ul class="table-view home title-list">
+    <li class="table-view-cell">
+        <h1 class="section-title" id="intestazione">Video</h1>
+        <a data-transition="slide-in">
+            <img src="img/8750395302_37ce8c2a6e_k.jpg">
+        </a>
+    </li>
+</ul>
+<ul class="table-view" style="border-top: 1px solid rgba(0, 0, 0, 0.1)">
+    {{#each .}}
+    <li class="table-view-cell media news-list" id="eventListItem" data-id="{{id}}">
+    <a class="navigate-right" data-transition="slide-in">
+      <div class="img-list" ></div>
+      <div class="text-list">
+        
+        <h6><div class="overflow-text"></div>{{title}}</h6>
+        <p>  {{{html_code}}}</p>
+        
+      </div>
+    </a>
+  </li>
+    
+    {{/each}}
+</ul> 
+
+
+<div id="loadMore" class="box swype">
+   
+      
+            <div id="loader-circle"></div>
+
+   
+</div>
+
+
+
+
+

@@ -27,6 +27,8 @@ define({
     abruzzoviewen: "templates/abruzzo-per-expo/abruzzoview_en.html",
     creditsview: "templates/abruzzo-per-expo/creditsview.html",
     creditsviewen: "templates/abruzzo-per-expo/creditsview_en.html",
+    videoview: "templates/video/videoview.html",
+    videolistview: "templates/video/videolistview.html",
     configurationview: "templates/abruzzo-per-expo/configurationview.html"
     
 });

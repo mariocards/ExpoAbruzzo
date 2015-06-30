@@ -16,6 +16,7 @@ define(function (require) {
             "tap #nav6": "search",
             "tap #nav7": "credits",
             "tap #nav8": "configuration",
+            "tap #nav9": "video",
             "tap #back-button": "goBack",
             "tap #settingsModal": "search",
             "tap #lang_uk": "changeToEn",
@@ -84,6 +85,11 @@ define(function (require) {
         },
         itinerariListView: function (event) {
             Backbone.history.navigate("itinerarilistview", {
+                trigger: true
+            });
+        },
+         video: function (event) {
+            Backbone.history.navigate("videolistview", {
                 trigger: true
             });
         },
