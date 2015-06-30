@@ -1,14 +1,14 @@
 define(function (require) {
 
     var Backbone = require("backbone");
-    var h = require("handlebars");
-    h.registerHelper('getDay', function (passedString) {
-        return new Handlebars.SafeString(passedString.substring(8, 10))
-    });
-    var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
-    h.registerHelper('getMonth', function (passedString) {
-        return new Handlebars.SafeString(mesi[passedString.substring(5, 7) - 1])
-    });
+//    var h = require("handlebars");
+//    h.registerHelper('getDay', function (passedString) {
+//        return new Handlebars.SafeString(passedString.substring(8, 10));
+//    });
+//    var mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+//    h.registerHelper('getMonth', function (passedString) {
+//        return new Handlebars.SafeString(mesi[passedString.substring(5, 7) - 1]);
+//    });
 //      var formatoData = require("helperdateformat");
     var Events = require("collections/Events");
     var Utils = require("utils");

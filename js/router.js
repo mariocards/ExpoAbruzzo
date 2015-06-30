@@ -84,7 +84,7 @@ define(function (require) {
         },
         myView: function () {
             // highlight the nav1 tab bar element as the current one
-            this.structureView.setActiveTabBarElement("nav1");
+           // this.structureView.setActiveTabBarElement("nav1");
             // create a model with an arbitrary attribute for testing the template engine
 
             if (this.lang == 1) {
@@ -177,7 +177,7 @@ define(function (require) {
         },
         eventListView: function () {
             // highlight the nav1 tab bar element as the current one
-            this.structureView.setActiveTabBarElement("nav4");
+          //  this.structureView.setActiveTabBarElement("nav4");
             // create a model with an arbitrary attribute for testing the template engine
             if (CachedObject.emptyEvents()) {
 //                console.log("if");

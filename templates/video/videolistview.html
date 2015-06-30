@@ -6,16 +6,17 @@
         </a>
     </li>
 </ul>
-<ul class="table-view" style="border-top: 1px solid rgba(0, 0, 0, 0.1)">
+<ul class="table-view">
     {{#each .}}
-    <li class="table-view-cell media news-list" id="eventListItem" data-id="{{id}}">
+    <li class="table-view-cell media" id="eventListItem" data-id="{{id}}" style="background-image:url('')">
     <a class="navigate-right" data-transition="slide-in">
-      <div class="img-list" ></div>
       <div class="text-list">
-        
-        <h6><div class="overflow-text"></div>{{title}}</h6>
-        <p>  {{{html_code}}}</p>
-        
+        <h6>{{title}}</h6>
+        <div class="details">
+        <p>{{trimNcharString description 10}}</p>
+        <!--<p><i class="fa fa-calendar-o"></i> {{ data }}</p>-->
+        </div>
+        <div class="date-events"><span class="number">{{getDay creation}}</span><br><span class="day">{{getMonth creation}}</span></div>
       </div>
     </a>
   </li>
