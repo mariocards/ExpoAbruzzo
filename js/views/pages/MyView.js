@@ -24,7 +24,9 @@ define(function(require) {
       "tap #homeNews": "goToNews",
       "tap #homeEvents": "goToEvents",
       "tap #homeItinerari": "goToItinerari",
-      "tap #homeVideo": "video"
+      "tap #homeVideo": "video",
+      "tap #homeItinerari2": "goToItinerari"
+
     },
 
     render: function() {
@@ -55,7 +57,7 @@ define(function(require) {
       });
     },
     goToItinerari: function(e){
-        Backbone.history.navigate("itinerarilistview", {
+        Backbone.history.navigate("itineraricatlistview", {
         trigger: true
       });
     }

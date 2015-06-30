@@ -7,8 +7,15 @@ define(function (require) {
     var ResultView = Utils.Page.extend({
         constructorName: "ResultView",
         model: Search,
-        initialize: function () {
-            this.template = Utils.templates.ricercalistview;
+        initialize: function (options) {
+            this.options = options;
+            _.bindAll(this, 'render');
+            if (this.options.lang == 1) {
+                this.template = Utils.templates.ricercalistview;
+            } else {
+                this.template = Utils.templates.ricercalistviewen;
+            }
+            
             this.model.on('sync', this.render, this);
         },
         id: "paginaricerca",
@@ -24,9 +31,12 @@ define(function (require) {
             return this;
         },
         eventDetail: function (ev) {
-
-            Backbone.history.navigate($(ev.currentTarget).data('view') + "/" + $(ev.currentTarget).data('id'), {
+            if($(ev.currentTarget).data('id') != 0){
+                Backbone.history.navigate($(ev.currentTarget).data('view') + "/" + $(ev.currentTarget).data('id'), {
                 trigger: true});
+            }
+            
+            
         },
         goBack: function () {
             Backbone.history.navigate("myview", {

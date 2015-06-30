@@ -8,7 +8,7 @@ define(function (require) {
         constructorName: "AbruzzoView",
         initialize: function () {
             // load the precompiled template
-            if(window.localStorage.getItem("lingua") === 1){
+            if(window.localStorage.getItem("lingua") == 1){
                 this.template = Utils.templates.abruzzoview;
             }else{
                 this.template = Utils.templates.abruzzoviewen;

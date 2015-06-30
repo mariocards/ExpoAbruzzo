@@ -23,6 +23,8 @@ define({
     itinerarilistviewen: "templates/itinerari/itinerarilistview_en.html",
     paginaricerca: "templates/search/paginaricerca.html",
     ricercalistview: "templates/search/generalsearchlist.html",
+    paginaricercaen: "templates/search/paginaricerca_en.html",
+    ricercalistviewen: "templates/search/generalsearchlist_en.html",
     abruzzoview: "templates/abruzzo-per-expo/abruzzoview.html",
     abruzzoviewen: "templates/abruzzo-per-expo/abruzzoview_en.html",
     creditsview: "templates/abruzzo-per-expo/creditsview.html",

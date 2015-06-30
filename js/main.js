@@ -59,12 +59,12 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //        cordova plugin add cordova-plugin-globalizations
         document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOline, false);
-//        document.addEventListener("deviceready", run, false);
+        document.addEventListener("deviceready", run, false);
 
-        run();
+//        run();
 
         function onOffline() {
-            navigator.notification.vibrate(50);
+//            navigator.notification.vibrate(50);
             navigator.notification.alert(
                     'Per Utilizzare Expo Abruzzo devi essere connesso ad Internet', // messagio no rete
                     alertDismissed, // Callback che non usiamo al momento
@@ -79,7 +79,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
         }
 
         function onOline() {
-            navigator.notification.vibrate(80);
+//            navigator.notification.vibrate(80);
         }
 
         function checkConnection() {
@@ -273,21 +273,21 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 
         function setLanguage()
         {
-            window.localStorage.setItem("lingua", 2);
-//            navigator.globalization.getPreferredLanguage(
-//                    function (language) {
-//                        var linguaggio = language.value;
-//                        if (linguaggio.includes("it")) {
-//                            window.localStorage.setItem("lingua", 1);
-//                        } else {
-//                            window.localStorage.setItem("lingua", 2);
-//                        }
-////                        alert('language: ' + language.value + '\n');
-//                    },
-//                    function () {
-////                        alert('Error getting language\n');
-//                    }
-//            );
+//            window.localStorage.setItem("lingua", 2);
+            navigator.globalization.getPreferredLanguage(
+                    function (language) {
+                        var linguaggio = language.value;
+                        if (linguaggio.includes("it")) {
+                            window.localStorage.setItem("lingua", 1);
+                        } else {
+                            window.localStorage.setItem("lingua", 2);
+                        }
+//                        alert('language: ' + language.value + '\n');
+                    },
+                    function () {
+//                        alert('Error getting language\n');
+                    }
+            );
         }
         // process the promp dialog results
         function onPrompt(results) {
@@ -311,14 +311,14 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     );
         }
         function run() {
-//            if (checkConnection() === 'No network connection') {
-//                navigator.notification.alert(
-//                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
-//                    alertDismissed, // Callback che non usiamo al momento
-//                    'Attiva una Rete', // Titolo Messaggio errore
-//                    'Ok'                  // Nome del Bottone
-//                    );
-//            }
+            if (checkConnection() === 'No network connection') {
+                navigator.notification.alert(
+                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
+                    alertDismissed, // Callback che non usiamo al momento
+                    'Attiva una Rete', // Titolo Messaggio errore
+                    'Ok'                  // Nome del Bottone
+                    );
+            }
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
 

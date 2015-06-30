@@ -6,9 +6,16 @@ define(function (require) {
 
     var SearchView = Utils.Page.extend({
         constructorName: "SearchView",
-        initialize: function () {
+        initialize: function (options) {
+            this.options = options;
+            _.bindAll(this, 'render');
             // load the precompiled template
-            this.template = Utils.templates.paginaricerca;
+            if (this.options.lang == 1) {
+                this.template = Utils.templates.paginaricerca;
+            } else {
+                this.template = Utils.templates.paginaricercaen;
+            }
+
             this.render;
         },
         id: "paginaricerca",
@@ -35,10 +42,10 @@ define(function (require) {
                         {trigger: true});
             }
         },
-        doSearchTap: function(event){
+        doSearchTap: function (event) {
             var value = $('#ricercaGeneraleInput').val();
-                Backbone.history.navigate("risultatoricerca/" + value,
-                        {trigger: true});
+            Backbone.history.navigate("risultatoricerca/" + value,
+                    {trigger: true});
         }
     });
 

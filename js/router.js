@@ -86,19 +86,19 @@ define(function (require) {
             // highlight the nav1 tab bar element as the current one
             this.structureView.setActiveTabBarElement("nav1");
             // create a model with an arbitrary attribute for testing the template engine
-            
-            if ( this.lang == 1) {
+
+            if (this.lang == 1) {
                 var model = new MyModel({
                     abruzzo: "Abruzzo Per L'EXPO",
                     rassegna: "Rassegna Stampa",
-                    eventi : "Eventi",
+                    eventi: "Eventi",
                     itinerari: "Itinerari"
                 });
             } else {
                 var model = new MyModel({
                     abruzzo: "Abruzzo For EXPO",
                     rassegna: "Press Review",
-                    eventi : "Events",
+                    eventi: "Events",
                     itinerari: "Routes"
                 });
             }
@@ -161,13 +161,13 @@ define(function (require) {
                 CachedObject.setNews(1, model);
                 var page = new NewsListView({
                     model: model,
-                    lang : this.lang
+                    lang: this.lang
                 });
             } else {
 //                console.log("definito");
                 var page = new NewsListView({
                     model: CachedObject.getNews(1),
-                    lang : this.lang
+                    lang: this.lang
                 });
 
             }
@@ -186,13 +186,13 @@ define(function (require) {
                 CachedObject.setEvents(1, model);
                 var page = new EventListView({
                     model: model,
-                    lang : this.lang
+                    lang: this.lang
                 });
             } else {
 //                console.log("else");
                 var page = new EventListView({
                     model: CachedObject.getEvents(1),
-                    lang : this.lang
+                    lang: this.lang
                 });
             }
 
@@ -232,17 +232,15 @@ define(function (require) {
                 CachedObject.setIti(key, model);
                 var page = new ItinerariListView({
                     model: model,
-                    lang : this.lang
+                    lang: this.lang
                 });
             } else {
 //                console.log("diobon");
                 var page = new ItinerariListView({
                     model: CachedObject.getIti(key),
-                    lang : this.lang
+                    lang: this.lang
                 });
             }
-
-
             // show the view
             this.changePage(page);
         },
@@ -256,26 +254,23 @@ define(function (require) {
             this.changePage(page);
         },
         risultatoRicerca: function (key) {
-            var model = new Search();
+            var model = new Search({
+                    lang: this.lang});
             model.text = key;
-            model.fetch({success: function () {
-                }});
+            model.fetch({
+                success: function () {
+                    //something
+                }
+            });
             var page = new ResultView({
                 model: model
             });
-
-            this.changePage(page);
-        },
-        map: function () {
-            // highlight the nav2 tab bar element as the current one
-            this.structureView.setActiveTabBarElement("nav2");
-            // create the view and show it
-            var page = new MapView();
             this.changePage(page);
         },
         paginaRicerca: function () {
             this.structureView.setActiveTabBarElement("nav6");
-            var page = new SearchView();
+            var page = new SearchView({
+                    lang: this.lang});
             this.changePage(page);
         },
         // load the structure view
@@ -306,6 +301,7 @@ define(function (require) {
             });
             this.changePage(page);
         },
+
          videoListView: function () {
             // create a model with an arbitrary attribute for testing the template engine
             //if (CachedObject.emptyvideos()) {
@@ -324,9 +320,20 @@ define(function (require) {
 //                    lang : this.lang
 //                });
 //            }
+             this.changePage(page);
+         },
+        map: function () {
+            // highlight the nav2 tab bar element as the current one
+            this.structureView.setActiveTabBarElement("nav2");
+            // create the view and show it
+            var page = new MapView();
+            this.changePage(page);
+        },
+        restartView: function () {
+
 
             // show the view
-            this.changePage(page);
+           
         },
         videoView: function (key) {           
             var page = new VideoView({
