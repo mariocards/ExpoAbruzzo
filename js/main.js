@@ -319,6 +319,8 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     'Ok'                  // Nome del Bottone
                                        );
             }
+            
+            
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
 

@@ -201,7 +201,7 @@ define(function (require) {
         },
         eventView: function (key) {
             // highlight the nav1 tab bar element as the current one
-            this.structureView.setActiveTabBarElement("nav4");
+            //this.structureView.setActiveTabBarElement("nav4");
             var page = new EventView({
                 model: this.currentView.model.get(key)
             });
@@ -246,7 +246,7 @@ define(function (require) {
         },
         itinerarioView: function (key) {
             // highlight the nav1 tab bar element as the current one
-            this.structureView.setActiveTabBarElement("nav5");
+           // this.structureView.setActiveTabBarElement("nav5");
             var page = new ItinerarioView({
                 model: this.currentView.model.get(key)
             });
