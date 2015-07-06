@@ -311,19 +311,20 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     );
         }
         function run() {
-//            if (checkConnection() === 'No network connection') {
-//                navigator.notification.alert(
-//                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
-//                    alertDismissed, // Callback che non usiamo al momento
-//                    'Attiva una Rete', // Titolo Messaggio errore
-//                    'Ok'                  // Nome del Bottone
-//                    );
-//            }
+            if (checkConnection() === 'No network connection') {
+                navigator.notification.alert(
+                    'Per Utilizzare questa APP devi essere Connesso', // messagio no rete
+                    alertDismissed, // Callback che non usiamo al momento
+                    'Attiva una Rete', // Titolo Messaggio errore
+                    'Ok'                  // Nome del Bottone
+                                       );
+            }
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
 
 //            onDeviceReady2();
-//            showPrompt();
+         //   showPrompt();
+     //window.localStorage.setItem("lingua", 1);
             var items = window.localStorage.getItem("lingua");
             
             if (items === null || items.length === 0){
@@ -357,7 +358,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
                     'img/itinerari/acavallo.jpg',
                     'img/itinerari/inmoto.jpg',
                     'img/itinerari/spirito.jpg']; // here the developer can add the paths to the images that he would like to be preloaded
-
+                      
                 if (images.length) {
                     new PreLoader(images, {
                         onComplete: startRouter
