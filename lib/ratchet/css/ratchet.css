@@ -1080,8 +1080,9 @@ select {
 }
 
 .modal {
+  left: 0%;
   position: fixed;
-  top: 0;
+  top: 7%;
   opacity: 0;
   z-index: 11;
   width: 100%;

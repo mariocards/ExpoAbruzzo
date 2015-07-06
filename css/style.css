@@ -747,3 +747,20 @@ border:1px solid rgba(0, 0, 0, 0.2);
 	display: none;
 }
 }
+
+.pulsante {
+  width: 50%;
+  float: left;
+  border: 1px solid #cc2575;
+  height: 85px;
+  text-align: center;
+  /* vertical-align: text-bottom; */
+}
+.pulsante2x {
+  width: 100%;
+  float: left;
+  border: 1px solid #cc2575;
+  height: 85px;
+  text-align: center;
+  /* vertical-align: text-bottom; */
+}
