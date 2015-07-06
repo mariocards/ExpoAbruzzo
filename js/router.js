@@ -268,7 +268,7 @@ define(function (require) {
             this.changePage(page);
         },
         paginaRicerca: function () {
-            this.structureView.setActiveTabBarElement("nav6");
+    
             var page = new SearchView({
                     lang: this.lang});
             this.changePage(page);

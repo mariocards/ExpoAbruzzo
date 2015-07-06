@@ -6,23 +6,25 @@
         </a>
     </li>
 </ul>
-<ul class="table-view">
-    {{#each .}}
-    <li class="table-view-cell media" id="eventListItem" data-id="{{id}}" style="background-image:url('')">
-    <a class="navigate-right" data-transition="slide-in">
-      <div class="text-list">
-        <h6>{{title}}</h6>
-        <div class="details">
-        <p>{{trimNcharString description 10}}</p>
-        <!--<p><i class="fa fa-calendar-o"></i> {{ data }}</p>-->
-        </div>
-        <div class="date-events"><span class="number">{{getDay creation}}</span><br><span class="day">{{getMonth creation}}</span></div>
-      </div>
+<div class="masonry">
+  {{#each .}}
+   <div class="item" id="itinerariListItem" data-id="{{id}}">
+    <a data-transition="slide-in">
+      <h2>{{title}}</h2>
+      <div class="masonry-img"><img src="{{getImgVideo html_code}}"></div>
+      <div class="box-info">
+      <a class="detail-page" >{{{trimNcharString description 30}}} </a>
+      <a class="detail-page" > {{timestampToDate creation}} </a>
+    </div>
     </a>
-  </li>
-    
-    {{/each}}
-</ul> 
+    </div>
+   {{/each}}
+  
+</div>
+
+
+
+
 
 
 <div id="loadMore" class="box swype">
@@ -32,6 +34,9 @@
 
    
 </div>
+
+
+
 
 
 

@@ -20,8 +20,8 @@ define(function (require) {
         id: "videolistview",
         className: "i-g page",
         events: {
-            "tap #eventListItem": "videoDetail",
-             "tap #manda": "fetchSheets"
+            "tap #itinerariListItem": "videoDetail",
+            "scroll": "fetchSheets"
 
         },
         render: function () {
@@ -36,10 +36,12 @@ define(function (require) {
         },
         fetchSheets: function () {
 
-           
+                var delta = this.checkScroll();
+
+            if (delta > -60) {
                 this.model.iniziale += 5;
                 this.model.fetch({remove: false});
-            
+            }
         },
         checkScroll: function () {
             var scrollHeight = this.el.offsetHeight;

@@ -59,9 +59,9 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 //        cordova plugin add cordova-plugin-globalizations
         document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOline, false);
-        //document.addEventListener("deviceready", run, false);
+       document.addEventListener("deviceready", run, false);
 
-        run();
+       // run();
 
         function onOffline() {
 //            navigator.notification.vibrate(50);
