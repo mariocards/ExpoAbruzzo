@@ -236,11 +236,13 @@ header.transparent{
 .share-button{
 	position: absolute;
   	right: 7px;
-  	bottom: 10px;
+  	/*bottom: 10px;*/
+  	bottom: 2px;
   	background: transparent;
   	border: none;
   	color: #cc2575;
   	outline: none;
+  	padding: 10px;;
 }
 
 .table-view{
@@ -622,7 +624,7 @@ border-left: 2px solid #06A8EE;
 border-left: 2px solid #cc2575;
   padding: 5px 0px 2px 5px;
   display: block;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 17px;
   margin: 10px 0;
   -webkit-font-smoothing: antialiased;
@@ -722,7 +724,64 @@ border:1px solid rgba(0, 0, 0, 0.2);
 .input-box .segmented-control .control-item.active{
 	background: #06A8EE;
 }
+.video-list{
+	height: 190px;
+}
 
+.video-list .fa-play-circle-o{
+	  padding: 15px 10px 0;
+	  font-size: 40px;
+	  font-weight: 100;
+	  color: rgba(255, 255, 255, 0.5);
+}
+
+#videoview{
+	height: 100%;
+}
+#videoview .image-page{
+	height: auto;
+}
+#videoview > .page{
+	  display: block;
+  		overflow: auto;
+  		height: 65%;
+}
+#videoview .box-title{
+	  width: 100%;
+	  position: relative;
+}
+#videoview .box-title h3{
+	  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 2px;
+  line-height: 27px;
+  font-size: 23px;
+  color: #cc2575;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
+}
+#videoview .box-title span{
+	  background: #cc2575;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: relative;
+}
+#videoview .detail-page{
+	padding: 5px 0px 2px 5px;
+	display: block;
+	margin: 25px 0 0;
+}
+#videoview .share-button{
+	bottom: 10px;
+	position: relative;
+}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
 .img-list {
