@@ -433,6 +433,8 @@ header.transparent{
 	padding: 15px;
 	background: rgba(255, 255, 255, 0.3);
 
+	height: 100%;
+
 }
 
 .name-category{
@@ -618,7 +620,7 @@ border-left: 2px solid #06A8EE;
 }
 .detail-page{
 
-border-left: 2px solid #cc2575;
+/* border-left: 2px solid #cc2575; */
   padding: 5px 0px 2px 5px;
   display: block;
   font-weight: 200;
@@ -626,6 +628,8 @@ border-left: 2px solid #cc2575;
   margin: 10px 0;
   -webkit-font-smoothing: antialiased;
   color: #06A8EE;
+
+float: left;
 
 }
 .detail-page > i{
@@ -747,7 +751,9 @@ border:1px solid rgba(0, 0, 0, 0.2);
 	display: none;
 }
 }
-
+div#pulsantiera{
+    height: 300px;
+}
 .pulsante {
   width: 50%;
   float: left;

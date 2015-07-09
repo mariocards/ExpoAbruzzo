@@ -19,14 +19,23 @@ define(function(require) {
       this.model.on('sync', this.render, this);
       $('#back-button').css('display','block');
       $('#settingsModal').css('display','inline-block'); 
+      
     },
 
     id: "itinerarioview",
     className: "i-g page",
 
     events: {
-      "tap #map-button": "codeAddress"  
+      "tap #map-button": "codeAddress",
+      "tap .modal" : "doSomething",
+      "tap .media" : "goToPoi"
      
+    },
+    goToPoi: function(){
+        alert("");
+    },
+    doSomething: function(){
+        $('.modal').scrollTop(0);
     },
     codeAddress: function() {
         var address = this.model.get('partenza');
