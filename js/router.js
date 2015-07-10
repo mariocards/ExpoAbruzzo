@@ -34,6 +34,8 @@ define(function (require) {
     var ItinerarioView = require("views/pages/Itinerari/ItinerarioView");
     var ItinerariListView = require("views/pages/Itinerari/ItinerariListView");
     var ItinerariCatView = require("views/pages/Itinerari/ItinerariCatView");
+    var PoiView = require("views/pages/Itinerari/PoiView");
+    var PoiModel = require("models/PoiModel");
     //ricerca
     var SearchView = require("views/pages/Search/SearchView");
     var ResultView = require("views/pages/Search/ResultView");
@@ -63,7 +65,8 @@ define(function (require) {
             "abruzzoview": "abruzzoView",
             "creditsview": "creditView",
             "configurationview": "configurationView",
-            "restart": "restartView"
+            "restart": "restartView",
+            "poiview/:key": "poiView"
         },
         firstView: "myview",
         initialize: function (options) {
@@ -246,7 +249,8 @@ define(function (require) {
         },
         risultatoRicerca: function (key) {
             var model = new Search({
-                    lang: this.lang});
+                lang: this.lang}
+            );
             model.text = key;
             model.fetch({
                 success: function () {
@@ -261,7 +265,7 @@ define(function (require) {
         paginaRicerca: function () {
             this.structureView.setActiveTabBarElement("nav6");
             var page = new SearchView({
-                    lang: this.lang});
+                lang: this.lang});
             this.changePage(page);
         },
         // load the structure view
@@ -301,6 +305,21 @@ define(function (require) {
         },
         restartView: function () {
 
+        },
+        poiView: function (key) {
+            
+            var model = new PoiModel({
+                titolo : "Castello RoccaScalegna",
+                description : "Descrizione del Poi",
+                lat :"42.0619791",
+                lon : "14.305635",
+                pic : "show.php?token=fc5e9ee7a559c8f28036fe7edb904f11&id=117"
+            });
+            //model : this.currentView.model.get(key)
+            var page = new PoiView({
+                model: model
+            });
+            this.changePage(page);
         }
     });
 

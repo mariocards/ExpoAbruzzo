@@ -1,28 +1,28 @@
 define(function(require) {
 
   var Backbone = require("backbone");
-  var Itinerario = require("models/Itinerario");
+  var PoiModel = require("models/PoiModel");
   var L = require("leaflet");
   var Utils = require("utils");
-  var ItinerarioView = Utils.Page.extend({
+  var PoiView = Utils.Page.extend({
 
-    constructorName: "ItinerarioView",
+    constructorName: "PoiView",
 
-    model : Itinerario,
+    model : PoiModel,
     
     
     
     
     initialize: function() {
 
-      this.template = Utils.templates.itinerarioview;
+      this.template = Utils.templates.poiview;
       this.model.on('sync', this.render, this);
       $('#back-button').css('display','block');
       $('#settingsModal').css('display','inline-block'); 
       
     },
 
-    id: "itinerarioview",
+    id: "poiview",
     className: "i-g page",
 
     events: {
@@ -92,6 +92,6 @@ define(function(require) {
     
   });
 
-  return ItinerarioView;
+  return PoiView;
 
 });

@@ -29,6 +29,7 @@ define({
     abruzzoviewen: "templates/abruzzo-per-expo/abruzzoview_en.html",
     creditsview: "templates/abruzzo-per-expo/creditsview.html",
     creditsviewen: "templates/abruzzo-per-expo/creditsview_en.html",
-    configurationview: "templates/abruzzo-per-expo/configurationview.html"
+    configurationview: "templates/abruzzo-per-expo/configurationview.html",
+    poiview: "templates/itinerari/poiview.html"
     
 });
