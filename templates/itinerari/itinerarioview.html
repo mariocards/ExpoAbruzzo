@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div class="content-padded page">
+<div class="content-padded page route-details">
     <a class="detail-page" id="map-button"><i class="fa fa-flag"></i> {{partenza}}</a>
     <a class="detail-page" ><i class="fa fa-flag-checkered"></i> {{arrivo}}</a>
     <div>
@@ -18,28 +18,28 @@
                     <br/>
                     <i class="fa fa-info fa-2x"></i>
                     <br/>
-                    Descrizione</a>
+                    <span>Descrizione</span></a>
             </div>
             <div class="pulsante">
                 <a href="#myModalpoi">
                     <br/>
                     <i class="fa fa-map-marker fa-2x"></i>
                     <br/>
-                    POI
+                    <span>POI</span>
                 </a>
             </div>
             <div class="pulsante">
                 <a href="#myModalalbum"><br/>
                     <i class="fa fa-picture-o fa-2x"></i>
                     <br/>
-                    Album</a>
+                    <span>Gallery</span></a>
 
             </div>
             <div class="pulsante">
                 <a  href="#myModalinfo"><br/>
                     <i class="fa fa-pie-chart fa-2x"></i>
                     <br/>
-                    Info</a>
+                    <span>Info</span></a>
             </div>
             <div class="pulsante2x">
                 <br/>
@@ -62,9 +62,11 @@
     <header class="bar bar-nav">
         <a class="icon icon-close pull-right" href="#myModaldescrizione"></a>
         <h1 class="title">Descrizione</h1>
+        
     </header>
 
     <div class="content">
+        <h4>{{ title }}</h4>
         <p class="content-padded">{{{body}}}</p>
     </div>
 </div>
@@ -72,39 +74,27 @@
 <div id="myModalpoi" class="modal">
     <header class="bar bar-nav">
         <a class="icon icon-close pull-right" href="#myModalpoi"></a>
-        <h1 class="title">POI</h1>
+        <h1 class="title">Points Of Interest</h1>
     </header>
 
     <div class="content">
-        <ul class="table-view">
-            <li class="table-view-cell media" data-id="1">
-                <a class="navigate-right poi" >
-                    <img class="media-object pull-left" src="img/lago.jpg" style="width: 150px;height: 150px;">
-                    <div class="media-body">
-                        Rocca Scalegna
-                        <p>Castello di Roccascalegna</p>
-                    </div>
-                </a>
-            </li>
-            <li class="table-view-cell media" data-id="2">
-                <a class="navigate-right poi" >
-                    <img class="media-object pull-left" src="img/castel-camponeschi.jpg" style="width: 150px;height: 150px;">
-                    <div class="media-body">
-                        Prata D'Asiodonia
-                        <p>La Regione dei Castelli, Castel Camponeschi</p>
-                    </div>
-                </a>
-            </li>
-            <li class="table-view-cell media" data-id="3">
-                <a class="navigate-right poi" >
-                    <img class="media-object pull-left" src="img/stiffe.jpg" style="width: 150px;height: 150px;">
-                    <div class="media-body">
-                        Stiffe
-                        <p>Grotte di Stiffe</p>
-                    </div>
-                </a>
-            </li>
-        </ul>
+        <div class="masonry">
+          <!--#each-->
+           <div class="item" id="itinerariListItem" data-id="{{id}}">
+            <a class="media">
+              <h2>Rocca Scalogna</h2>
+              <div class="masonry-img"><img src="img/8750395302_37ce8c2a6e_k.jpg"></div>
+            </a>
+            </div>
+          <!--/each-->
+          <div class="item" id="itinerariListItem" data-id="{{id}}">
+            <a class="media">
+              <h2>Rocca Scalogna</h2>
+              <div class="masonry-img"><img src="img/8750395302_37ce8c2a6e_k.jpg"></div>
+            </a>
+            </div>
+  
+        </div>
     </div>
 </div>
 
@@ -115,20 +105,38 @@
     </header>
 
     <div class="content">
-        <p class="content-padded">&nbsp; <i class="fa fa-coffee"></i>&nbsp; Servizi Disponibili </p>
-        <p class="content-padded">&nbsp; <i class="fa fa-envelope-o"></i>&nbsp; Contatti: qualcosa@mail.it  </p>
-        <p class="content-padded">&nbsp; <i class="fa fa-phone"></i>&nbsp; Telefono: 085951111 </p>
-        <p class="content-padded">&nbsp; <i class="fa fa-car"></i>&nbsp; Piazzola di Sosta: Si</p>
-        <p class="content-padded">&nbsp; <i class="fa fa-bed"></i>&nbsp; Hotel: Terranera, Tussillo, Rocca di Mezzo e Rocca di Cambio</p>
-        <p class="content-padded">&nbsp; <i class="fa fa-home"></i>&nbsp; Località Interessate: <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rocca di Mezzo, Rocca di Cambio, Terranera, Prata D’Ansidonia, Tussillo, Stiffe, Collepietro</p>
-
+        <div class="content-padded">
+            <div class="info-detail">
+                <p class="info-title"><i class="fa fa-coffee"></i>&nbsp; Servizi Disponibili: </p>
+                <p class="info-row">Bagno, Parcheggio, Bar </p>
+            </div>
+            <div class="info-detail">
+                <p class="info-title"><i class="fa fa-envelope-o"></i>&nbsp; Contatti:</p>
+                <p class="info-row">qualcosa@mail.it  </p>
+            </div>
+            <div class="info-detail">
+                <p class="info-title"><i class="fa fa-phone"></i>&nbsp; Telefono:</p>
+                <p class="info-row">085951111 </p>
+            </div>
+            <div class="info-detail">
+                <p class="info-title"><i class="fa fa-car"></i>&nbsp; Piazzola di Sosta: <span>Si</span></p>
+            </div>
+            <div class="info-detail">
+                <p class="info-title"><i class="fa fa-bed"></i>&nbsp; Hotel: </p>
+                <p class="info-row">Terranera, Tussillo, Rocca di Mezzo e Rocca di Cambio</p>
+            </div>
+            <div class="info-detail">
+                <p class="info-title"><i class="fa fa-home"></i>&nbsp; Località Interessate: </p>
+                <p class="info-row">Rocca di Mezzo, Rocca di Cambio, Terranera, Prata D’Ansidonia, Tussillo, Stiffe, Collepietro</p>
+            </div>
+        </div>
     </div>
 </div>
 
 <div id="myModalalbum" class="modal">
     <header class="bar bar-nav">
-        <a class="icon icon-close pull-right" href="#myModalalbum"></a>
-        <h1 class="title">Album</h1>
+        <a id="chiudi-album" class="icon pull-right" href="#myModalalbum">Chiudi</a>
+       <!-- <h1 class="title">Gallery</h1>-->
     </header>
 
     <div class="content">

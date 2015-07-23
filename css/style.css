@@ -629,8 +629,6 @@ border-left: 2px solid #06A8EE;
   -webkit-font-smoothing: antialiased;
   color: #06A8EE;
 
-float: left;
-
 }
 .detail-page > i{
 	padding: 5px;
@@ -751,22 +749,140 @@ border:1px solid rgba(0, 0, 0, 0.2);
 	display: none;
 }
 }
+
+
+#itinerarioview{
+	height: 100%;
+	background: transparent;
+}
+#itinerarioview .modal .icon-close{
+	right:0;
+}
+#chiudi-album{
+	top: 20px;
+  	right: 15px;
+	color: white;
+	font-size: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	border-radius: 4px;
+	padding: 7px;
+}
+#itinerarioview .modal{
+	background: rgba(255, 255, 255, 0.1);
+}
+#itinerarioview .modal .header.bar{
+		background: transparent;
+}
+#itinerarioview .modal .title{
+	text-align: left;
+	padding: 7px 75px 0 0;
+	margin-left: 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #06A8EE;
+	font-weight: 200;
+	letter-spacing: 1px;
+}
+#itinerarioview .modal .content{
+	background: rgba(255, 255, 255, 0.95);
+}
+#itinerarioview #myModaldescrizione .content, #itinerarioview #myModalpoi .content, #itinerarioview #myModalinfo .content{
+	padding-bottom: 80px;
+}
+#itinerarioview #myModalpoi .masonry .item{
+	margin-top: 15px;
+}
+#itinerarioview #myModalinfo .content .info-detail{
+	margin: 25px 0;
+	border-left: 2px solid #cc2575;
+}
+#itinerarioview #myModalalbum .content{
+	background: rgba(0, 0, 0, 0.87);
+}
+#itinerarioview #myModalalbum header.bar{
+	background: transparent;
+}
+#itinerarioview #myModalalbum #mySlider{
+	margin-top: 35%;
+	background: transparent;
+}
+#itinerarioview #myModalalbum #mySlider p{
+	color: white;
+	font-size: 18px;
+  font-weight: 200;
+}
+#itinerarioview .modal .content p{
+	color: #111;
+	padding: 0 15px;
+}
+#itinerarioview #myModalinfo .content .info-title{
+	font-weight: 400;
+}
+#itinerarioview #myModalinfo .content .info-title i{
+	color: #cc2575;
+}
+#itinerarioview #myModalinfo .content .info-row{
+	font-weight: 200;
+	font-size: 18px;
+	text-align: left;
+}
+#itinerarioview #myModaldescrizione .content h4{
+	  padding: 20px 15px 5px;
+	  font-weight: 200;
+	  letter-spacing: 1px;
+	  color: #cc2575;
+	  font-size: 24px;
+	  line-height: 30px;
+}
+.content-padded.page.route-details{
+	background: transparent;
+}
+.content-padded.page.route-details > a:first-child{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.content-padded.page.route-details .detail-page{
+	padding: 5px 0px 5px 5px;
+	margin: 0px;
+}
 div#pulsantiera{
-    height: 300px;
+    margin-top: 20px;
 }
 .pulsante {
-  width: 50%;
+  width: 49%;
+  margin-right: 1%;
+  margin-bottom: 1%;
   float: left;
-  border: 1px solid #cc2575;
-  height: 85px;
+  height: 95px;
   text-align: center;
+  background: rgba(6, 168, 238, 0.3);
   /* vertical-align: text-bottom; */
 }
+.pulsante > a{
+  color: white;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.pulsante > a > span{
+	display: block;
+	padding: 10px 0;
+	letter-spacing: 2px;
+	font-weight: 100;
+}
 .pulsante2x {
+  padding: 0px 10px 20px;
   width: 100%;
   float: left;
   border: 1px solid #cc2575;
-  height: 85px;
+  height: 90px;
   text-align: center;
+  color: white;
+  margin: 30px 0;
+  background: rgb(204, 37, 117);
+  letter-spacing: 2px;
+  font-weight: 100;
   /* vertical-align: text-bottom; */
 }
