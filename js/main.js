@@ -273,7 +273,7 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 
         function setLanguage()
         {
-            window.localStorage.setItem("lingua", 2);
+            window.localStorage.setItem("lingua", 1);
 //            navigator.globalization.getPreferredLanguage(
 //                    function (language) {
 //                        var linguaggio = language.value;
@@ -301,15 +301,15 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
 
 // Show a custom prompt dialog
 //
-        function showPrompt() {
-            navigator.notification.prompt(
+ //       function showPrompt() {
+  //          navigator.notification.prompt(
 //                    '', // message
-                    onPrompt, // callback to invoke
-                    'Seleziona una Lingua', // title
-                    ['Italiano', 'English'] // buttonLabels
+  //                  onPrompt, // callback to invoke
+  //                  'Seleziona una Lingua', // title
+                  //  ['Italiano', 'English'] // buttonLabels
 //                    ''                 // defaultText
-                    );
-        }
+          //          );
+       // }
         function run() {
 //            if (checkConnection() === 'No network connection') {
 //                navigator.notification.alert(
@@ -322,8 +322,6 @@ require(['backbone', 'utils', 'slideout'], function (Backbone, Utils, Slideout) 
             // Here we precompile ALL the templates so that the app will be quickier when switching views
             // see utils.js
 
-//            onDeviceReady2();
-//            showPrompt();
             var items = window.localStorage.getItem("lingua");
             
             if (items === null || items.length === 0){
