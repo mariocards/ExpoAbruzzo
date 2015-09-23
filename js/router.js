@@ -70,9 +70,16 @@ define(function (require) {
         },
         firstView: "myview",
         initialize: function (options) {
-
-
-            this.lang = window.localStorage.getItem("lingua");
+                                           
+                                           var lang = window.localStorage.getItem("lingua");
+                                           
+                                           if(lang === null){
+                                           
+                                           lang = 1;
+                                           
+                                           }
+            this.lang = lang;
+                                          
             this.currentView = undefined;
 
         },
@@ -147,8 +154,7 @@ define(function (require) {
             // highlight the nav1 tab bar element as the current one
             this.structureView.setActiveTabBarElement("nav3");
             // create a model with an arbitrary attribute for testing the template engine
-
-
+                                           
             if (CachedObject.emptyNews()) {
                 var model = new NewsC();
                 model.fetch();

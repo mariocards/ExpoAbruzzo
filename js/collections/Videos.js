@@ -3,6 +3,10 @@ define(function (require) {
     var Backbone = require("backbone");
     var Video = require("models/Video");
     var lingua = window.localStorage.getItem("lingua");
+       if(lingua === null){
+       window.localStorage.setItem("lingua",1)
+       lingua = window.localStorage.getItem("lingua");
+       }
     var Videos = Backbone.Collection.extend({
         initialize: function() {
 		this.iniziale=0;

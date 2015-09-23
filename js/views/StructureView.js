@@ -19,7 +19,8 @@ define(function (require) {
             "tap #back-button": "goBack",
             "tap #settingsModal": "search",
             "tap #lang_uk": "changeToEn",
-            "tap #lang_it": "changeToIt"
+            "tap #lang_it": "changeToIt",
+            "tap #toggle-button" : "openMenu"
         },
         initialize: function (options) {
             // load the precompiled template
@@ -44,8 +45,17 @@ define(function (require) {
         // },
 
         // generic go-back function
-        goBack: function () {
+        goBack: function (e) {
+                                             
+                                             e.stopImmediatePropagation();
+                                             e.preventDefault();
+                                             e.stopPropagation();
             window.history.back();
+        },
+        openMenu : function(e){
+                                             e.stopImmediatePropagation();
+                                             e.preventDefault();
+                                             e.stopPropagation();
         },
         setActiveTabBarElement: function (elementId) {
             // here we assume that at any time at least one tab bar element is active
@@ -114,6 +124,7 @@ define(function (require) {
         },
         changeToEn: function (e) {
             var lingua = window.localStorage.getItem("lingua");
+                                             console.log(lingua);
             if (lingua !== 2) {
                 e.preventDefault();
                 window.localStorage.setItem("lingua", 2);

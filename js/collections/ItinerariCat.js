@@ -1,8 +1,11 @@
 define(function(require) {
 
 	var Backbone = require("backbone");
-	var lingua = window.localStorage.getItem("lingua");
-	
+       var lingua = window.localStorage.getItem("lingua");
+       if(lingua === null){
+       window.localStorage.setItem("lingua",1)
+       lingua = window.localStorage.getItem("lingua");
+       }
         
 	var ItinerariCat = Backbone.Collection.extend({
 		initialize: function() {
